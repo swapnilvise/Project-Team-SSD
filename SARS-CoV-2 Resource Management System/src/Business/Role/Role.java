@@ -4,9 +4,11 @@
  */
 package Business.Role;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
 
-import Business.Organization;
+import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 
@@ -20,7 +22,8 @@ public abstract class Role {
         RestaurantAdmin("RestaurantAdmin"),
         Customer("Customer"),
         DeliveryMan("Delivery"),
-        SysAdmin("Sysadmin");
+        SysAdmin("Sysadmin"),
+        StudentUsher("StudentUsher");
         
         private String value;
         private RoleType(String value){
@@ -38,8 +41,10 @@ public abstract class Role {
     }
     
     public abstract JPanel createWorkArea(JPanel userProcessContainer, 
-            UserAccount account,  
-            EcoSystem business);
+            UserAccount account, 
+            Organization organization,
+            Enterprise enterprise,
+            EcoSystem business,DB4OUtil dB4OUtil);
 
     @Override
     public String toString() {
