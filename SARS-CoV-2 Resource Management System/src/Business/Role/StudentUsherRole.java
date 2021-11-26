@@ -12,7 +12,7 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import userinterface.RestaurantAdminRole.AdminWorkAreaJPanel;
 import javax.swing.JPanel;
-import userinterface.TestingCenter.StudentUsherWorkAreaJPanel;
+import userinterface.TestingCenter.StudentUsher.StudentUsherWorkAreaJPanel;
 
 /**
  *
