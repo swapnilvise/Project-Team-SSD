@@ -118,7 +118,7 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
         lbl_Greetings.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         lbl_Greetings.setForeground(new java.awt.Color(204, 204, 204));
         lbl_Greetings.setText("Greetings!");
-        add(lbl_Greetings, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 64, -1, -1));
+        add(lbl_Greetings, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 64, 590, -1));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 

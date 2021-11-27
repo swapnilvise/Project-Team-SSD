@@ -11,6 +11,7 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.TestingCenter.PatientAssociateRole.PatientAssociateWorkAreaJPanel;
 import userinterface.TestingCenter.StudentUsher.StudentUsherWorkAreaJPanel;
 
 /**
@@ -21,7 +22,7 @@ public class PatientAssociateRole extends Role{
     
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account,Organization organization, Enterprise enterprise, EcoSystem business,DB4OUtil dB4OUtil) {
-        return new StudentUsherWorkAreaJPanel(userProcessContainer,account,business, dB4OUtil);
+        return new PatientAssociateWorkAreaJPanel(userProcessContainer,account,business, dB4OUtil);
     } 
     
     

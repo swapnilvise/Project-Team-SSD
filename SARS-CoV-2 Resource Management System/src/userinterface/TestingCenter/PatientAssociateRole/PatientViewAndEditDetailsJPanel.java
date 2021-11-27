@@ -407,11 +407,16 @@ public class PatientViewAndEditDetailsJPanel extends javax.swing.JPanel {
                 jLabel3MouseExited(evt);
             }
         });
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 760, 1200, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 790, 1200, -1));
 
         btn_Back.setBackground(new java.awt.Color(102, 102, 102));
         btn_Back.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
         btn_Back.setText("Back");
+        btn_Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_BackActionPerformed(evt);
+            }
+        });
         add(btn_Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -467,6 +472,16 @@ public class PatientViewAndEditDetailsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Student Checked-In for Testing, Kindly hand them the Testing kit");
     }//GEN-LAST:event_btn_CheckinActionPerformed
+
+    private void btn_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BackActionPerformed
+        // TODO add your handling code here:
+        container.removeAll();
+        PatientAssociateWorkAreaJPanel pa = new PatientAssociateWorkAreaJPanel(container, userAccount, ecosystem, dB4OUtil);
+        container.add("PatientAssociateWorkAreaJPanel", pa);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(ecosystem);
+    }//GEN-LAST:event_btn_BackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
