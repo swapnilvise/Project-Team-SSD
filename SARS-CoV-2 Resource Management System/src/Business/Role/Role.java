@@ -23,7 +23,17 @@ public abstract class Role {
         Customer("Customer"),
         DeliveryMan("Delivery"),
         SysAdmin("Sysadmin"),
-        StudentUsher("StudentUsher");
+        StudentUsher("StudentUsher"),
+        SwabCollector("SwabCollector"),
+        PatientAssociate("PatientAssociate"),
+        LogisticsAssociate("LogisticsAssociate"),
+        Doctor("Doctor"),
+        LabAssistant("LabAssistant"),
+        Patient("Patient");
+        
+        
+        
+        
         
         private String value;
         private RoleType(String value){
