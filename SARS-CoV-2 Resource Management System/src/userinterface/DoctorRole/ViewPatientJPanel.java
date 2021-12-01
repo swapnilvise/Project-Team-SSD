@@ -44,12 +44,12 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
     
     private void populate() {
 
-        txtFirstName.setText(request.getPatient().getPatientFirstName());
-        txtLastName.setText(request.getPatient().getPatientLastName());
-        txtPatientId.setText(String.valueOf(request.getPatient().getPatientId()));
-        txtAddress.setText(request.getPatient().getPatientAddress());
-        txtHomePhone.setText(request.getPatient().getContactNumber());
-        txtAge.setText(String.valueOf(request.getPatient().getPatientAge()));
+        txtFirstName.setText(request.getStudent().getStudentFirstName());
+        txtLastName.setText(request.getStudent().getStudentLastName());
+        txtPatientId.setText(String.valueOf(request.getStudent().getStudentID()));
+        txtAddress.setText(request.getStudent().getStudentAddress());
+        txtHomePhone.setText(request.getStudent().getContactNumber());
+        txtAge.setText(String.valueOf(request.getStudent().getStudentAge()));
         txtMedicalCondition.setText(request.getReasonForVisit());
         txtPrescription.setText(request.getPrescription());
     }
