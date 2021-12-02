@@ -54,11 +54,11 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
         for (WorkRequest request : labOrganization.getWorkQueue().getWorkRequestList()) {
             Object[] row = new Object[6];
             row[0] = request;
-            row[1] = request.getSender().getEmployee().getEmpName();
+            row[1] = request.getSender().getEmployee().getName();
             row[2] = ((PatientTreatmentWorkRequest) request).getLabAssistant();
             row[3] = request.getStatus();
-            row[4] = ((PatientTreatmentWorkRequest) request).getPatient().getPatientFirstName() + " " + ((PatientTreatmentWorkRequest) request).getPatient().getPatientLastName();
-            row[5] = ((PatientTreatmentWorkRequest) request).getPatient().getPatientId();
+            row[4] = ((PatientTreatmentWorkRequest) request).getStudent().getStudentFirstName() + " " + ((PatientTreatmentWorkRequest) request).getStudent().getStudentLastName();
+            row[5] = ((PatientTreatmentWorkRequest) request).getStudent().getStudentID();
             model.addRow(row);
         }
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
@@ -254,7 +254,7 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         userProcessContainer.removeAll();
-        LoginPageJPanel lp = new LoginPageJPanel(business, dB4OUtil, userProcessContainer);
+        LoginPageJPanel lp = new LoginPageJPanel(userProcessContainer, business, dB4OUtil);
         userProcessContainer.add("LoginJPanel", lp);
         CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
         crdLyt.next(userProcessContainer);

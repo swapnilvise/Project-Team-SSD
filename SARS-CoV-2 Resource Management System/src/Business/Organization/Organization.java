@@ -29,7 +29,13 @@ public abstract class Organization {
         StudentUsher("Student Usher Organization"),
         PatientAssociate("Patient Associate Organization"),
         SwabCollector("Swab Collection Organization"),
-        LogisticsAssociate("Logistics Organization");
+        LogisticsAssociate("Logistics Organization"),
+        Pharmacist("Phamacist Organization"),
+        DeliveryMan("Delivery Organization"),
+        TestingLab("Testing Lab Organization"),
+        Doctor("Doctor Organization");
+
+        
         
 
         private String value;
