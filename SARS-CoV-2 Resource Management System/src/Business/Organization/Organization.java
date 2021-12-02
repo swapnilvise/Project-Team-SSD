@@ -33,6 +33,7 @@ public abstract class Organization {
         Pharmacist("Phamacist Organization"),
         DeliveryMan("Delivery Organization"),
         TestingLab("Testing Lab Organization"),
+        Student("Student Organization"),
         Doctor("Doctor Organization");
 
         

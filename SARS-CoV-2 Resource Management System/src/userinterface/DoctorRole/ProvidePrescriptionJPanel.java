@@ -411,9 +411,9 @@ public class ProvidePrescriptionJPanel extends javax.swing.JPanel {
                 for (Network n : this.ecosystem.getNetworks()) {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                         for (Organization o : e.getOrganizationDirectory().getOrganizations()) {
-                            if (o instanceof DeliveryManOrganization) {
-                                org = o;
-                            }
+//                            if (o instanceof DeliveryManOrganization) {
+//                                org = o;
+//                            }
                         }
                     }
                 }

@@ -11,17 +11,17 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.PatientRole.PatientWorkAreaJPanel;
+import userinterface.StudentRole.StudentWorkAreaJPanel;
 
 
 /**
  *
  * @author SHRISHTI
  */
-public class PatientRole extends Role{
+public class StudentRole extends Role{
     
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business,DB4OUtil dB4OUtil) {
-        return new PatientWorkAreaJPanel(userProcessContainer, account, business, dB4OUtil);
+        return new StudentWorkAreaJPanel(userProcessContainer, account, business, dB4OUtil);
     }
 }
