@@ -6,7 +6,7 @@
 package Business.WorkQueue;
 
 
-import Business.Student.Student;
+//import Business.Student.Student;
 import Business.UserAccount.UserAccount;
 
 /**
@@ -17,7 +17,7 @@ public class PatientTreatmentWorkRequest extends WorkRequest{
     
     private String registrationDate;
     private String reasonForVisit;
-    private Student student;
+//    private Student student;
     private String labTestType;
     private String labResult;
     private UserAccount labAssistant;
@@ -27,10 +27,10 @@ public class PatientTreatmentWorkRequest extends WorkRequest{
     private double billAmount;
     private UserAccount assignedDoctor;
 
-    public PatientTreatmentWorkRequest(String Date, String reasonForVisit, Student student) {
+    public PatientTreatmentWorkRequest(String Date, String reasonForVisit) {
         this.registrationDate = Date;
         this.reasonForVisit = reasonForVisit;
-        this.student = student;
+//        this.student = student;
     }
 
     public String getRegistrationDate() {
@@ -57,13 +57,13 @@ public class PatientTreatmentWorkRequest extends WorkRequest{
         this.reasonForVisit = reasonForVisit;
     }
 
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
+//    public Student getStudent() {
+//        return student;
+//    }
+//
+//    public void setStudent(Student student) {
+//        this.student = student;
+//    }
     
     
 
