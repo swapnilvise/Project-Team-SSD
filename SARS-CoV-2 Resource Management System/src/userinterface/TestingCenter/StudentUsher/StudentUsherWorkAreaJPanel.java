@@ -5,6 +5,7 @@
  */
 package userinterface.TestingCenter.StudentUsher;
 
+import Business.AppointmentDetails.AppointmentHistory;
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.StudentUsher.StudentUsherDirectory;
@@ -33,6 +34,7 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
     private Integer Time;
     private String PatientID;
     private StudentUsherDirectory sud;
+    private AppointmentHistory ah;
 
     /**
      * Creates new form TCEWorkAreaJPanel
@@ -227,7 +229,7 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         PatientID = txt_PatientID.getText();
         container.removeAll();
-        StudentUsherDetailsJPanel sudp = new StudentUsherDetailsJPanel(container, userAccount, ecosystem, dB4OUtil, PatientID);
+        StudentUsherDetailsJPanel sudp = new StudentUsherDetailsJPanel(container, userAccount, ecosystem, dB4OUtil, PatientID, ah);
         container.add("StudentUsherDetailsJPanel",sudp);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
