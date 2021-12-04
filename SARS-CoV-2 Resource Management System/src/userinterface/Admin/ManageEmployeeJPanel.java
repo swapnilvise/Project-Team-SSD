@@ -8,7 +8,7 @@ package userinterface.Admin;
 import Business.Employee.Employee;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
-import Business.Organization.StudentOrganization;
+//import Business.Organization.StudentOrganization;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -358,9 +358,9 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
 
         for (Organization organization : organizationDir.getOrganizations()) {
 
-            if (!(organization instanceof StudentOrganization)) {
-                organizationJComboBox.addItem(organization);
-            }
+//            if (!(organization instanceof StudentOrganization)) {
+//                organizationJComboBox.addItem(organization);
+//            }
         }
         DefaultTableModel model = (DefaultTableModel) organizationJTable.getModel();
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);

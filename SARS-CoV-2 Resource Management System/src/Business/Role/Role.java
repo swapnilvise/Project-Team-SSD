@@ -29,11 +29,7 @@ public abstract class Role {
         LogisticsAssociate("LogisticsAssociate"),
         Doctor("Doctor"),
         LabAssistant("LabAssistant"),
-        Patient("Patient");
-        
-        
-        
-        
+        Student("Student");
         
         private String value;
         private RoleType(String value){

@@ -60,8 +60,8 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         for (WorkRequest request : doctorOrganization.getWorkQueue().getWorkRequestList()) {
             Object[] row = new Object[8];
             row[0] = ((PatientTreatmentWorkRequest) request).getRegistrationDate();
-            row[1] = String.valueOf(((PatientTreatmentWorkRequest) request).getStudent().getStudentID());
-            row[2] = ((PatientTreatmentWorkRequest) request).getStudent().getStudentFirstName() + " " + ((PatientTreatmentWorkRequest) request).getStudent().getStudentLastName();
+//            row[1] = String.valueOf(((PatientTreatmentWorkRequest) request).getStudent().getStudentID());
+//            row[2] = ((PatientTreatmentWorkRequest) request).getStudent().getStudentFirstName() + " " + ((PatientTreatmentWorkRequest) request).getStudent().getStudentLastName();
             row[3] = ((PatientTreatmentWorkRequest) request);
             row[4] = ((PatientTreatmentWorkRequest) request).getAssignedDoctor();
             row[5] = ((PatientTreatmentWorkRequest) request).getLabAssistant();
@@ -482,7 +482,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 
                         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
 //                        userProcessContainer.add("RequestBillingJPanel", new RequestBillingJPanel(userProcessContainer, userAccount, enterprise, workRequest));
-                        workRequest.getStudent().setIsTreatmentFinished(true);
+//                        workRequest.getStudent().setIsTreatmentFinished(true);
                         layout.next(userProcessContainer);
                     } else {
                         if (workRequest.getStatus().equalsIgnoreCase("Consultation Completed")) {

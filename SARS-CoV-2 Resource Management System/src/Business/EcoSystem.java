@@ -16,6 +16,7 @@ import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Business.Student.StudentDirectory;
+
 import Business.StudentUsher.StudentUsherDirectory;
 import Networks.Network;
 import java.util.ArrayList;
@@ -78,6 +79,22 @@ public class EcoSystem extends Organization{
         this.sud = sud;
     }
 
+//    public StudentDirectory getStudir() {
+//        return studir;
+//    }
+//
+//    public void setStudir(StudentDirectory studir) {
+//        this.studir = studir;
+//    }
+
+    public AppointmentHistory getAh() {
+        return ah;
+    }
+
+    public void setAh(AppointmentHistory ah) {
+        this.ah = ah;
+    }
+
     public StudentDirectory getStudir() {
         return studir;
     }
@@ -86,12 +103,12 @@ public class EcoSystem extends Organization{
         this.studir = studir;
     }
 
-    public AppointmentHistory getAh() {
-        return ah;
+    public AppointmentDirectory getAd() {
+        return ad;
     }
 
-    public void setAh(AppointmentHistory ah) {
-        this.ah = ah;
+    public void setAd(AppointmentDirectory ad) {
+        this.ad = ad;
     }
     
     
