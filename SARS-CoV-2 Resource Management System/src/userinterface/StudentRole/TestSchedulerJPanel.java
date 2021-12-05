@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.PatientRole;
+package userinterface.StudentRole;
 
 import Business.AppointmentDetails.AppointmentDetails;
 import Business.AppointmentDetails.AppointmentDirectory;
@@ -236,8 +236,8 @@ public class TestSchedulerJPanel extends javax.swing.JPanel {
     private void btn_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BackActionPerformed
         // TODO add your handling code here:
         container.removeAll();
-        PatientWorkAreaJPanel pwa = new PatientWorkAreaJPanel(container, userAccount, ecosystem, dB4OUtil);
-        container.add("PatientWorkAreaJPanel", pwa);
+        StudentWorkAreaJPanel swa = new StudentWorkAreaJPanel(container, userAccount, ecosystem, dB4OUtil);
+        container.add("StudentWorkAreaJPanel", swa);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
         dB4OUtil.storeSystem(ecosystem);

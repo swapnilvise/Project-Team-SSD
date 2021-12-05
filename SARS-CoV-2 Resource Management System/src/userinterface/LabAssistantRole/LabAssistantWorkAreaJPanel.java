@@ -57,8 +57,8 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
             row[1] = request.getSender().getEmployee().getName();
             row[2] = ((PatientTreatmentWorkRequest) request).getLabAssistant();
             row[3] = request.getStatus();
-            row[4] = ((PatientTreatmentWorkRequest) request).getStudent().getStudentFirstName() + " " + ((PatientTreatmentWorkRequest) request).getStudent().getStudentLastName();
-            row[5] = ((PatientTreatmentWorkRequest) request).getStudent().getStudentID();
+//            row[4] = ((PatientTreatmentWorkRequest) request).getStudent().getStudentFirstName() + " " + ((PatientTreatmentWorkRequest) request).getStudent().getStudentLastName();
+//            row[5] = ((PatientTreatmentWorkRequest) request).getStudent().getStudentID();
             model.addRow(row);
         }
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);

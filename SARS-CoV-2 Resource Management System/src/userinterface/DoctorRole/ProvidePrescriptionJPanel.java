@@ -630,9 +630,9 @@ public class ProvidePrescriptionJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
-        txtFirstName1.setText(request.getStudent().getStudentFirstName());
-        txtLastName1.setText(request.getStudent().getStudentLastName());
-        txtAge1.setText(String.valueOf(request.getStudent().getStudentAge()));
+//        txtFirstName1.setText(request.getStudent().getStudentFirstName());
+//        txtLastName1.setText(request.getStudent().getStudentLastName());
+//        txtAge1.setText(String.valueOf(request.getStudent().getStudentAge()));
         txtMedicalCondition1.setText(request.getReasonForVisit());
 
     }

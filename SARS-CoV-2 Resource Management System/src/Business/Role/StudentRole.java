@@ -12,16 +12,17 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.StudentRole.StudentWorkAreaJPanel;
-
+import userinterface.TestingCenter.StudentUsher.StudentUsherWorkAreaJPanel;
 
 /**
  *
- * @author SHRISHTI
+ * @author swapn
  */
 public class StudentRole extends Role{
     
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business,DB4OUtil dB4OUtil) {
-        return new StudentWorkAreaJPanel(userProcessContainer, account, business, dB4OUtil);
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account,Organization organization, Enterprise enterprise, EcoSystem business,DB4OUtil dB4OUtil) {
+        return new StudentWorkAreaJPanel(userProcessContainer,account,business, dB4OUtil);
     }
+    
 }
