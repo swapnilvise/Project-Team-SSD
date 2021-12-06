@@ -8,6 +8,7 @@ package userinterface.StudentRole;
 import Business.AppointmentDetails.AppointmentHistory;
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
+import Business.Student.Student;
 import Business.StudentUsher.StudentUsherDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -34,6 +35,7 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
     private String PatientID;
     private StudentUsherDirectory sud;
     private AppointmentHistory ah;
+    Student student;
 
 
     /**
@@ -182,7 +184,12 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btn_ViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewDetailsActionPerformed
         // TODO add your handling code here:
-        
+        container.removeAll();
+        ViewUpdateStudentJPanel vujp = new ViewUpdateStudentJPanel(container, userAccount, ecosystem, dB4OUtil, student);
+        container.add("LoginPageJPanel", vujp);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(ecosystem);
         
     }//GEN-LAST:event_btn_ViewDetailsActionPerformed
 
