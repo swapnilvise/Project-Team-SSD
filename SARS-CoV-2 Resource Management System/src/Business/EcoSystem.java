@@ -8,9 +8,12 @@ package Business;
 
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Organization.Organization;
+
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Networks.Network;
 import java.util.ArrayList;
 
 /**
@@ -19,39 +22,39 @@ import java.util.ArrayList;
  */
 public class EcoSystem extends Organization{
     
-    private static EcoSystem business;
-    private RestaurantDirectory restaurantDirectory;
-    private CustomerDirectory customerDirectory;
-    private DeliveryManDirectory deliveryManDirectory;
+    private static EcoSystem ecosystem;
+    private ArrayList<Network> networks;
 
-    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
-
-        this.restaurantDirectory = restaurantDirectory;
-        this.customerDirectory = customerDirectory;
-        this.deliveryManDirectory = deliveryManDirectory;
-    }
-    
-    public static EcoSystem getInstance(){
-        if(business==null){
-            business=new EcoSystem();
+    public static EcoSystem getInstance() {
+        if (ecosystem == null) {
+            ecosystem = new EcoSystem();
         }
-        return business;
+        return ecosystem;
     }
-    
+
+    public Network createAndAddNetwork() {
+        Network network = new Network();
+        networks.add(network);
+        return network;
+    }
+
     @Override
     public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roleList=new ArrayList<Role>();
+        ArrayList<Role> roleList = new ArrayList<Role>();
         roleList.add(new SystemAdminRole());
         return roleList;
     }
-    private EcoSystem(){
+
+    private EcoSystem() {
         super(null);
-       // networkList=new ArrayList<Network>();
+        networks = new ArrayList<Network>();
     }
 
-    
-    public boolean checkIfUserIsUnique(String userName){
-       //
-       return false;
+    public ArrayList<Network> getNetworks() {
+        return networks;
+    }
+
+    public void setNetworks(ArrayList<Network> networks) {
+        this.networks = networks;
     }
 }
