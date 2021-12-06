@@ -8,13 +8,17 @@ package userinterface.LoginPage;
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import Networks.Network;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -38,15 +42,15 @@ public class LoginPageJPanel extends javax.swing.JPanel {
         this.dB4OUtil = dB4OUtil;
 //        setSize(900, 630);
     }
-    
-    protected void paintComponent(Graphics g){
-        Graphics2D g2d= (Graphics2D)g;
-        int width=getWidth();
-        int height= getHeight();
-        
-        Color color1= new Color(0, 0, 0);
-        Color color2= new Color(51, 51, 51);
-        GradientPaint gp = new GradientPaint(0,0,color1,0,height,color2);
+
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        int width = getWidth();
+        int height = getHeight();
+
+        Color color1 = new Color(0, 0, 0);
+        Color color2 = new Color(51, 51, 51);
+        GradientPaint gp = new GradientPaint(0, 0, color1, 0, height, color2);
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, width, height);
     }
@@ -201,14 +205,69 @@ public class LoginPageJPanel extends javax.swing.JPanel {
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
         // Get user name
-        char[] temp = passwordField.getPassword();
-        String password = String.valueOf(temp);
-        UserAccount user = this.ecosystem.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), password);
+
+        String userName = userNameJTextField.getText();
+        char[] passwordCharArray = passwordField.getPassword();
+        String password = String.valueOf(passwordCharArray);
+
+        UserAccount userAccount = ecosystem.getUserAccountDirectory().authenticateUser(userName, password);
+
+        Enterprise inEnterprise = null;
+        Organization inOrganization = null;
+        Network inNetwork = null;
+
+        if (userAccount == null) {
+            for (Network network : ecosystem.getNetworks()) {
+                for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                    userAccount = enterprise.getUserAccountDirectory().authenticateUser(userName, password);
+                    if (userAccount == null) {
+                        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizations()) {
+                            userAccount = organization.getUserAccountDirectory().authenticateUser(userName, password);
+                            if (userAccount != null) {
+                                inNetwork = network;
+                                inEnterprise = enterprise;
+                                inOrganization = organization;
+                                break;
+                            }
+                        }
+
+                    } else {
+                        inEnterprise = enterprise;
+                        break;
+                    }
+                    if (inOrganization != null) {
+                        break;
+                    }
+                }
+                if (inEnterprise != null) {
+                    break;
+                }
+            }
+        }
+        
+        if (userAccount == null) {
+            userNameJTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            passwordField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            JOptionPane.showMessageDialog(null, "Invalid credentials");
+
+            return;
+        } else {
+            userNameJTextField.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+            passwordField.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+            CardLayout layout = (CardLayout) container.getLayout();
+            container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization , inEnterprise, ecosystem, dB4OUtil));
+            layout.next(container);
+        }
+
+        loginJButton.setEnabled(false);
+        userNameJTextField.setEnabled(false);
+        passwordField.setEnabled(false);
+
 //        System.out.println(userNameJTextField.getText()+password);
 //        System.out.println(user.getRole());
-        if (user == null) {
-            JOptionPane.showMessageDialog(null, "Invalid credentials");
-        }
+//        if (user == null) {
+//            JOptionPane.showMessageDialog(null, "Invalid credentials");
+//        }
 //        else {
 //            String s= user.getRole().toString();
 //            if(s.contains("RestaurantAdmin")){
@@ -235,31 +294,30 @@ public class LoginPageJPanel extends javax.swing.JPanel {
 //                layout.next(container);
 //            }
 //            
-//        }
         
     }//GEN-LAST:event_loginJButtonActionPerformed
-
-    private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
-        // TODO add your handling code here:
-        SignUpJPanel sup= new SignUpJPanel(container, ecosystem, dB4OUtil,"Customer");
-        container.add("SignUpJPanel",sup);
-        CardLayout layout = (CardLayout) container.getLayout();
-        layout.next(container);
-    }//GEN-LAST:event_signUpButtonActionPerformed
 
     private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
         // TODO add your handling code here:
 
-        jLabel1.setFont(new Font(jLabel1.getFont().getName(),Font.PLAIN,19));
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
 
     }//GEN-LAST:event_jLabel3MouseEntered
 
     private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
         // TODO add your handling code here:
 
-        jLabel1.setFont(new Font(jLabel1.getFont().getName(),Font.PLAIN,18));
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
 
     }//GEN-LAST:event_jLabel3MouseExited
+
+    private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
+        // TODO add your handling code here:
+        SignUpJPanel sup = new SignUpJPanel(container, ecosystem, dB4OUtil, "Customer");
+        container.add("SignUpJPanel", sup);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+    }//GEN-LAST:event_signUpButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
