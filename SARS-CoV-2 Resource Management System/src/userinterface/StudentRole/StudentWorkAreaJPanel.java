@@ -39,13 +39,14 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form StudentWorkAreaJPanel
      */
-    public StudentWorkAreaJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
+    public StudentWorkAreaJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil, AppointmentHistory ah) {
         initComponents();
         initComponents();
         this.container = container;
         this.ecosystem = ecosystem;
         this.dB4OUtil = dB4OUtil;
         this.userAccount = userAccount;
+        this.ah = ah;
         
 //        lblWelcome.setText("Welcome, "+this.ecosystem.getDeliveryManDirectory().findDeliveryManByUserName(this.userAccount.getUsername()).getFirstName());
         lblWelcome.setText("Welcome, "+this.ecosystem.getStudir().findStudentByUserName(this.userAccount.getUsername()).getStudentFirstName());
@@ -189,7 +190,7 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
     private void btn_ScheduleTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ScheduleTestActionPerformed
         // TODO add your handling code here:
         container.removeAll();
-        TestSchedulerJPanel ts= new TestSchedulerJPanel(container, userAccount, ecosystem, dB4OUtil);
+        TestSchedulerJPanel ts= new TestSchedulerJPanel(container, userAccount, ecosystem, dB4OUtil, ah);
         container.add("LoginPageJPanel", ts);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
