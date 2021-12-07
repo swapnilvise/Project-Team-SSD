@@ -5,6 +5,7 @@
  */
 package userinterface.StudentRole;
 
+import Business.AppointmentDetails.AppointmentDirectory;
 import Business.AppointmentDetails.AppointmentHistory;
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
@@ -36,6 +37,7 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
     private StudentUsherDirectory sud;
     private AppointmentHistory ah;
     Student student;
+    AppointmentDirectory ad;
 
 
     /**
@@ -48,6 +50,7 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.dB4OUtil = dB4OUtil;
         this.userAccount = userAccount;
+        this.ad = this.ecosystem.getAd();
         
 //        lblWelcome.setText("Welcome, "+this.ecosystem.getDeliveryManDirectory().findDeliveryManByUserName(this.userAccount.getUsername()).getFirstName());
         lblWelcome.setText("Welcome, "+this.ecosystem.getStudir().findStudentByUserName(this.userAccount.getUsername()).getStudentFirstName());
@@ -196,7 +199,7 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
     private void btn_ScheduleTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ScheduleTestActionPerformed
         // TODO add your handling code here:
 //        container.removeAll();
-        TestSchedulerJPanel ts= new TestSchedulerJPanel(container, userAccount, ecosystem, dB4OUtil);
+        TestSchedulerJPanel ts= new TestSchedulerJPanel(container, userAccount, ecosystem, dB4OUtil, ad);
         container.add("TestSchedulerJPanel", ts);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
