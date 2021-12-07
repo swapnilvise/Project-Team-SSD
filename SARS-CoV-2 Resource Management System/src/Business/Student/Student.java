@@ -5,7 +5,6 @@
  */
 package Business.Student;
 
-import Business.AppointmentDetails.AppointmentDirectory;
 import Business.UserAccount.UserAccount;
 
 /**
@@ -28,7 +27,6 @@ public class Student {
     private boolean isTreatmentFinished;
     private String studentEmail;
     private UserAccount StudentAccount;
-    private AppointmentDirectory ad;
 
     public String getStudentID() {
         return studentID;
@@ -140,14 +138,6 @@ public class Student {
 
     public void setStudentAccount(UserAccount StudentAccount) {
         this.StudentAccount = StudentAccount;
-    }
-
-    public AppointmentDirectory getAd() {
-        return ad;
-    }
-
-    public void setAd(AppointmentDirectory ad) {
-        this.ad = ad;
     }
     
     

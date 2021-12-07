@@ -29,13 +29,6 @@ public class AppointmentHistory {
         this.AppointmentHistory = AppointmentHistory;
     }
     
-//    public AppointmentDetails createAppointment(){
-//        AppointmentDetails ad = new AppointmentDetails();
-//        this.AppointmentHistory
-//        //Code to get complaiance status to be written
-//        return ad;
-//    }
-    
     @Override
     public String toString(){
         return String.valueOf(this.StudentID);
