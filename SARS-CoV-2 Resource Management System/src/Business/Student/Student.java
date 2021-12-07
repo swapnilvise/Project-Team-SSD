@@ -6,6 +6,7 @@
 package Business.Student;
 
 import Business.AppointmentDetails.AppointmentDirectory;
+import Business.Swab.SwabDirectory;
 import Business.UserAccount.UserAccount;
 
 /**
@@ -29,6 +30,7 @@ public class Student {
     private String studentEmail;
     private UserAccount StudentAccount;
     private AppointmentDirectory ad;
+    private SwabDirectory sd;
     
     public Student() {
         this.ad = new AppointmentDirectory();
@@ -154,12 +156,13 @@ public class Student {
     public void setAd(AppointmentDirectory ad) {
         this.ad = ad;
     }
-    
-    
-    
-    
-    
-    
 
+    public SwabDirectory getSd() {
+        return sd;
+    }
+
+    public void setSd(SwabDirectory sd) {
+        this.sd = sd;
+    }
     
 }
