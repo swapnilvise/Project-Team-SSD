@@ -276,6 +276,9 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
             }
         }
         JOptionPane.showMessageDialog(this, "Student Checked-In for Testing");
+        txt_AppointmentDate.setText("");
+        txt_AppointmentTime.setText("");
+        txt_ComplianceStatus.setText("");
     }//GEN-LAST:event_btn_CheckInActionPerformed
 
     private void btn_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BackActionPerformed
