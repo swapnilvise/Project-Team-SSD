@@ -23,6 +23,7 @@ public abstract class Role {
         Customer("Customer"),
         DeliveryMan("Delivery"),
         SysAdmin("Sysadmin"),
+        Patient("Patient"),
         StudentUsher("StudentUsher");
         
         private String value;
@@ -48,7 +49,12 @@ public abstract class Role {
 
     @Override
     public String toString() {
-        return this.getClass().getName();
+//        return this.getClass().getName();
+          String role = "";
+          if(this.getClass().getName().contains("Doctor"))
+              role+="Doctor";
+          
+          return role;
     }
     
     
