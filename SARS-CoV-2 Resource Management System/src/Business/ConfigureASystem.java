@@ -46,6 +46,14 @@ public class ConfigureASystem {
         sd.setStudentLastName("Diggikar");
         sd.setStudentFirstName("Shrishti");
         sd.setStudentID("A1");
+        sd.setDob("1997/05/25");
+        sd.setContactNumber("1234567890");
+        sd.setStreetName("1575 Alphonsus Street");
+        sd.setAptNo("711");
+        sd.setCity("Boston");
+        sd.setState("MA");
+        sd.setZipcode("02120");
+        sd.setStudentEmail("abc.gmail.com");
         
 //        UserAccount la = system.getUserAccountDirectory().createUserAccount("dummyla", "123",employee, new LogisticsAssociateRole());
 //        UserAccount la = system.getUserAccountDirectory().createUserAccount("dummyla", "123",employee, new LogisticsAssociateRole());
