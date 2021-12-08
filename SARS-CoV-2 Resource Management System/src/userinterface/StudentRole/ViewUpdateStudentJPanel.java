@@ -12,6 +12,7 @@ import Business.Role.Role;
 import Business.Student.MyStringVerifier;
 import Business.Student.Student;
 import Business.Student.StudentDirectory;
+import Business.Swab.SwabDetails;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -504,15 +505,20 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
 
     private void btn_CheckinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CheckinActionPerformed
         // TODO add your handling code here:
+        String AppointmentDate = "";
 
         for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
             if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID1)) {
                 ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
                 for (AppointmentDetails ad : AppointmentList) {
                     ad.setAppointmentStatus("In Queue for Testing");
+                    AppointmentDate = ad.getAppointmentDate();
                 }
+                SwabDetails swabdetails = this.ecosystem.getStudir().getStudentList().get(student).getSd().newSwab();
+                swabdetails.setSwabCollectionDate(AppointmentDate);
             }
         }
+        
         JOptionPane.showMessageDialog(this, "Student Checked-In for Testing, Kindly hand them the Testing kit");
         clearfields();
 
