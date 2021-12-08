@@ -8,6 +8,7 @@ package userinterface.TestingCenter.SwapCollectorRole;
 import Business.AppointmentDetails.AppointmentDetails;
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
+import Business.Swab.SwabDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -27,47 +28,49 @@ import userinterface.LoginPage.LoginPageJPanel;
  * @author swapn
  */
 public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
-    
+
     private JPanel container;
     private EcoSystem ecosystem;
     private DB4OUtil dB4OUtil;
-    private UserAccount userAccount; 
+    private UserAccount userAccount;
     private Integer Time;
     private String StudentID;
     private String SwabID;
+    SwabDirectory sd;
 
     /**
      * Creates new form SwabCollectorWorkAreaJPanel
      */
-    public SwabCollectorWorkAreaJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
+    public SwabCollectorWorkAreaJPanel(JPanel container, UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil, SwabDirectory sd) {
         initComponents();
         initComponents();
         this.container = container;
         this.ecosystem = ecosystem;
         this.dB4OUtil = dB4OUtil;
         this.userAccount = userAccount;
+        this.sd = sd;
 //        lblWelcome.setText("Welcome, "+this.ecosystem.getDeliveryManDirectory().findDeliveryManByUserName(this.userAccount.getUsername()).getFirstName());
         Date CurrentTime = new Date();
         SimpleDateFormat ft = new SimpleDateFormat("H");
         System.out.println(ft.format(CurrentTime));
         Time = Integer.parseInt(ft.format(CurrentTime));
-        if (Time < 12){
-           lbl_Greetings.setText("Good Morning! "); 
-        } else if (Time >= 18){
-           lbl_Greetings.setText("Good Evening! ");
+        if (Time < 12) {
+            lbl_Greetings.setText("Good Morning! ");
+        } else if (Time >= 18) {
+            lbl_Greetings.setText("Good Evening! ");
         } else {
-           lbl_Greetings.setText("Good Afternoon! ");
+            lbl_Greetings.setText("Good Afternoon! ");
         }
     }
-    
-    protected void paintComponent(Graphics g){
-        Graphics2D g2d= (Graphics2D)g;
-        int width=getWidth();
-        int height= getHeight();
-        
-        Color color1= new Color(0, 0, 0);
-        Color color2= new Color(51, 51, 51);
-        GradientPaint gp = new GradientPaint(0,0,color1,0,height,color2);
+
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        int width = getWidth();
+        int height = getHeight();
+
+        Color color1 = new Color(0, 0, 0);
+        Color color2 = new Color(51, 51, 51);
+        GradientPaint gp = new GradientPaint(0, 0, color1, 0, height, color2);
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, width, height);
     }
@@ -281,7 +284,7 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
     private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
         // TODO add your handling code here:
         container.removeAll();
-        LoginPageJPanel lpp= new LoginPageJPanel(container, ecosystem, dB4OUtil);
+        LoginPageJPanel lpp = new LoginPageJPanel(container, ecosystem, dB4OUtil);
         container.add("LoginPageJPanel", lpp);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
@@ -303,26 +306,67 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
     private void btn_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SearchActionPerformed
         // TODO add your handling code here:
         SwabID = txt_SwabID.getText();
-        
+
+        for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
+            for (String swabdetails : this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().keySet()) {
+                if (this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getSwabID().equalsIgnoreCase(SwabID)) {
+                    ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
+                    for (AppointmentDetails ad : AppointmentList) {
+                        txt_StudentID.setText(this.ecosystem.getStudir().getStudentList().get(student).getStudentID());
+                        txt_AppointmentDate.setText(ad.getAppointmentDate());
+                        txt_AppointmentTime.setText(ad.getAppointmentTime());
+                        txt_AppointmentStatus.setText(ad.getAppointmentStatus());
+
+                    }
+                }
+
+            }
+        }
+
+//        for (String swabdetails : this.ecosystem.getSd().getSwabCollectionList().keySet()) {
+//            if (this.ecosystem.getSd().getSwabCollectionList().get(swabdetails).getSwabID().equalsIgnoreCase(SwabID)){
+//                System.out.println("Swab ID - "+this.ecosystem.getSd().getSwabCollectionList().get(swabdetails).getSwabID());
+//                for (String student : this.ecosystem.getStudir().getStudentList().keySet()){
+//                    if (this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getSwabID().equalsIgnoreCase(SwabID)){
+//                        txt_StudentID.setText(this.ecosystem.getStudir().getStudentList().get(student).getStudentID());
+//                        ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
+//                        for (AppointmentDetails ad : AppointmentList) {
+//                            txt_AppointmentDate.setText(ad.getAppointmentDate());
+//                            txt_AppointmentTime.setText(ad.getAppointmentTime());
+//                            txt_AppointmentStatus.setText(ad.getComplianceStatus());
+//                        }
+//                        if(txt_AppointmentDate.getText().isEmpty()){
+//                            JOptionPane.showMessageDialog(this, "Swab details with entered Swab ID not found");
+//                        }
+//                    }
+//                }
+//            }
+//        }
+
     }//GEN-LAST:event_btn_SearchActionPerformed
 
     private void btn_SwabCollectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SwabCollectedActionPerformed
         // TODO add your handling code here:
         StudentID = txt_StudentID.getText();
-        
+
         for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
             if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID)) {
                 ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
                 for (AppointmentDetails ad : AppointmentList) {
                     ad.setAppointmentStatus("Swab Collected");
                 }
-                
+
                 for (String swabdetails : this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().keySet()) {
-                    
+
                 }
             }
         }
         JOptionPane.showMessageDialog(this, "Student Appointment Status Changed to Swab Collected");
+        txt_SwabID.setText("");
+        txt_AppointmentDate.setText("");
+        txt_AppointmentTime.setText("");
+        txt_AppointmentStatus.setText("");
+
     }//GEN-LAST:event_btn_SwabCollectedActionPerformed
 
 

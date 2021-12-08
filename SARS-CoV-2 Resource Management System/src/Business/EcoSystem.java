@@ -18,6 +18,7 @@ import Business.Role.SystemAdminRole;
 import Business.Student.StudentDirectory;
 
 import Business.StudentUsher.StudentUsherDirectory;
+import Business.Swab.SwabDirectory;
 import Networks.Network;
 import java.util.ArrayList;
 
@@ -33,6 +34,7 @@ public class EcoSystem extends Organization{
     private StudentDirectory studir;
     private AppointmentHistory ah;
     private AppointmentDirectory ad;
+    private SwabDirectory sd;
 
     public static EcoSystem getInstance() {
         if (ecosystem == null) {
@@ -61,6 +63,7 @@ public class EcoSystem extends Organization{
         this.studir = new StudentDirectory();
         this.ah = new AppointmentHistory();
         this.ad = new AppointmentDirectory();
+        this.sd = new SwabDirectory();
     }
 
     public ArrayList<Network> getNetworks() {
@@ -109,6 +112,14 @@ public class EcoSystem extends Organization{
 
     public void setAd(AppointmentDirectory ad) {
         this.ad = ad;
+    }
+
+    public SwabDirectory getSd() {
+        return sd;
+    }
+
+    public void setSd(SwabDirectory sd) {
+        this.sd = sd;
     }
     
     

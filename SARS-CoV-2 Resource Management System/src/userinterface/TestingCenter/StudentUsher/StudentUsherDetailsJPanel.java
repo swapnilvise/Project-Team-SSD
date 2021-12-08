@@ -271,7 +271,12 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
             if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID)) {
                 ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
                 for (AppointmentDetails ad : AppointmentList) {
-                    ad.setAppointmentStatus("Checked-In");
+//                    int index = AppointmentList.indexOf(ad);
+                    
+                    ad.setAppointmentStatus("Checked-In for Testing");
+//                    AppointmentList.set(index, ad);
+                    System.out.println(ad.getAppointmentStatus());
+                    break;
                 }
             }
         }
