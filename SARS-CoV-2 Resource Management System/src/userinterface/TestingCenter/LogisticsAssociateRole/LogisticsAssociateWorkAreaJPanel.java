@@ -5,6 +5,7 @@
  */
 package userinterface.TestingCenter.LogisticsAssociateRole;
 
+import Business.AppointmentDetails.AppointmentDetails;
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
@@ -14,8 +15,10 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import userinterface.LoginPage.LoginPageJPanel;
 
 /**
@@ -23,16 +26,17 @@ import userinterface.LoginPage.LoginPageJPanel;
  * @author swapn
  */
 public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
+
     private JPanel container;
     private EcoSystem ecosystem;
     private DB4OUtil dB4OUtil;
-    private UserAccount userAccount; 
+    private UserAccount userAccount;
     private Integer Time;
 
     /**
      * Creates new form LogisticsAssociateWorkAreaJPanel
      */
-    public LogisticsAssociateWorkAreaJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
+    public LogisticsAssociateWorkAreaJPanel(JPanel container, UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
         initComponents();
         initComponents();
         initComponents();
@@ -45,23 +49,24 @@ public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
         SimpleDateFormat ft = new SimpleDateFormat("H");
         System.out.println(ft.format(CurrentTime));
         Time = Integer.parseInt(ft.format(CurrentTime));
-        if (Time < 12){
-           lbl_Greetings.setText("Good Morning! "); 
-        } else if (Time >= 18){
-           lbl_Greetings.setText("Good Evening! ");
+        if (Time < 12) {
+            lbl_Greetings.setText("Good Morning! ");
+        } else if (Time >= 18) {
+            lbl_Greetings.setText("Good Evening! ");
         } else {
-           lbl_Greetings.setText("Good Afternoon! ");
+            lbl_Greetings.setText("Good Afternoon! ");
         }
+        populateTable();
     }
-    
-    protected void paintComponent(Graphics g){
-        Graphics2D g2d= (Graphics2D)g;
-        int width=getWidth();
-        int height= getHeight();
-        
-        Color color1= new Color(0, 0, 0);
-        Color color2= new Color(51, 51, 51);
-        GradientPaint gp = new GradientPaint(0,0,color1,0,height,color2);
+
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        int width = getWidth();
+        int height = getHeight();
+
+        Color color1 = new Color(0, 0, 0);
+        Color color2 = new Color(51, 51, 51);
+        GradientPaint gp = new GradientPaint(0, 0, color1, 0, height, color2);
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, width, height);
     }
@@ -114,7 +119,7 @@ public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Swab-ID", "Patient Name", "Appointment Date", "Appointment Time", "Appointment Status"
+                "Appointment Date", "Student Name", "Appointment Time", "Appointment Status", "Swab-ID"
             }
         ));
         jScrollPane1.setViewportView(tbl_SwabToBeCollected);
@@ -124,6 +129,11 @@ public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
         btn_MarkAllCollected.setBackground(new java.awt.Color(102, 102, 102));
         btn_MarkAllCollected.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
         btn_MarkAllCollected.setText("Mark All as Collected");
+        btn_MarkAllCollected.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MarkAllCollectedActionPerformed(evt);
+            }
+        });
         add(btn_MarkAllCollected, new org.netbeans.lib.awtextra.AbsoluteConstraints(734, 589, -1, -1));
 
         btn_MarkSelectedAsCollected.setBackground(new java.awt.Color(102, 102, 102));
@@ -140,12 +150,25 @@ public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
     private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
         // TODO add your handling code here:
         container.removeAll();
-        LoginPageJPanel lpp= new LoginPageJPanel(container, ecosystem, dB4OUtil);
+        LoginPageJPanel lpp = new LoginPageJPanel(container, ecosystem, dB4OUtil);
         container.add("LoginPageJPanel", lpp);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
         dB4OUtil.storeSystem(ecosystem);
     }//GEN-LAST:event_logoutButton1ActionPerformed
+
+    private void btn_MarkAllCollectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MarkAllCollectedActionPerformed
+        // TODO add your handling code here:
+        for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
+            ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
+            for (AppointmentDetails ad : AppointmentList) {
+                if (ad.getAppointmentStatus() == "Swab Collected") {
+                    ad.setAppointmentStatus("Swab Picked Up");
+                }
+            }
+        }
+        populateTable();
+    }//GEN-LAST:event_btn_MarkAllCollectedActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -158,4 +181,27 @@ public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton logoutButton1;
     private javax.swing.JTable tbl_SwabToBeCollected;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tbl_SwabToBeCollected.getModel();
+        model.setRowCount(0);
+        for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
+            ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
+            for (AppointmentDetails ad : AppointmentList) {
+                if (ad.getAppointmentStatus() == "Swab Collected") {
+                    Object[] row = new Object[6];
+                    row[0] = ad;
+                    row[1] = this.ecosystem.getStudir().getStudentList().get(student).getStudentLastName() + this.ecosystem.getStudir().getStudentList().get(student).getStudentFirstName();
+                    row[2] = ad.getAppointmentTime();
+                    row[3] = ad.getAppointmentStatus();
+                    for(String swabdetails : this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().keySet()){
+                        row[4] = this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getSwabID();
+                        break;
+                    }
+                    model.addRow(row);
+                }
+
+            }
+        }
+    }
 }

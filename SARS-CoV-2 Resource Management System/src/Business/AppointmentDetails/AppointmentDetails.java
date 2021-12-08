@@ -54,6 +54,11 @@ public class AppointmentDetails {
         this.AppointmentStatus = AppointmentStatus;
     }
     
+    @Override
+    public String toString(){
+        return AppointmentDate;
+    }
+    
     
     
     
