@@ -17,6 +17,8 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -357,12 +359,18 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
                 }
 
                 for (String swabdetails : this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().keySet()) {
-
+                    if(this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getSwabID().equalsIgnoreCase(StudentID)){
+                        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+                        LocalDateTime now = LocalDateTime.now();
+                        this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).setSwabCollectionTime(now.toString());
+                        this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).setSwabCollectedBy(this.userAccount.getUsername());
+                    }
                 }
             }
         }
         JOptionPane.showMessageDialog(this, "Student Appointment Status Changed to Swab Collected");
         txt_SwabID.setText("");
+        txt_StudentID.setText("");
         txt_AppointmentDate.setText("");
         txt_AppointmentTime.setText("");
         txt_AppointmentStatus.setText("");
