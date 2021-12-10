@@ -185,7 +185,7 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
     private void btn_ViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewDetailsActionPerformed
         // TODO add your handling code here:
         container.removeAll();
-        ViewUpdateStudentJPanel vujp = new ViewUpdateStudentJPanel(container, userAccount, ecosystem, dB4OUtil, student);
+        ViewUpdateStudentJPanel vujp = new ViewUpdateStudentJPanel(container, userAccount, ecosystem, dB4OUtil, student, Boolean.TRUE);
         container.add("LoginPageJPanel", vujp);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
@@ -195,9 +195,9 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btn_ScheduleTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ScheduleTestActionPerformed
         // TODO add your handling code here:
-        container.removeAll();
+//        container.removeAll();
         TestSchedulerJPanel ts= new TestSchedulerJPanel(container, userAccount, ecosystem, dB4OUtil);
-        container.add("LoginPageJPanel", ts);
+        container.add("TestSchedulerJPanel", ts);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
         dB4OUtil.storeSystem(ecosystem);
