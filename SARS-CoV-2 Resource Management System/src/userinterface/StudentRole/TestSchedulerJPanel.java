@@ -7,7 +7,6 @@ package userinterface.StudentRole;
 
 import Business.AppointmentDetails.AppointmentDetails;
 import Business.AppointmentDetails.AppointmentDirectory;
-import Business.AppointmentDetails.AppointmentHistory;
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
@@ -31,19 +30,17 @@ public class TestSchedulerJPanel extends javax.swing.JPanel {
     private DB4OUtil dB4OUtil;
     private UserAccount userAccount; 
     private String PatientID;
-    private AppointmentHistory ah;
+    
 
     /**
      * Creates new form TestSchedulerJPanel
      */
-    public TestSchedulerJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil, AppointmentHistory ah) {
+    public TestSchedulerJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
         initComponents();
         this.container = container;
         this.ecosystem = ecosystem;
         this.dB4OUtil = dB4OUtil;
         this.userAccount = userAccount;
-        this.ah = ah;
-        
 //        lbl_Details.setText("Details for, ");
     }
     
@@ -230,20 +227,16 @@ public class TestSchedulerJPanel extends javax.swing.JPanel {
 
     private void btn_CheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CheckInActionPerformed
         // TODO add your handling code here:
-//          ecosystem.getAh().getAppointmentHistory().createAppointment(txt_AppointmentDate.getText(), txt_AppointmentTime.getText());
-          AppointmentDetails ad = ecosystem.getAd().createAppointment();
-          ad.setAppointmentDate(txt_AppointmentDate.getText());
-          ad.setAppointmentTime(txt_AppointmentTime.getText());
+        AppointmentDetails ad = ecosystem.getAh().getAppointmentHistory().createAppointment(txt_AppointmentDate.getText(), txt_AppointmentTime.getText());
 //        ad.createAppointment(txt_AppointmentDate.getText(), txt_AppointmentTime.getText());
 //        txt_AppointmentDate.getText()
         JOptionPane.showMessageDialog(this, "Appointment Booked for Testing");
-        
     }//GEN-LAST:event_btn_CheckInActionPerformed
 
     private void btn_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BackActionPerformed
         // TODO add your handling code here:
         container.removeAll();
-        StudentWorkAreaJPanel swa = new StudentWorkAreaJPanel(container, userAccount, ecosystem, dB4OUtil, ah);
+        StudentWorkAreaJPanel swa = new StudentWorkAreaJPanel(container, userAccount, ecosystem, dB4OUtil);
         container.add("StudentWorkAreaJPanel", swa);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
