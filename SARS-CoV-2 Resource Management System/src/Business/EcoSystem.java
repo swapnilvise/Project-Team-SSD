@@ -10,6 +10,7 @@ import Business.AppointmentDetails.AppointmentDirectory;
 import Business.AppointmentDetails.AppointmentHistory;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Order.OrderDirectory;
 import Business.Organization.Organization;
 
 import Business.Restaurant.RestaurantDirectory;
@@ -35,6 +36,10 @@ public class EcoSystem extends Organization{
     private AppointmentHistory ah;
     private AppointmentDirectory ad;
     private SwabDirectory sd;
+    private RestaurantDirectory restaurantDirectory;
+    private CustomerDirectory customerDirectory;
+    private DeliveryManDirectory deliveryManDirectory;
+    private OrderDirectory orderDirectory;
 
     public static EcoSystem getInstance() {
         if (ecosystem == null) {
@@ -120,6 +125,38 @@ public class EcoSystem extends Organization{
 
     public void setSd(SwabDirectory sd) {
         this.sd = sd;
+    }
+
+    public RestaurantDirectory getRestaurantDirectory() {
+        return restaurantDirectory;
+    }
+
+    public void setRestaurantDirectory(RestaurantDirectory restaurantDirectory) {
+        this.restaurantDirectory = restaurantDirectory;
+    }
+
+    public CustomerDirectory getCustomerDirectory() {
+        return customerDirectory;
+    }
+
+    public void setCustomerDirectory(CustomerDirectory customerDirectory) {
+        this.customerDirectory = customerDirectory;
+    }
+
+    public DeliveryManDirectory getDeliveryManDirectory() {
+        return deliveryManDirectory;
+    }
+
+    public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
+        this.deliveryManDirectory = deliveryManDirectory;
+    }
+
+    public OrderDirectory getOrderDirectory() {
+        return orderDirectory;
+    }
+
+    public void setOrderDirectory(OrderDirectory orderDirectory) {
+        this.orderDirectory = orderDirectory;
     }
     
     

@@ -19,9 +19,9 @@ import javax.swing.JPanel;
  */
 public class AdminRole extends Role{
 
-    @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business,DB4OUtil dB4OUtil) {
-        return new AdminWorkAreaJPanel(userProcessContainer);
+     @Override
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business,DB4OUtil dB4OUtil) {
+        return new AdminWorkAreaJPanel(userProcessContainer,account,business, dB4OUtil);
     }
 
     
