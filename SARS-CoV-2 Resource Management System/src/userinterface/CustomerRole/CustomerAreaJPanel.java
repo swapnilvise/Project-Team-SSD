@@ -1,44 +1,56 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package userinterface.CustomerRole;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
-
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
+import userinterface.LoginPage.LoginPageJPanel;
 
 /**
  *
- * @author raunak
+ * @author swapn
  */
 public class CustomerAreaJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
-
-    private UserAccount userAccount;
     /**
-     * Creates new form DoctorWorkAreaJPanel
+     * Creates new form CustomerAreaJPanel
      */
-    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account) {
-        initComponents();
-        
-        this.userProcessContainer = userProcessContainer;
-      
-        this.userAccount = account;
-        //valueLabel.setText(enterprise.getName());
-        populateRequestTable();
-    }
+    private JPanel container;
+    private UserAccount userAccount;
+    private EcoSystem ecosystem;
+    private DB4OUtil dB4OUtil;
     
-    public void populateRequestTable(){
-        
+    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account,EcoSystem ecosystem,DB4OUtil dB4OUtil) {
+        initComponents();
+        this.container=userProcessContainer;
+        this.ecosystem=ecosystem;
+        this.dB4OUtil=dB4OUtil;
+        this.userAccount = account;
+        setSize(900, 630);
+        jLabel3.setText("Welcome, "+this.ecosystem.getCustomerDirectory().findCustomerByUserName(account.getUsername()).getFirstName());
     }
 
-    
+    protected void paintComponent(Graphics g){
+        Graphics2D g2d= (Graphics2D)g;
+        int width=getWidth();
+        int height= getHeight();
+        
+        Color color1= new Color(0, 105, 146);
+        Color color2= new Color(162, 238, 242);
+        GradientPaint gp = new GradientPaint(0,0,color1,0,height,color2);
+        g2d.setPaint(gp);
+        g2d.fillRect(0, 0, width, height);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,123 +60,163 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        workRequestJTable = new javax.swing.JTable();
-        requestTestJButton = new javax.swing.JButton();
-        refreshTestJButton = new javax.swing.JButton();
-        enterpriseLabel = new javax.swing.JLabel();
-        valueLabel = new javax.swing.JLabel();
+        logoutButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        btnOrderHistory = new javax.swing.JButton();
+        btnPlaceOrder = new javax.swing.JButton();
+        btnEditDetails = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
 
-        workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Message", "Receiver", "Status", "Result"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(workRequestJTable);
-        if (workRequestJTable.getColumnModel().getColumnCount() > 0) {
-            workRequestJTable.getColumnModel().getColumn(0).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(1).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(2).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
-        }
-
-        requestTestJButton.setText("Request Test");
-        requestTestJButton.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        logoutButton1.setText("Logout");
+        logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                requestTestJButtonActionPerformed(evt);
+                logoutButton1ActionPerformed(evt);
             }
         });
+        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(677, 6, 94, -1));
 
-        refreshTestJButton.setText("Refresh");
-        refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("Welcome <user first name>");
+        jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 6, 219, 22));
+
+        btnOrderHistory.setBorderPainted(false);
+        btnOrderHistory.setContentAreaFilled(false);
+        btnOrderHistory.setOpaque(false);
+        btnOrderHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshTestJButtonActionPerformed(evt);
+                btnOrderHistoryActionPerformed(evt);
             }
         });
+        add(btnOrderHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 149, 56));
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel.setText("EnterPrise :");
+        btnPlaceOrder.setBorderPainted(false);
+        btnPlaceOrder.setContentAreaFilled(false);
+        btnPlaceOrder.setOpaque(false);
+        btnPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlaceOrderActionPerformed(evt);
+            }
+        });
+        add(btnPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 149, 56));
 
-        valueLabel.setText("<value>");
+        btnEditDetails.setBorderPainted(false);
+        btnEditDetails.setContentAreaFilled(false);
+        btnEditDetails.setOpaque(false);
+        btnEditDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditDetailsActionPerformed(evt);
+            }
+        });
+        add(btnEditDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 149, 56));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(179, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(165, 165, 165))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(requestTestJButton)
-                        .addGap(86, 86, 86))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(refreshTestJButton)
-                .addGap(103, 103, 103))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(refreshTestJButton)
-                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(requestTestJButton)
-                .addContainerGap(202, Short.MAX_VALUE))
-        );
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 12, 330));
+
+        jLabel1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Place Order");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 101, 56));
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-online-shop-24.png"))); // NOI18N
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 42, 42));
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-order-history-24.png"))); // NOI18N
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 42, 60));
+
+        jLabel7.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Order History");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 101, 70));
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-registration-24.png"))); // NOI18N
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 42, 50));
+
+        jLabel9.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Edit Details");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 101, 56));
+
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 180, 10));
+
+        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 180, 10));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer.gif"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 650, 420));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
-        
-        
-        
-    }//GEN-LAST:event_requestTestJButtonActionPerformed
+    private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
+        // TODO add your handling code here:
+        container.removeAll();
+        LoginPageJPanel lpp= new LoginPageJPanel(container, ecosystem, dB4OUtil);
+        container.add("LoginPageJPanel", lpp);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(ecosystem);
+    }//GEN-LAST:event_logoutButton1ActionPerformed
 
-    private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
+    private void btnOrderHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderHistoryActionPerformed
 
-        populateRequestTable();
+        CustomerOrderHistoryJPanel cohp= new CustomerOrderHistoryJPanel(container, userAccount, ecosystem, dB4OUtil);
+        container.add("CustomerOrderHistoryJPanel",cohp);
+        CardLayout layout = (CardLayout)container.getLayout();
+        layout.next(container);
+
+    }//GEN-LAST:event_btnOrderHistoryActionPerformed
+
+    private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
+        // TODO add your handling code here:
+        CustomerOrderJPanel cop= new CustomerOrderJPanel(container, userAccount, ecosystem, dB4OUtil);
+        container.add("CustomerOrderJPanel",cop);
+        CardLayout layout = (CardLayout)container.getLayout();
+        layout.next(container);
+    }//GEN-LAST:event_btnPlaceOrderActionPerformed
+
+    private void btnEditDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditDetailsActionPerformed
+        // TODO add your handling code here:
         
-    }//GEN-LAST:event_refreshTestJButtonActionPerformed
+        CustomerEditDetailsJPanel cedp= new CustomerEditDetailsJPanel(container, userAccount, ecosystem, dB4OUtil);
+        container.add("CustomerEditDetailsJPanel",cedp);
+        CardLayout layout= (CardLayout)container.getLayout();
+        layout.next(container);
+    }//GEN-LAST:event_btnEditDetailsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel enterpriseLabel;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton refreshTestJButton;
-    private javax.swing.JButton requestTestJButton;
-    private javax.swing.JLabel valueLabel;
-    private javax.swing.JTable workRequestJTable;
+    private javax.swing.JButton btnEditDetails;
+    private javax.swing.JButton btnOrderHistory;
+    private javax.swing.JButton btnPlaceOrder;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JButton logoutButton1;
     // End of variables declaration//GEN-END:variables
 }

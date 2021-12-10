@@ -5,6 +5,7 @@
 package Business.UserAccount;
 
 import Business.Employee.Employee;
+import Business.Order.OrderDirectory;
 import Business.Role.Role;
 import Business.WorkQueue.WorkQueue;
 
@@ -19,9 +20,11 @@ public class UserAccount {
     private Employee employee;
     private Role role;
     private WorkQueue workQueue;
+    private OrderDirectory orders;
 
     public UserAccount() {
-        workQueue = new WorkQueue();
+//        workQueue = new WorkQueue();
+          this.orders = new OrderDirectory();
     }
     
     
@@ -61,7 +64,10 @@ public class UserAccount {
     public WorkQueue getWorkQueue() {
         return workQueue;
     }
-
+      
+     public OrderDirectory getOrders() {
+        return orders;
+    }
     
     
     @Override
