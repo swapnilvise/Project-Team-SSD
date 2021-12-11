@@ -5,6 +5,8 @@
  */
 package Business.AppointmentDetails;
 
+import java.util.Date;
+
 /**
  *
  * @author swapn
@@ -14,6 +16,7 @@ public class AppointmentDetails {
     private String AppointmentDate;
     private String AppointmentTime;
     private String ComplianceStatus;
+    private String AppointmentStatus;
 
     public String getAppointmentDate() {
         return AppointmentDate;
@@ -22,6 +25,10 @@ public class AppointmentDetails {
     public void setAppointmentDate(String AppointmentDate) {
         this.AppointmentDate = AppointmentDate;
     }
+
+   
+
+    
 
     public String getAppointmentTime() {
         return AppointmentTime;
@@ -38,6 +45,16 @@ public class AppointmentDetails {
     public void setComplianceStatus(String ComplianceStatus) {
         this.ComplianceStatus = ComplianceStatus;
     }
+
+    public String getAppointmentStatus() {
+        return AppointmentStatus;
+    }
+
+    public void setAppointmentStatus(String AppointmentStatus) {
+        this.AppointmentStatus = AppointmentStatus;
+    }
+    
+    
     
     
     

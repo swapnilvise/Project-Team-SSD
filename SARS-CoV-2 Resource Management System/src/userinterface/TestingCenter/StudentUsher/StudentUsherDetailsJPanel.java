@@ -10,6 +10,8 @@ import Business.AppointmentDetails.AppointmentDirectory;
 import Business.AppointmentDetails.AppointmentHistory;
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
+import Business.Student.Student;
+import Business.Student.StudentDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -17,47 +19,64 @@ import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import userinterface.LoginPage.LoginPageJPanel;
-import userinterface.TestingCenter.PatientAssociateRole.PatientAssociateWorkAreaJPanel;
 
 /**
  *
  * @author swapn
  */
 public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
+
     private JPanel container;
     private EcoSystem ecosystem;
     private DB4OUtil dB4OUtil;
-    private UserAccount userAccount; 
-    private String PatientID;
+    private UserAccount userAccount;
+    private String StudentID;
     private AppointmentHistory ah;
+    AppointmentDirectory ad;
+    StudentDirectory sd;
+    Student student;
 
     /**
      * Creates new form StudentUsherDetailsJPanel
      */
-    public StudentUsherDetailsJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil, String PatientID, AppointmentHistory ah) {
+    public StudentUsherDetailsJPanel(JPanel container, UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil, String PatientID, AppointmentDirectory ad, StudentDirectory sd) {
         initComponents();
         this.container = container;
         this.ecosystem = ecosystem;
         this.dB4OUtil = dB4OUtil;
         this.userAccount = userAccount;
         this.ah = ah;
-        
-        lbl_Details.setText("Details for, ");
+        this.ad = ad;
+        this.sd = sd;
+
+        System.out.println(PatientID);
+        StudentID = PatientID;
+        System.out.println(StudentID);
+
+        for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
+            if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID)) {
+                lbl_Details.setText("Details for, " + this.ecosystem.getStudir().getStudentList().get(student).getStudentLastName());
+            }
+        }
+
+//                +", "+this.ecosystem.getStudir().findStudent(PatientID).getStudentFirstName());
         getAppointmentDetails();
     }
-    
-    protected void paintComponent(Graphics g){
-        Graphics2D g2d= (Graphics2D)g;
-        int width=getWidth();
-        int height= getHeight();
-        
-        Color color1= new Color(0, 0, 0);
-        Color color2= new Color(51, 51, 51);
-        GradientPaint gp = new GradientPaint(0,0,color1,0,height,color2);
+
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        int width = getWidth();
+        int height = getHeight();
+
+        Color color1 = new Color(0, 0, 0);
+        Color color2 = new Color(51, 51, 51);
+        GradientPaint gp = new GradientPaint(0, 0, color1, 0, height, color2);
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, width, height);
     }
@@ -227,7 +246,7 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
     private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
         // TODO add your handling code here:
         container.removeAll();
-        LoginPageJPanel lpp= new LoginPageJPanel(container, ecosystem, dB4OUtil);
+        LoginPageJPanel lpp = new LoginPageJPanel(container, ecosystem, dB4OUtil);
         container.add("LoginPageJPanel", lpp);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
@@ -248,14 +267,22 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
 
     private void btn_CheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CheckInActionPerformed
         // TODO add your handling code here:
+        for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
+            if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID)) {
+                ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
+                for (AppointmentDetails ad : AppointmentList) {
+                    ad.setAppointmentStatus("Checked-In");
+                }
+            }
+        }
         JOptionPane.showMessageDialog(this, "Student Checked-In for Testing");
     }//GEN-LAST:event_btn_CheckInActionPerformed
 
     private void btn_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BackActionPerformed
         // TODO add your handling code here:
         container.removeAll();
-        PatientAssociateWorkAreaJPanel pa = new PatientAssociateWorkAreaJPanel(container, userAccount, ecosystem, dB4OUtil);
-        container.add("PatientAssociateWorkAreaJPanel", pa);
+        StudentUsherWorkAreaJPanel su = new StudentUsherWorkAreaJPanel(container, userAccount, ecosystem, dB4OUtil);
+        container.add("StudentUsherWorkAreaJPanel", su);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
         dB4OUtil.storeSystem(ecosystem);
@@ -280,17 +307,44 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void getAppointmentDetails() {
-        
-        ArrayList<AppointmentDetails> AppointmentList = ah.getAppointmentHistory().getAppointmentList();
-        for(AppointmentDetails ad : AppointmentList){
-            txt_AppointmentDate.setText(ad.getAppointmentDate());
-            txt_AppointmentTime.setText(ad.getAppointmentTime());
-            txt_ComplianceStatus.setText(ad.getComplianceStatus());
+
+        try {
+            for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
+                if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID)) {
+                    System.out.println("StudentFound");
+                    
+//                    ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().findStudent(StudentID).getAd().getAppointmentList();
+//                    for (AppointmentDetails ad : AppointmentList) {
+//                        txt_AppointmentDate.setText(ad.getAppointmentDate());
+//                        txt_AppointmentTime.setText(ad.getAppointmentTime());
+//                        txt_ComplianceStatus.setText(ad.getComplianceStatus());
+//                        break;
+
+                    ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
+                    System.out.println(AppointmentList);
+
+                    for (AppointmentDetails ad : AppointmentList) {
+                        System.out.println("Stored Date - " + ad.getAppointmentDate());
+                        System.out.println("Stored Time - " + ad.getAppointmentTime());
+                        System.out.println("Stored Status - "+ ad.getComplianceStatus());
+                        
+                        txt_AppointmentDate.setText(ad.getAppointmentDate());
+                        txt_AppointmentTime.setText(ad.getAppointmentTime());
+                        txt_ComplianceStatus.setText(ad.getComplianceStatus());
+                        break;
+                    }
+                }
+            }
+        } catch (NullPointerException npe) {
+            JOptionPane.showMessageDialog(null, "No Appointment Found for StudentID : " + StudentID);
+            container.removeAll();
+            StudentUsherWorkAreaJPanel su = new StudentUsherWorkAreaJPanel(container, userAccount, ecosystem, dB4OUtil);
+            container.add("StudentUsherWorkAreaJPanel", su);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.next(container);
+            dB4OUtil.storeSystem(ecosystem);
+
         }
-            
-        
-            
-        
-        
+
     }
 }
