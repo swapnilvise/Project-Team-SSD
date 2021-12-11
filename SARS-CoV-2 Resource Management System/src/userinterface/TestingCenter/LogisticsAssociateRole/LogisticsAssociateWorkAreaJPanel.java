@@ -85,14 +85,17 @@ public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
         btn_MarkSelectedAsNotCollected = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 0, 0));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_Greetings.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         lbl_Greetings.setForeground(new java.awt.Color(204, 204, 204));
         lbl_Greetings.setText("Greetings!");
+        add(lbl_Greetings, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 68, 450, -1));
 
         lblWelcome.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(204, 204, 204));
         lblWelcome.setText("Welcome <UserName>");
+        add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(953, 11, -1, -1));
 
         logoutButton1.setBackground(new java.awt.Color(102, 102, 102));
         logoutButton1.setText("Logout");
@@ -101,6 +104,7 @@ public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
                 logoutButton1ActionPerformed(evt);
             }
         });
+        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1123, 11, -1, -1));
 
         tbl_SwabToBeCollected.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -115,59 +119,22 @@ public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tbl_SwabToBeCollected);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 144, 1060, -1));
+
         btn_MarkAllCollected.setBackground(new java.awt.Color(102, 102, 102));
         btn_MarkAllCollected.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
         btn_MarkAllCollected.setText("Mark All as Collected");
+        add(btn_MarkAllCollected, new org.netbeans.lib.awtextra.AbsoluteConstraints(734, 589, -1, -1));
 
         btn_MarkSelectedAsCollected.setBackground(new java.awt.Color(102, 102, 102));
         btn_MarkSelectedAsCollected.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
         btn_MarkSelectedAsCollected.setText("Mark Selected As Collected");
+        add(btn_MarkSelectedAsCollected, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 589, -1, -1));
 
         btn_MarkSelectedAsNotCollected.setBackground(new java.awt.Color(102, 102, 102));
         btn_MarkSelectedAsNotCollected.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
         btn_MarkSelectedAsNotCollected.setText("Mark Selected As Not Collected");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(logoutButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbl_Greetings, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(btn_MarkSelectedAsNotCollected)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_MarkSelectedAsCollected)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_MarkAllCollected)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblWelcome)
-                    .addComponent(logoutButton1))
-                .addGap(34, 34, 34)
-                .addComponent(lbl_Greetings)
-                .addGap(44, 44, 44)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_MarkAllCollected)
-                    .addComponent(btn_MarkSelectedAsCollected)
-                    .addComponent(btn_MarkSelectedAsNotCollected))
-                .addContainerGap(180, Short.MAX_VALUE))
-        );
+        add(btn_MarkSelectedAsNotCollected, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 589, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
