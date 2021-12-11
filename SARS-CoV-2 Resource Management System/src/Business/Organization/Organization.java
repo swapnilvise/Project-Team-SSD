@@ -27,7 +27,8 @@ public abstract class Organization {
     public enum Type {
 
         StudentUsher("Student Usher Organization"),
-        PatientAssociate("Patient Associate Organization");
+        PatientAssociate("Patient Associate Organization"),
+        SwabCollector("Swab Collection Organization");
         
 
         private String value;
