@@ -28,7 +28,8 @@ public abstract class Organization {
 
         StudentUsher("Student Usher Organization"),
         PatientAssociate("Patient Associate Organization"),
-        SwabCollector("Swab Collection Organization");
+        SwabCollector("Swab Collection Organization"),
+        LogisticsAssociate("Logistics Organization");
         
 
         private String value;
