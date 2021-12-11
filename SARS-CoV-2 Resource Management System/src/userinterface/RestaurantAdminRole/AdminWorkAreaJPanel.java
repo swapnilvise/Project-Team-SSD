@@ -3,6 +3,9 @@
 package userinterface.RestaurantAdminRole;
 
 
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -12,12 +15,18 @@ import javax.swing.JPanel;
  */
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     
-    JPanel userProcessContainer;
+    private JPanel container;
+    private EcoSystem ecosystem;
+    private DB4OUtil dB4OUtil;
+    private UserAccount userAccount; 
     
     /** Creates new form AdminWorkAreaJPanel */
-    public AdminWorkAreaJPanel(JPanel userProcessContainer) {
+    public AdminWorkAreaJPanel(JPanel container,UserAccount account, EcoSystem business,DB4OUtil dB4OUtil) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.container = container;
+        this.ecosystem = ecosystem;
+        this.dB4OUtil = dB4OUtil;
+        this.userAccount = userAccount;
       
         //valueLabel.setText();
     }
