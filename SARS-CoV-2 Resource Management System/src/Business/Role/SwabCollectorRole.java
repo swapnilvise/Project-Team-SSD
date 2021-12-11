@@ -17,12 +17,11 @@ import userinterface.TestingCenter.StudentUsher.StudentUsherWorkAreaJPanel;
  *
  * @author swapn
  */
-public class PatientAssociateRole extends Role{
+public class SwabCollectorRole extends Role{
     
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account,Organization organization, Enterprise enterprise, EcoSystem business,DB4OUtil dB4OUtil) {
         return new StudentUsherWorkAreaJPanel(userProcessContainer,account,business, dB4OUtil);
-    } 
-    
+    }  
     
 }
