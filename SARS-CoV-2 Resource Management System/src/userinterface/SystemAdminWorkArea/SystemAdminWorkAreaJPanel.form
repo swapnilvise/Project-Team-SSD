@@ -11,12 +11,15 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-115,0,0,2,124"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-18,0,0,3,10"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
   <SubComponents>
     <Container class="javax.swing.JSplitPane" name="jSplitPane">
+      <Properties>
+        <Property name="dividerSize" type="int" value="-1"/>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
           <BorderConstraints direction="Center"/>
@@ -26,6 +29,11 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanel1">
+          <Properties>
+            <Property name="opaque" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="false" type="code"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
               <JSplitPaneConstraints position="left"/>
@@ -35,124 +43,296 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane1" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="275" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="118" max="32767" attributes="0"/>
-                  </Group>
+                  <EmptySpace min="0" pref="494" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
-          <SubComponents>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTree" name="jTree">
-                  <Events>
-                    <EventHandler event="valueChanged" listener="javax.swing.event.TreeSelectionListener" parameters="javax.swing.event.TreeSelectionEvent" handler="jTreeValueChanged"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
-          </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">
+          <Properties>
+            <Property name="opaque" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="false" type="code"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
               <JSplitPaneConstraints position="right"/>
             </Constraint>
           </Constraints>
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lblSelectedNode" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnManageAdmin" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="btnManageEnterprise" max="32767" attributes="0"/>
-                                      <Component id="btnManageNetwork" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="240" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblSelectedNode" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      <Component id="btnManageNetwork" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnManageEnterprise" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnManageAdmin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="175" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Selected Node:"/>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="10" y="10" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="lblSelectedNode">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;View_selected_node&gt;"/>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="100" y="10" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageNetwork">
+            <Component class="javax.swing.JButton" name="btnManageCustomers">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage All Customers"/>
+                <Property name="borderPainted" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="false" type="code"/>
+                </Property>
+                <Property name="contentAreaFilled" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="false" type="code"/>
+                </Property>
+                <Property name="opaque" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="false" type="code"/>
+                </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNetworkActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageCustomersActionPerformed"/>
               </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="20" y="120" width="180" height="60"/>
+                </Constraint>
+              </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageEnterprise">
+            <Component class="javax.swing.JButton" name="btnManageRestaurants">
               <Properties>
+                <Property name="borderPainted" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="false" type="code"/>
+                </Property>
+                <Property name="contentAreaFilled" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="false" type="code"/>
+                </Property>
+                <Property name="opaque" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="false" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageRestaurantsActionPerformed"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="20" y="310" width="180" height="50"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnManageDM">
+              <Properties>
+                <Property name="borderPainted" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="false" type="code"/>
+                </Property>
+                <Property name="contentAreaFilled" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="false" type="code"/>
+                </Property>
+                <Property name="opaque" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="false" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageDMActionPerformed"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="20" y="190" width="180" height="50"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JButton" name="logoutButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logout"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutButtonActionPerformed"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="640" y="10" width="81" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnManageEmployees">
+              <Properties>
+                <Property name="borderPainted" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="false" type="code"/>
+                </Property>
+                <Property name="contentAreaFilled" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="false" type="code"/>
+                </Property>
+                <Property name="opaque" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="false" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageEmployeesActionPerformed"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="20" y="250" width="180" height="50"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Leelawadee UI Semilight" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Manage Customers"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="60" y="130" width="-1" height="45"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel3">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Leelawadee UI Semilight" size="14" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Manage Restaurants"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageEnterpriseActionPerformed"/>
-              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="60" y="310" width="142" height="45"/>
+                </Constraint>
+              </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageAdmin">
+            <Component class="javax.swing.JSeparator" name="jSeparator1">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="20" y="300" width="190" height="10"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator2">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="20" y="180" width="190" height="10"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage Deliveryman"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Leelawadee UI Semilight" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Manage Delivery Men"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageAdminActionPerformed"/>
-              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="60" y="190" width="142" height="45"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator3">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="20" y="240" width="190" height="10"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel5">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Leelawadee UI Semilight" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Manage Employees"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="60" y="250" width="142" height="45"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel6">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/images/icons8-account-24.png"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="30" y="130" width="-1" height="40"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel7">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/images/icons8-restaurant-on-site-24.png"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="10" y="310" width="70" height="40"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel8">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/images/icons8-waiter-24.png"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="10" y="190" width="70" height="40"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel9">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/images/icons8-name-tag-24.png"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="10" y="250" width="70" height="40"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator4">
+              <Properties>
+                <Property name="orientation" type="int" value="1"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="230" y="100" width="40" height="280"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel10">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/images/wifi.gif"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="jLabel10"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="90" y="40" width="640" height="430"/>
+                </Constraint>
+              </Constraints>
             </Component>
           </SubComponents>
         </Container>
