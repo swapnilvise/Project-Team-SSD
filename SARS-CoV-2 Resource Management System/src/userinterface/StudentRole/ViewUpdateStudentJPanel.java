@@ -16,6 +16,7 @@ import java.awt.CardLayout;
 import javax.swing.InputVerifier;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userinterface.TestingCenter.StudentUsher.StudentUsherWorkAreaJPanel;
 
 /**
  *
@@ -461,9 +462,12 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        container.remove(this);
-        CardLayout layout = (CardLayout) container.getLayout();
-        layout.previous(container);
+        container.removeAll();
+        StudentWorkAreaJPanel s = new StudentWorkAreaJPanel(container, userAccount, ecosystem, dB4OUtil);
+        container.add("StudentWorkAreaJPanel", s);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(ecosystem);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
