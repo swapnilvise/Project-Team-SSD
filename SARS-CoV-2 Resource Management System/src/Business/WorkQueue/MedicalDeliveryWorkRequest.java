@@ -58,7 +58,7 @@ public class MedicalDeliveryWorkRequest extends WorkRequest {
 
     @Override
     public String toString() {
-        return this.assignedDoctor.getEmployee().getEmpName();
+        return this.assignedDoctor.getEmployee().getName();
     }
     
 }
