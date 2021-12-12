@@ -36,10 +36,7 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btn_DoctorPrescribedTests" max="32767" attributes="0"/>
-                  <Component id="btn_CovidTest" max="32767" attributes="0"/>
-              </Group>
+              <Component id="btn_CovidTest" min="-2" pref="165" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -54,9 +51,7 @@
               </Group>
               <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
               <Component id="lbl_Greetings" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
-              <Component id="btn_DoctorPrescribedTests" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
               <Component id="btn_CovidTest" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="467" max="32767" attributes="0"/>
           </Group>
@@ -95,14 +90,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutButton1ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btn_DoctorPrescribedTests">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tests Prescribed by Doctor"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_DoctorPrescribedTestsActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_CovidTest">

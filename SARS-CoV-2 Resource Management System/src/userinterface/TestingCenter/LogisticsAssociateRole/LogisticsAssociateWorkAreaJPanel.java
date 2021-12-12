@@ -10,7 +10,6 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -80,7 +79,6 @@ public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
         logoutButton1 = new javax.swing.JButton();
         btn_tobeCollected = new javax.swing.JButton();
         btn_Delivered = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
 
@@ -92,9 +90,7 @@ public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
         lblWelcome.setForeground(new java.awt.Color(204, 204, 204));
         lblWelcome.setText("Welcome <UserName>");
 
-        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
-        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButton1.setBackground(new java.awt.Color(102, 102, 102));
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,9 +98,6 @@ public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btn_tobeCollected.setBackground(new java.awt.Color(0, 0, 0));
-        btn_tobeCollected.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        btn_tobeCollected.setForeground(new java.awt.Color(255, 255, 255));
         btn_tobeCollected.setText("Get Samples to be Collected");
         btn_tobeCollected.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,26 +105,10 @@ public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btn_Delivered.setBackground(new java.awt.Color(0, 0, 0));
-        btn_Delivered.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        btn_Delivered.setForeground(new java.awt.Color(255, 255, 255));
         btn_Delivered.setText("Process Request for Delivered Samples");
         btn_Delivered.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_DeliveredActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(188, 188, 188));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("<> with ♡ by Team Coding Pirates ");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel3MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel3MouseExited(evt);
             }
         });
 
@@ -140,43 +117,36 @@ public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(68, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_Greetings, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(805, 805, 805)
+                        .addGap(885, 885, 885)
                         .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
-                        .addComponent(logoutButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(29, 29, 29))
+                        .addGap(12, 12, 12)
+                        .addComponent(logoutButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_Greetings, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_Delivered, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_tobeCollected, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(149, 149, 149)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_Delivered, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_tobeCollected, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logoutButton1)
-                    .addComponent(lblWelcome))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblWelcome)
+                    .addComponent(logoutButton1))
                 .addGap(34, 34, 34)
                 .addComponent(lbl_Greetings)
                 .addGap(172, 172, 172)
                 .addComponent(btn_tobeCollected)
                 .addGap(18, 18, 18)
                 .addComponent(btn_Delivered)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 415, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addContainerGap())
+                .addContainerGap(464, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -210,23 +180,10 @@ public class LogisticsAssociateWorkAreaJPanel extends javax.swing.JPanel {
         dB4OUtil.storeSystem(ecosystem);
     }//GEN-LAST:event_btn_DeliveredActionPerformed
 
-    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
-    }//GEN-LAST:event_jLabel3MouseEntered
-
-    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
-    }//GEN-LAST:event_jLabel3MouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Delivered;
     private javax.swing.JButton btn_tobeCollected;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JLabel lbl_Greetings;
     private javax.swing.JButton logoutButton1;

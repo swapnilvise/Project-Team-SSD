@@ -14,7 +14,6 @@ import Business.StudentUsher.StudentUsherDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -100,7 +99,6 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
         btn_ScheduleTest = new javax.swing.JButton();
         btn_ViewReports = new javax.swing.JButton();
         btn_OrderFood = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
 
@@ -156,46 +154,26 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(188, 188, 188));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("<> with ♡ by Team Coding Pirates ");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel3MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel3MouseExited(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(logoutButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(137, 137, 137)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_Greetings, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(btn_ScheduleTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btn_ViewReports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btn_ViewDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btn_OrderFood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(953, Short.MAX_VALUE)
+                .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(logoutButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_Greetings, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btn_ScheduleTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_ViewReports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_ViewDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_OrderFood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,9 +192,7 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btn_ViewReports)
                 .addGap(18, 18, 18)
                 .addComponent(btn_OrderFood)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 354, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addContainerGap())
+                .addContainerGap(367, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -265,24 +241,8 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btn_ViewReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewReportsActionPerformed
         // TODO add your handling code here:
-        ViewReportsJPanel vr = new ViewReportsJPanel(container, userAccount, ecosystem, dB4OUtil);
-        container.add("ViewReportsJPanel", vr);
-        CardLayout crdLyt = (CardLayout) container.getLayout();
-        crdLyt.next(container);
-        dB4OUtil.storeSystem(ecosystem);
+        
     }//GEN-LAST:event_btn_ViewReportsActionPerformed
-
-    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
-    }//GEN-LAST:event_jLabel3MouseEntered
-
-    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
-    }//GEN-LAST:event_jLabel3MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -290,7 +250,6 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btn_ScheduleTest;
     private javax.swing.JButton btn_ViewDetails;
     private javax.swing.JButton btn_ViewReports;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JLabel lbl_Greetings;
     private javax.swing.JButton logoutButton1;

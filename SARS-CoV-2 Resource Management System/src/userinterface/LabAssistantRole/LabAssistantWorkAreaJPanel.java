@@ -40,7 +40,7 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         this.organization = organization;
         
-//        lblWelcome.setText("Welcome, "+this.ecosystem.getDeliveryManDirectory().findDeliveryManByUserName(this.userAccount.getUsername()).getFirstName());
+        lblWelcome.setText("Welcome, "+this.userAccount.getUsername());
         Date CurrentTime = new Date();
         SimpleDateFormat ft = new SimpleDateFormat("H");
         System.out.println(ft.format(CurrentTime));
@@ -66,7 +66,6 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
         lbl_Greetings = new javax.swing.JLabel();
         lblWelcome = new javax.swing.JLabel();
         logoutButton1 = new javax.swing.JButton();
-        btn_DoctorPrescribedTests = new javax.swing.JButton();
         btn_CovidTest = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 0, 0));
@@ -84,13 +83,6 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButton1ActionPerformed(evt);
-            }
-        });
-
-        btn_DoctorPrescribedTests.setText("Tests Prescribed by Doctor");
-        btn_DoctorPrescribedTests.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_DoctorPrescribedTestsActionPerformed(evt);
             }
         });
 
@@ -117,9 +109,7 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(127, 127, 127)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_DoctorPrescribedTests, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_CovidTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btn_CovidTest, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -131,9 +121,7 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(logoutButton1))
                 .addGap(34, 34, 34)
                 .addComponent(lbl_Greetings)
-                .addGap(169, 169, 169)
-                .addComponent(btn_DoctorPrescribedTests)
-                .addGap(18, 18, 18)
+                .addGap(210, 210, 210)
                 .addComponent(btn_CovidTest)
                 .addContainerGap(467, Short.MAX_VALUE))
         );
@@ -149,16 +137,6 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
         dB4OUtil.storeSystem(ecosystem);
     }//GEN-LAST:event_logoutButton1ActionPerformed
 
-    private void btn_DoctorPrescribedTestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DoctorPrescribedTestsActionPerformed
-        // TODO add your handling code here:
-//        container.removeAll();
-//        LabAssistantDoctorPrescribedTest dp = new LabAssistantDoctorPrescribedTest(container,userAccount,organization, ecosystem, dB4OUtil);
-//        container.add("LabAssistantDoctorPrescribedTest", dp);
-//        CardLayout crdLyt = (CardLayout) container.getLayout();
-//        crdLyt.next(container);
-//        dB4OUtil.storeSystem(ecosystem);
-    }//GEN-LAST:event_btn_DoctorPrescribedTestsActionPerformed
-
     private void btn_CovidTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CovidTestActionPerformed
         // TODO add your handling code here:
         container.removeAll();
@@ -172,7 +150,6 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_CovidTest;
-    private javax.swing.JButton btn_DoctorPrescribedTests;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JLabel lbl_Greetings;
     private javax.swing.JButton logoutButton1;
