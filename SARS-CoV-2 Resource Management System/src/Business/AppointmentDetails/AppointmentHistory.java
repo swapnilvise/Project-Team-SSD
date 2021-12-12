@@ -10,15 +10,15 @@ package Business.AppointmentDetails;
  * @author swapn
  */
 public class AppointmentHistory {
-    private String PatientID;
+    private String StudentID;
     private AppointmentDirectory AppointmentHistory;
 
-    public String getPatientID() {
-        return PatientID;
+    public String getStudentID() {
+        return StudentID;
     }
 
-    public void setPatientID(String PatientID) {
-        this.PatientID = PatientID;
+    public void setStudentID(String StudentID) {
+        this.StudentID = StudentID;
     }
 
     public AppointmentDirectory getAppointmentHistory() {
@@ -31,7 +31,7 @@ public class AppointmentHistory {
     
     @Override
     public String toString(){
-        return String.valueOf(this.PatientID);
+        return String.valueOf(this.StudentID);
     }
     
 }
