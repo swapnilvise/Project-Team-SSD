@@ -5,13 +5,11 @@
  */
 package Business.Student;
 
-import Business.StudentUsher.StudentUsherDetails;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  *
- * @author SHRISHTI
+ * @author swapn
  */
 public class StudentDirectory {
     
@@ -56,5 +54,6 @@ public class StudentDirectory {
     public void removeCustomer(String studentID){
         this.StudentList.remove(this.StudentList.get(studentID));
     }
+
     
 }

@@ -9,9 +9,10 @@ import Business.UserAccount.UserAccount;
 
 /**
  *
- * @author SHRISHTI
+ * @author swapn
  */
 public class Student {
+    
     private String studentID;
     private String studentLastName;
     private String studentFirstName;
@@ -19,53 +20,14 @@ public class Student {
     private String studentAge;
     private String contactNumber;
     private String streetName;
-<<<<<<< HEAD
     private String AptNo;
     private String City;
     private String State;
     private String Zipcode;
-//    private String studentGender;
-=======
-    private String state;
-    private String aptNo;
-    private String studentGender;
->>>>>>> d3c758e84a76a8c81725ff8510427964b22136e6
     private boolean isTreatmentFinished;
     private String studentEmail;
     private UserAccount StudentAccount;
 
-    public String getDob() {
-        return dob;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
-
-    public String getStreetName() {
-        return streetName;
-    }
-
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getAptNo() {
-        return aptNo;
-    }
-
-    public void setAptNo(String aptNo) {
-        this.aptNo = aptNo;
-    }
-    
     public String getStudentID() {
         return studentID;
     }
@@ -90,6 +52,14 @@ public class Student {
         this.studentFirstName = studentFirstName;
     }
 
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
     public String getStudentAge() {
         return studentAge;
     }
@@ -106,7 +76,6 @@ public class Student {
         this.contactNumber = contactNumber;
     }
 
-<<<<<<< HEAD
     public String getStreetName() {
         return streetName;
     }
@@ -117,10 +86,6 @@ public class Student {
 
     public String getAptNo() {
         return AptNo;
-=======
-    public String getStudentGender() {
-        return studentGender;
->>>>>>> d3c758e84a76a8c81725ff8510427964b22136e6
     }
 
     public void setAptNo(String AptNo) {
@@ -151,7 +116,13 @@ public class Student {
         this.Zipcode = Zipcode;
     }
 
-    
+    public boolean isIsTreatmentFinished() {
+        return isTreatmentFinished;
+    }
+
+    public void setIsTreatmentFinished(boolean isTreatmentFinished) {
+        this.isTreatmentFinished = isTreatmentFinished;
+    }
 
     public String getStudentEmail() {
         return studentEmail;
@@ -168,18 +139,8 @@ public class Student {
     public void setStudentAccount(UserAccount StudentAccount) {
         this.StudentAccount = StudentAccount;
     }
+    
+    
 
-    public boolean isIsTreatmentFinished() {
-        return isTreatmentFinished;
-    }
-
-    public void setIsTreatmentFinished(boolean isTreatmentFinished) {
-        this.isTreatmentFinished = isTreatmentFinished;
-    }
-    
-    
-    
-    
-    
     
 }
