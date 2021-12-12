@@ -62,7 +62,10 @@ public class SwabDetails {
         this.Result = Result;
     }
     
-    
+    @Override
+    public String toString(){
+        return SwabCollectionDate;
+    }
     
     
     

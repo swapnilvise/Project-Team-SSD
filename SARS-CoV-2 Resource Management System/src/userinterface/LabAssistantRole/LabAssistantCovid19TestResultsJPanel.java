@@ -103,7 +103,7 @@ public class LabAssistantCovid19TestResultsJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Appointment Date", "Student Name", "Appointment Time", "Appointment Status", "Swab-ID"
+                "Swab Collection Date", "Swab Collection Time", "Swab ID", "Swab Collected By", "Result"
             }
         ));
         jScrollPane1.setViewportView(tbl_SwabToBeCollected);
@@ -188,7 +188,7 @@ public class LabAssistantCovid19TestResultsJPanel extends javax.swing.JPanel {
         }
         DefaultTableModel model = (DefaultTableModel) tbl_SwabToBeCollected.getModel();
         model.setRowCount(0);
-        
+
         for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
             ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
             for (AppointmentDetails ad : AppointmentList) {
@@ -196,7 +196,7 @@ public class LabAssistantCovid19TestResultsJPanel extends javax.swing.JPanel {
                     for (String swabdetails : this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().keySet()) {
                         String SwabID = this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getSwabID();
                         container.removeAll();
-                        ProcessWorkRequestsJPanel pr = new ProcessWorkRequestsJPanel(container,userAccount,ecosystem, dB4OUtil, SwabID);
+                        ProcessWorkRequestsJPanel pr = new ProcessWorkRequestsJPanel(container, userAccount, ecosystem, dB4OUtil, SwabID);
                         container.add("ProcessWorkRequestsJPanel", pr);
                         CardLayout crdLyt = (CardLayout) container.getLayout();
                         crdLyt.next(container);
@@ -225,16 +225,17 @@ public class LabAssistantCovid19TestResultsJPanel extends javax.swing.JPanel {
             ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
             for (AppointmentDetails ad : AppointmentList) {
                 if (ad.getAppointmentStatus() == "Swab Delivered") {
-                    Object[] row = new Object[5];
-                    row[0] = ad;
-                    row[1] = this.ecosystem.getStudir().getStudentList().get(student).getStudentLastName() + this.ecosystem.getStudir().getStudentList().get(student).getStudentFirstName();
-                    row[2] = ad.getAppointmentTime();
-                    row[3] = ad.getAppointmentStatus();
                     for (String swabdetails : this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().keySet()) {
-                        row[4] = this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getSwabID();
+                        Object[] row = new Object[5];
+                        row[0] = this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getSwabCollectionDate();
+                        row[1] = this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getSwabCollectionTime();
+                        row[2] = this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getSwabID();
+                        row[3] = this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getSwabCollectedBy();
+                        row[4] = this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getResult();
+                        model.addRow(row);
                         break;
                     }
-                    model.addRow(row);
+                    
                 }
 
             }

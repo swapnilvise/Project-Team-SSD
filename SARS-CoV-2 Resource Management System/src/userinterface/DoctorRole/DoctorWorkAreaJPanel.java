@@ -30,10 +30,11 @@ import userinterface.StudentRole.ViewUpdateStudentJPanel;
  * @author swapn
  */
 public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
+
     private JPanel container;
     private EcoSystem ecosystem;
     private DB4OUtil dB4OUtil;
-    private UserAccount userAccount; 
+    private UserAccount userAccount;
     private Integer Time;
     private String PatientID;
     private StudentUsherDirectory sud;
@@ -43,38 +44,39 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public DoctorWorkAreaJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
+    public DoctorWorkAreaJPanel(JPanel container, UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
         initComponents();
         this.container = container;
         this.ecosystem = ecosystem;
         this.dB4OUtil = dB4OUtil;
         this.userAccount = userAccount;
-         this.sd = sd;
-         this.ad = ad;
-        
+        this.sd = sd;
+        this.ad = ad;
+
 //        lblWelcome.setText("Welcome, "+this.ecosystem.getDeliveryManDirectory().findDeliveryManByUserName(this.userAccount.getUsername()).getFirstName());
-        lblWelcome.setText("Welcome, "+this.ecosystem.getSud().findStudentUsherByUserName(this.userAccount.getUsername()).getFirstName());
+//        lblWelcome.setText("Welcome, "+this.ecosystem.getSud().findStudentUsherByUserName(this.userAccount.getUsername()).getFirstName());
         Date CurrentTime = new Date();
         SimpleDateFormat ft = new SimpleDateFormat("H");
         System.out.println(ft.format(CurrentTime));
         Time = Integer.parseInt(ft.format(CurrentTime));
-        if (Time < 12){
-           lbl_Greetings.setText("Good Morning! "); 
-        } else if (Time >= 18){
-           lbl_Greetings.setText("Good Evening! ");
+        if (Time < 12) {
+            lbl_Greetings.setText("Good Morning! ");
+        } else if (Time >= 18) {
+            lbl_Greetings.setText("Good Evening! ");
         } else {
-           lbl_Greetings.setText("Good Afternoon! ");
+            lbl_Greetings.setText("Good Afternoon! ");
         }
         populateTable();
     }
-    protected void paintComponent(Graphics g){
-        Graphics2D g2d= (Graphics2D)g;
-        int width=getWidth();
-        int height= getHeight();
-        
-        Color color1= new Color(0, 0, 0);
-        Color color2= new Color(51, 51, 51);
-        GradientPaint gp = new GradientPaint(0,0,color1,0,height,color2);
+
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        int width = getWidth();
+        int height = getHeight();
+
+        Color color1 = new Color(0, 0, 0);
+        Color color2 = new Color(51, 51, 51);
+        GradientPaint gp = new GradientPaint(0, 0, color1, 0, height, color2);
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, width, height);
     }
@@ -269,14 +271,19 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tbl_DoctorTable.getModel();
         model.setRowCount(0);
         for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
-            for(String swabdetails : this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().keySet()){
-                if(this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getResult().equalsIgnoreCase("Positive")){
-                    Object[] row = new Object[4];
-                    row[0] = this.ecosystem.getStudir().getStudentList().get(student).getStudentLastName();
-                    row[1] = this.ecosystem.getStudir().getStudentList().get(student).getStudentFirstName();
-                    row[2] = this.ecosystem.getStudir().getStudentList().get(student).getStudentID();
-                    row[3] = this.ecosystem.getStudir().getStudentList().get(student).getStudentAge();
+            for (String swabdetails : this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().keySet()) {
+                try {
+                    if (this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getResult().equalsIgnoreCase("Positive")) {
+                        Object[] row = new Object[4];
+                        row[0] = this.ecosystem.getStudir().getStudentList().get(student).getStudentLastName();
+                        row[1] = this.ecosystem.getStudir().getStudentList().get(student).getStudentFirstName();
+                        row[2] = this.ecosystem.getStudir().getStudentList().get(student).getStudentID();
+                        row[3] = this.ecosystem.getStudir().getStudentList().get(student).getStudentAge();
+                    }
+                } catch (NullPointerException npe) {
+                    JOptionPane.showMessageDialog(this, "No Covid Positive patients found");
                 }
+
             }
         }
     }
