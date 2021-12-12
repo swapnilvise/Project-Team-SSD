@@ -8,7 +8,7 @@ package userinterface.DoctorRole;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.PharmacyEnterprise;
-import Business.Organization.DeliveryManOrganization;
+//import Business.Organization.DeliveryManOrganization;
 import Business.Organization.Organization;
 import Business.Pharmacy.Medicine;
 import Business.UserAccount.UserAccount;
@@ -630,9 +630,9 @@ public class ProvidePrescriptionJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
-        txtFirstName1.setText(request.getPatient().getPatientFirstName());
-        txtLastName1.setText(request.getPatient().getPatientLastName());
-        txtAge1.setText(String.valueOf(request.getPatient().getPatientAge()));
+        txtFirstName1.setText(request.getStudent().getStudentFirstName());
+        txtLastName1.setText(request.getStudent().getStudentLastName());
+        txtAge1.setText(String.valueOf(request.getStudent().getStudentAge()));
         txtMedicalCondition1.setText(request.getReasonForVisit());
 
     }
