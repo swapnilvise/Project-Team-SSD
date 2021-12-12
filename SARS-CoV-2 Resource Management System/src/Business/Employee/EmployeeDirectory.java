@@ -5,6 +5,7 @@
 package Business.Employee;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -12,20 +13,44 @@ import java.util.ArrayList;
  */
 public class EmployeeDirectory {
     
-    private ArrayList<Employee> employeeList;
+    private HashMap<String,Employee> employeeList;
 
     public EmployeeDirectory() {
-        employeeList = new ArrayList();
+        this.employeeList = new HashMap();
     }
 
-    public ArrayList<Employee> getEmployeeList() {
-        return employeeList;
+    public HashMap<String,Employee> getEmployeeList() {
+        return this.employeeList;
     }
     
     public Employee createEmployee(String name){
         Employee employee = new Employee();
         employee.setName(name);
-        employeeList.add(employee);
-        return employee;
+        this.employeeList.put(employee.getEmpId(),employee);
+        return this.employeeList.get(employee.getEmpId());
+    }
+    
+    public void removeEmployee(String empId){
+        this.employeeList.remove(empId);
+    }
+    
+    public Employee findEmployeeByUserName(String userName){
+        
+        for(String s: this.employeeList.keySet()){
+            if(this.employeeList.get(s).getUserAccount().getUsername().equals(userName)){
+                return this.employeeList.get(s);
+            }
+        }
+        return null;
+    }
+    
+    public Employee findEmployee(String empId){
+        
+        for(String s: this.employeeList.keySet()){
+            if(this.employeeList.get(s).getEmpId().equals(empId)){
+                return this.employeeList.get(s);
+            }
+        }
+        return null;
     }
 }

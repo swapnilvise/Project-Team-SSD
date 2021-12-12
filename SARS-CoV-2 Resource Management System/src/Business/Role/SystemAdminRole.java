@@ -21,7 +21,7 @@ public class SystemAdminRole extends Role{
 
   
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account,Organization organization, Enterprise enterprise, EcoSystem system,DB4OUtil dB4OUtil) {
-        return new SystemAdminWorkAreaJPanel(userProcessContainer, system);
+        return new SystemAdminWorkAreaJPanel(userProcessContainer, system, dB4OUtil);
     }
     
 }
