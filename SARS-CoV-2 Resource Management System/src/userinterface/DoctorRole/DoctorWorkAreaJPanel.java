@@ -238,7 +238,19 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btn_PrescribeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PrescribeActionPerformed
         // TODO add your handling code here:
-        
+        Integer SelectedRowIndex = tbl_DoctorTable.getSelectedRow();
+        if (SelectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row.");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tbl_DoctorTable.getModel();
+        Student selectedstudent = (Student) model.getValueAt(SelectedRowIndex, 0);
+        container.removeAll();
+        DoctorPrescriptionJPanel pres = new DoctorPrescriptionJPanel(container, userAccount, ecosystem, dB4OUtil, selectedstudent);
+        container.add("DoctorPrescriptionJPanel", pres);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(ecosystem);
     }//GEN-LAST:event_btn_PrescribeActionPerformed
 
 

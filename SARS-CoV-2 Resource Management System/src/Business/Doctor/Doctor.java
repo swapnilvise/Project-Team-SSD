@@ -6,6 +6,7 @@
 package Business.Doctor;
 
 import Business.Student.Student;
+import Business.UserAccount.UserAccount;
 
 /**
  *
@@ -46,6 +47,16 @@ public class Doctor {
     public void setDoctorID(String DoctorID) {
         this.DoctorID = DoctorID;
     }
+
+    public UserAccount getDoctorAccount() {
+        return doctorAccount;
+    }
+
+    public void setDoctorAccount(UserAccount doctorAccount) {
+        this.doctorAccount = doctorAccount;
+    }
+    
+    
     
     @Override
     public String toString(){

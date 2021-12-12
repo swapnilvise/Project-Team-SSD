@@ -12,7 +12,9 @@ import Business.EcoSystem;
 import Business.Student.Student;
 import Business.Student.StudentDirectory;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
+import userinterface.LoginPage.LoginPageJPanel;
 
 /**
  *
@@ -33,7 +35,7 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoctorPrescriptionJPanel
      */
-    public DoctorPrescriptionJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
+    public DoctorPrescriptionJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil, Student student) {
         initComponents();
         this.container = container;
         this.ecosystem = ecosystem;
@@ -42,6 +44,8 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
         this.ah = ah;
         this.ad = ad;
         this.sd = sd;
+        this.student = student;
+        
     }
 
     /**
@@ -63,10 +67,10 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtarea_Prescription = new javax.swing.JTextArea();
+        txt_LastName = new javax.swing.JTextField();
+        txt_FirstName = new javax.swing.JTextField();
+        txt_Age = new javax.swing.JTextField();
         btn_SubmitPrescription = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 0, 0));
@@ -105,18 +109,18 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(188, 188, 188));
         jLabel11.setText("Prescription :");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtarea_Prescription.setColumns(20);
+        txtarea_Prescription.setRows(5);
+        jScrollPane1.setViewportView(txtarea_Prescription);
 
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
+        txt_LastName.setEditable(false);
+        txt_LastName.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
 
-        jTextField2.setEditable(false);
-        jTextField2.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
+        txt_FirstName.setEditable(false);
+        txt_FirstName.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
 
-        jTextField3.setEditable(false);
-        jTextField3.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
+        txt_Age.setEditable(false);
+        txt_Age.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
 
         btn_SubmitPrescription.setText("Submit ");
 
@@ -141,9 +145,9 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel3))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txt_Age, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_LastName, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -159,15 +163,15 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_LastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_Age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel11)
                 .addGap(18, 18, 18)
@@ -229,12 +233,12 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JLabel lbl_Greetings;
     private javax.swing.JButton logoutButton1;
+    private javax.swing.JTextField txt_Age;
+    private javax.swing.JTextField txt_FirstName;
+    private javax.swing.JTextField txt_LastName;
+    private javax.swing.JTextArea txtarea_Prescription;
     // End of variables declaration//GEN-END:variables
 }
