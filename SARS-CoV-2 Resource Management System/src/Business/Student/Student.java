@@ -15,9 +15,10 @@ import Business.UserAccount.UserAccount;
  */
 public class Student {
     
-    private String studentID;
+    
     private String studentLastName;
     private String studentFirstName;
+    private String studentID;
     private String dob;
     private String studentAge;
     private String contactNumber;
@@ -31,6 +32,7 @@ public class Student {
     private UserAccount StudentAccount;
     private AppointmentDirectory ad;
     private SwabDirectory sd;
+    private String AssignedDoctor;
     
     public Student() {
         this.ad = new AppointmentDirectory();
@@ -164,6 +166,19 @@ public class Student {
 
     public void setSd(SwabDirectory sd) {
         this.sd = sd;
+    }
+
+    public String getAssignedDoctor() {
+        return AssignedDoctor;
+    }
+
+    public void setAssignedDoctor(String AssignedDoctor) {
+        this.AssignedDoctor = AssignedDoctor;
+    }
+    
+    @Override
+    public String toString(){
+        return studentLastName;
     }
     
 }

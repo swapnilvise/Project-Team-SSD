@@ -5,13 +5,22 @@
  */
 package userinterface.LabAssistantRole;
 
+import Business.AppointmentDetails.AppointmentDetails;
+import Business.AppointmentDetails.AppointmentDirectory;
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Student.StudentDirectory;
+import Business.StudentUsher.StudentUsherDirectory;
+import Business.UserAccount.UserAccount;
 import Business.WorkQueue.PatientTreatmentWorkRequest;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userinterface.LoginPage.LoginPageJPanel;
 
 /**
  *
@@ -23,17 +32,27 @@ public class ProcessWorkRequestsJPanel extends javax.swing.JPanel {
      * Creates new form ProcessWorkRequestsJPanel
      */
     
-    private JPanel userProcessContainer;
-    private PatientTreatmentWorkRequest patientTreatmentWorkRequest;
+    private JPanel container;
+    private EcoSystem ecosystem;
+    private DB4OUtil dB4OUtil;
+    private UserAccount userAccount; 
+    private Integer Time;
+    private String PatientID;
+    private StudentUsherDirectory sud;
+    private AppointmentDirectory ad;
+    StudentDirectory sd;
+    private String ID;
+//    private PatientTreatmentWorkRequest patientTreatmentWorkRequest;
     
-    public ProcessWorkRequestsJPanel(JPanel userProcessContainer, PatientTreatmentWorkRequest patientTreatmentWorkRequest) {
+    public ProcessWorkRequestsJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil, String SwabID) {
         initComponents();
-        ImageIcon icon = new javax.swing.ImageIcon(getClass().getResource("/ImagesLatest/Blood test result.gif"));
-        icon.getImage().flush();
-        jLabel7.setIcon(icon);
-
-        this.userProcessContainer = userProcessContainer;
-        this.patientTreatmentWorkRequest = patientTreatmentWorkRequest;
+        this.container = container;
+        this.ecosystem = ecosystem;
+        this.dB4OUtil = dB4OUtil;
+        this.userAccount = userAccount;
+        this.sd = sd;
+        this.ad = ad; 
+        ID = SwabID;
     }
 
     /**
@@ -185,13 +204,13 @@ public class ProcessWorkRequestsJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backJButtonMouseExited
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-
-        jLabel7.setIcon(null);
-        jLabel7.revalidate();
-
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        container.removeAll();
+        LabAssistantCovid19TestResultsJPanel covid = new LabAssistantCovid19TestResultsJPanel(container,userAccount,ecosystem, dB4OUtil);
+        container.add("LabAssistantCovid19TestResultsJPanel", covid);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(ecosystem);
+        
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void submitJButtonFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_submitJButtonFocusGained
@@ -219,32 +238,27 @@ public class ProcessWorkRequestsJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_submitJButtonMouseExited
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
-        String labResult = resultJTextField.getText().trim();
-        if (labResult.equals("")) {
-            JOptionPane.showMessageDialog(null, "Result is mandatory");
-            return;
-        } else {
-            int dialogResult = JOptionPane.showConfirmDialog(null, "Do you want to proceed?");
-            if (dialogResult == JOptionPane.YES_OPTION) {
-                patientTreatmentWorkRequest.setLabResult(labResult);
-                patientTreatmentWorkRequest.setStatus("Lab Test Completed");
-                JOptionPane.showMessageDialog(null, "Result submitted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-                resultJTextField.setText("");
-                submitJButton.setEnabled(false);
-
-                jLabel7.setIcon(null);
-                jLabel7.revalidate();
-
-                userProcessContainer.remove(this);
-                Component[] componentArray = userProcessContainer.getComponents();
-                Component component = componentArray[componentArray.length - 1];
-                LabAssistantWorkAreaJPanel dwjp = (LabAssistantWorkAreaJPanel) component;
-                dwjp.populateTable();
-                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-                layout.previous(userProcessContainer);
+        for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
+            ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
+            for (AppointmentDetails ad : AppointmentList) {
+                if (ad.getAppointmentStatus() == "Swab Delivered") {
+                    for (String swabdetails : this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().keySet()) {
+                        if(this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getSwabID().equalsIgnoreCase(ID)){
+                            if(resultJTextField.getText().equalsIgnoreCase("Positive") ||resultJTextField.getText().equalsIgnoreCase("Negative")){
+                                this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).setResult(resultJTextField.getText());
+                                JOptionPane.showMessageDialog(this, "Test Result Set");
+                            } else {
+                                JOptionPane.showMessageDialog(this, "Invalid Result, Result can either be positive or negative");
+                            }
+                            
+                            
+                        }
+                    }
+                }
             }
-
         }
+
+        
     }//GEN-LAST:event_submitJButtonActionPerformed
 
 

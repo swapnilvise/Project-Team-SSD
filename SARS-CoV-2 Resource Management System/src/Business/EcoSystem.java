@@ -10,6 +10,7 @@ import Business.AppointmentDetails.AppointmentDirectory;
 import Business.AppointmentDetails.AppointmentHistory;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Doctor.DoctorDirectory;
 import Business.Employee.EmployeeDirectory;
 import Business.Order.OrderDirectory;
 import Business.Organization.Organization;
@@ -41,6 +42,7 @@ public class EcoSystem extends Organization{
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
     private OrderDirectory orderDirectory;
+    private DoctorDirectory doctordirectory;
     
 
     public static EcoSystem getInstance() {
@@ -75,6 +77,7 @@ public class EcoSystem extends Organization{
         this.customerDirectory = new CustomerDirectory();
         this.deliveryManDirectory = new DeliveryManDirectory();
         this.orderDirectory= new OrderDirectory();
+        this.doctordirectory = new DoctorDirectory();
         
     }
 
@@ -164,6 +167,14 @@ public class EcoSystem extends Organization{
 
     public void setOrderDirectory(OrderDirectory orderDirectory) {
         this.orderDirectory = orderDirectory;
+    }
+
+    public DoctorDirectory getDoctordirectory() {
+        return doctordirectory;
+    }
+
+    public void setDoctordirectory(DoctorDirectory doctordirectory) {
+        this.doctordirectory = doctordirectory;
     }
 
     
