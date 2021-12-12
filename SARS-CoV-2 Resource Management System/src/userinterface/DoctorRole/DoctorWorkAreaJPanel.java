@@ -9,6 +9,7 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.DoctorOrganization;
+import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.PatientTreatmentWorkRequest;
 import Business.WorkQueue.WorkRequest;
@@ -36,16 +37,17 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private EcoSystem ecosystem;
     private DB4OUtil dB4OUtil;
+    private Organization organization;
     
-    public DoctorWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, DoctorOrganization organization, Enterprise enterprise, EcoSystem ecosystem,DB4OUtil dB4OUtil) {
+    public DoctorWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem ecosystem,DB4OUtil dB4OUtil) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.doctorOrganization = organization;
+        this.organization = organization;
         this.enterprise = enterprise;
         this.userAccount = account;
         this.ecosystem=ecosystem;
         this.dB4OUtil=dB4OUtil;
-        valueLabel.setText(enterprise.getName());
+//        valueLabel.setText(enterprise.getName());
         populateRequestTable();
     }
     
@@ -479,7 +481,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                     if (workRequest.getStatus().equalsIgnoreCase("Prescription Provided")) {
 
                         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-                        userProcessContainer.add("RequestBillingJPanel", new RequestBillingJPanel(userProcessContainer, userAccount, enterprise, workRequest));
+//                        userProcessContainer.add("RequestBillingJPanel", new RequestBillingJPanel(userProcessContainer, userAccount, enterprise, workRequest));
                         workRequest.getStudent().setIsTreatmentFinished(true);
                         layout.next(userProcessContainer);
                     } else {
