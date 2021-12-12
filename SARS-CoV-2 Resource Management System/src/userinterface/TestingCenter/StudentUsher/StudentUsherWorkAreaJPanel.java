@@ -7,6 +7,7 @@ package userinterface.TestingCenter.StudentUsher;
 
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
+import Business.StudentUsher.StudentUsherDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -30,6 +31,8 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
     private DB4OUtil dB4OUtil;
     private UserAccount userAccount; 
     private Integer Time;
+    private String PatientID;
+    private StudentUsherDirectory sud;
 
     /**
      * Creates new form TCEWorkAreaJPanel
@@ -40,7 +43,9 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.dB4OUtil = dB4OUtil;
         this.userAccount = userAccount;
+        
 //        lblWelcome.setText("Welcome, "+this.ecosystem.getDeliveryManDirectory().findDeliveryManByUserName(this.userAccount.getUsername()).getFirstName());
+        lblWelcome.setText("Welcome, "+this.ecosystem.getSud().findStudentUsherByUserName(this.userAccount.getUsername()).getFirstName());
         Date CurrentTime = new Date();
         SimpleDateFormat ft = new SimpleDateFormat("H");
         System.out.println(ft.format(CurrentTime));
@@ -87,9 +92,6 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         lbl_PatientID = new javax.swing.JLabel();
         txt_PatientID = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        openScanner = new javax.swing.JButton();
         getDetails = new javax.swing.JButton();
         lbl_title = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -139,23 +141,6 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
 
         txt_PatientID.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel1.setText("or");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel2.setText("Scan QR Code :");
-
-        openScanner.setBackground(new java.awt.Color(102, 102, 102));
-        openScanner.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        openScanner.setText("Open Scanner");
-        openScanner.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openScannerActionPerformed(evt);
-            }
-        });
-
         getDetails.setBackground(new java.awt.Color(102, 102, 102));
         getDetails.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
         getDetails.setText("Get Details");
@@ -180,24 +165,19 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lbl_title, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(getDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(lbl_PatientID))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl_PatientID)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_PatientID)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(openScanner, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(82, Short.MAX_VALUE))
+                        .addComponent(txt_PatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(getDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(165, 165, 165))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,19 +186,13 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(lbl_title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addGap(108, 108, 108)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_PatientID)
                     .addComponent(txt_PatientID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(openScanner))
-                .addGap(58, 58, 58)
+                .addGap(30, 30, 30)
                 .addComponent(getDetails)
-                .addGap(128, 128, 128))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 125, -1, -1));
@@ -249,15 +223,11 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
         jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
     }//GEN-LAST:event_jLabel3MouseEntered
 
-    private void openScannerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openScannerActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_openScannerActionPerformed
-
     private void getDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getDetailsActionPerformed
         // TODO add your handling code here:
+        PatientID = txt_PatientID.getText();
         container.removeAll();
-        StudentUsherDetailsJPanel sudp = new StudentUsherDetailsJPanel(container, userAccount, ecosystem, dB4OUtil);
+        StudentUsherDetailsJPanel sudp = new StudentUsherDetailsJPanel(container, userAccount, ecosystem, dB4OUtil, PatientID);
         container.add("StudentUsherDetailsJPanel",sudp);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
@@ -267,8 +237,6 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton getDetails;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -278,7 +246,6 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lbl_PatientID;
     private javax.swing.JLabel lbl_title;
     private javax.swing.JButton logoutButton1;
-    private javax.swing.JButton openScanner;
     private javax.swing.JTextField txt_PatientID;
     // End of variables declaration//GEN-END:variables
 }
