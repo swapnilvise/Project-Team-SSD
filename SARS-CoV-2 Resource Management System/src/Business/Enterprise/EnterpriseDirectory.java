@@ -39,6 +39,7 @@ public class EnterpriseDirectory {
         if (type == Enterprise.EnterpriseType.TestingCenter) {
             enterprise = new TestingCenterEnterprise(name);
             enterpriseList.add(enterprise);
+            
         } 
         return enterprise;
     }

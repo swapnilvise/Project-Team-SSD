@@ -13,6 +13,7 @@ import Business.Organization.Organization;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Business.StudentUsher.StudentUsherDirectory;
 import Networks.Network;
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ public class EcoSystem extends Organization{
     
     private static EcoSystem ecosystem;
     private ArrayList<Network> networks;
+    private StudentUsherDirectory sud;
 
     public static EcoSystem getInstance() {
         if (ecosystem == null) {
@@ -48,6 +50,7 @@ public class EcoSystem extends Organization{
     private EcoSystem() {
         super(null);
         networks = new ArrayList<Network>();
+        this.sud = new StudentUsherDirectory();
     }
 
     public ArrayList<Network> getNetworks() {
@@ -57,4 +60,14 @@ public class EcoSystem extends Organization{
     public void setNetworks(ArrayList<Network> networks) {
         this.networks = networks;
     }
+
+    public StudentUsherDirectory getSud() {
+        return sud;
+    }
+
+    public void setSud(StudentUsherDirectory sud) {
+        this.sud = sud;
+    }
+    
+    
 }
