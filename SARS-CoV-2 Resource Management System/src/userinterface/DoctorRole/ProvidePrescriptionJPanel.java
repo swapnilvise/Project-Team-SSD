@@ -8,13 +8,13 @@ package userinterface.DoctorRole;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.PharmacyEnterprise;
-import Business.Network.Network;
 import Business.Organization.DeliveryManOrganization;
 import Business.Organization.Organization;
 import Business.Pharmacy.Medicine;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.MedicalDeliveryWorkRequest;
 import Business.WorkQueue.PatientTreatmentWorkRequest;
+import Networks.Network;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -419,7 +419,7 @@ public class ProvidePrescriptionJPanel extends javax.swing.JPanel {
                 }
 
                 if (org != null) {
-                    org.getWorkQueue().getWorkRequests().add(md);
+                    org.getWorkQueue().getWorkRequestList().add(md);
                 }
 
                 JOptionPane.showMessageDialog(null, "Prescription submitted successfully", "Submitted", JOptionPane.INFORMATION_MESSAGE);

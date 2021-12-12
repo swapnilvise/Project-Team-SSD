@@ -153,7 +153,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void login() {
 
-        LoginPageJPanel lpp = new LoginPageJPanel(container, system, dB4OUtil);
+        LoginPageJPanel lpp = new LoginPageJPanel(system, dB4OUtil,container);
         container.add("LoginPageJPanel", lpp);
         CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);

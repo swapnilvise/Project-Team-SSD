@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import userinterface.LoginPage.LoginPageJPanel;
 
 /**
  *
@@ -253,7 +254,7 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         userProcessContainer.removeAll();
-        LoginJPanel lp = new LoginJPanel(business, dB4OUtil, userProcessContainer);
+        LoginPageJPanel lp = new LoginPageJPanel(business, dB4OUtil, userProcessContainer);
         userProcessContainer.add("LoginJPanel", lp);
         CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
         crdLyt.next(userProcessContainer);
@@ -282,7 +283,7 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
         }
 
         PatientTreatmentWorkRequest request = (PatientTreatmentWorkRequest) workRequestJTable.getValueAt(selectedRow, 0);
-        ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, request);
+        ProcessWorkRequestsJPanel processWorkRequestJPanel = new ProcessWorkRequestsJPanel(userProcessContainer, request);
         if (request.getLabAssistant() != null) {
             if (userAccount.equals(request.getLabAssistant())) {
                 if (request.getStatus().equalsIgnoreCase("Pending on Lab Assistant")) {

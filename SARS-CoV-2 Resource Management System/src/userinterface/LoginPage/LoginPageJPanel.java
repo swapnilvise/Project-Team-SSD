@@ -35,7 +35,7 @@ public class LoginPageJPanel extends javax.swing.JPanel {
     private EcoSystem ecosystem;
     private DB4OUtil dB4OUtil;
 
-    public LoginPageJPanel(JPanel userProcessContainer, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
+    public LoginPageJPanel(EcoSystem ecosystem, DB4OUtil dB4OUtil,JPanel userProcessContainer) {
         initComponents();
         this.container = userProcessContainer;
         this.ecosystem = ecosystem;

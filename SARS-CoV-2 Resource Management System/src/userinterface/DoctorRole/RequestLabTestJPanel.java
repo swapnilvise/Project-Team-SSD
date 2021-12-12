@@ -7,6 +7,8 @@ package userinterface.DoctorRole;
 
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import static Business.Organization.Organization.Type.TestingLab;
+import Business.Organization.TestingLabOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.PatientTreatmentWorkRequest;
 import java.awt.CardLayout;

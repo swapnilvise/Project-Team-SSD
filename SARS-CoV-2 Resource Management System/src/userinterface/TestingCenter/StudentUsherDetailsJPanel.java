@@ -202,7 +202,7 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
     private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
         // TODO add your handling code here:
         container.removeAll();
-        LoginPageJPanel lpp= new LoginPageJPanel(container, ecosystem, dB4OUtil);
+        LoginPageJPanel lpp= new LoginPageJPanel(ecosystem, dB4OUtil, container);
         container.add("LoginPageJPanel", lpp);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
