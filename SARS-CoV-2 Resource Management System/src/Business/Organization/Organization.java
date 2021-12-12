@@ -27,10 +27,16 @@ public abstract class Organization {
     public enum Type {
 
         StudentUsher("Student Usher Organization"),
+<<<<<<< HEAD
+        PatientAssociate("Patient Associate Organization"),
+        SwabCollector("Swab Collection Organization"),
+        LogisticsAssociate("Logistics Organization");
+=======
         Pharmacist("Phamacist Organization"),
         DeliveryMan("Delivery Organization"),
         TestingLab("Testing Lab Organization"),
         Doctor("Doctor Organization");
+>>>>>>> Shrishti
         
 
         private String value;

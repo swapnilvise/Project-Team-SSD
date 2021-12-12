@@ -34,7 +34,7 @@ public class MainJFrame extends javax.swing.JFrame {
         this.setLocation(size.width/2-getWidth()/2,size.height/3-getHeight()/2);
         system = dB4OUtil.retrieveSystem();
         
-        this.setSize(1200, 800);
+        this.setSize(1200, 900);
         setResizable(false);
         login();
     }
