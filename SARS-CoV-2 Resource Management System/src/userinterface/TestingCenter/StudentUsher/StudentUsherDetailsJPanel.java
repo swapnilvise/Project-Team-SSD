@@ -27,19 +27,19 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
     private EcoSystem ecosystem;
     private DB4OUtil dB4OUtil;
     private UserAccount userAccount; 
-    
+    private String PatientID;
 
     /**
      * Creates new form StudentUsherDetailsJPanel
      */
-    public StudentUsherDetailsJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
+    public StudentUsherDetailsJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil, String PatientID) {
         initComponents();
         this.container = container;
         this.ecosystem = ecosystem;
         this.dB4OUtil = dB4OUtil;
         this.userAccount = userAccount;
         lbl_Details.setText("Details for, ");
-        
+        getAppointmentDetails();
     }
     
     protected void paintComponent(Graphics g){
@@ -248,4 +248,8 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txt_AppointmentTime;
     private javax.swing.JTextField txt_ComplianceStatus;
     // End of variables declaration//GEN-END:variables
+
+    private void getAppointmentDetails() {
+        
+    }
 }
