@@ -13,6 +13,7 @@ import Business.Restaurant.Item;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -109,6 +110,8 @@ public class AdminManageOrderJPanel extends javax.swing.JPanel {
         jLabelDM = new javax.swing.JLabel();
         jComboDeliveryMan = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         acceptOrderButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -118,19 +121,26 @@ public class AdminManageOrderJPanel extends javax.swing.JPanel {
         rejectOrderButton = new javax.swing.JButton();
         acceptOrderButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        backButton2.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        backButton2.setBackground(new java.awt.Color(0, 0, 0));
+        backButton2.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        backButton2.setForeground(new java.awt.Color(255, 255, 255));
         backButton2.setText("Back");
         backButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButton2ActionPerformed(evt);
             }
         });
-        add(backButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 100, -1));
+        add(backButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, -1));
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 239, 670, 10));
 
+        jPanelOrderSummary.setBackground(new java.awt.Color(0, 0, 0));
+        jPanelOrderSummary.setForeground(new java.awt.Color(255, 255, 255));
         jPanelOrderSummary.setOpaque(false);
         jPanelOrderSummary.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -220,19 +230,25 @@ public class AdminManageOrderJPanel extends javax.swing.JPanel {
 
         add(jPanelOrderSummary, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 247, 440, 220));
 
-        logoutButton1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
+        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButton1ActionPerformed(evt);
             }
         });
-        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 6, 94, -1));
+        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 10, 94, -1));
 
+        jPanelDM.setBackground(new java.awt.Color(0, 0, 0));
+        jPanelDM.setForeground(new java.awt.Color(255, 255, 255));
         jPanelDM.setOpaque(false);
         jPanelDM.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        assignButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        assignButton.setBackground(new java.awt.Color(0, 0, 0));
+        assignButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        assignButton.setForeground(new java.awt.Color(255, 255, 255));
         assignButton.setText("Assign");
         assignButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -258,33 +274,65 @@ public class AdminManageOrderJPanel extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-account-24.png"))); // NOI18N
         jPanelDM.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 30, 50));
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(188, 188, 188));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("<> with ♡ by Team Coding Pirates ");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel11MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel11MouseExited(evt);
+            }
+        });
+        jPanelDM.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 770, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(188, 188, 188));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("<> with ♡ by Team Coding Pirates ");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel12MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel12MouseExited(evt);
+            }
+        });
+        jPanelDM.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 770, -1, -1));
+
         add(jPanelDM, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, -1, -1));
 
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        acceptOrderButton2.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        acceptOrderButton2.setBackground(new java.awt.Color(0, 0, 0));
+        acceptOrderButton2.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        acceptOrderButton2.setForeground(new java.awt.Color(255, 255, 255));
         acceptOrderButton2.setText("Assign Delivery Man");
         acceptOrderButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acceptOrderButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(acceptOrderButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, -1, -1));
+        jPanel1.add(acceptOrderButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Order List");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 6, 134, -1));
 
-        viewOrderButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        viewOrderButton.setBackground(new java.awt.Color(0, 0, 0));
+        viewOrderButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        viewOrderButton.setForeground(new java.awt.Color(255, 255, 255));
         viewOrderButton.setText("View Order");
         viewOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewOrderButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(viewOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 100, -1));
+        jPanel1.add(viewOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 120, -1));
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -325,28 +373,46 @@ public class AdminManageOrderJPanel extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 602, 109));
 
-        rejectOrderButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        rejectOrderButton.setBackground(new java.awt.Color(0, 0, 0));
+        rejectOrderButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        rejectOrderButton.setForeground(new java.awt.Color(255, 255, 255));
         rejectOrderButton.setText("Reject Order");
         rejectOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rejectOrderButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(rejectOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 100, -1));
+        jPanel1.add(rejectOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 120, -1));
 
-        acceptOrderButton1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        acceptOrderButton1.setBackground(new java.awt.Color(0, 0, 0));
+        acceptOrderButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        acceptOrderButton1.setForeground(new java.awt.Color(255, 255, 255));
         acceptOrderButton1.setText("Accept Order");
         acceptOrderButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acceptOrderButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(acceptOrderButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 106, -1));
+        jPanel1.add(acceptOrderButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 120, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-activity-history-24.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 40, 40));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 34, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(188, 188, 188));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("<> with ♡ by Team Coding Pirates ");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel13MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel13MouseExited(evt);
+            }
+        });
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 770, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton2ActionPerformed
@@ -512,6 +578,42 @@ public class AdminManageOrderJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_assignButtonActionPerformed
 
+    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
+    }//GEN-LAST:event_jLabel11MouseEntered
+
+    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
+    }//GEN-LAST:event_jLabel11MouseExited
+
+    private void jLabel12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseEntered
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
+    }//GEN-LAST:event_jLabel12MouseEntered
+
+    private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseExited
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
+    }//GEN-LAST:event_jLabel12MouseExited
+
+    private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
+    }//GEN-LAST:event_jLabel13MouseEntered
+
+    private void jLabel13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseExited
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
+    }//GEN-LAST:event_jLabel13MouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acceptOrderButton1;
     private javax.swing.JButton acceptOrderButton2;
@@ -519,6 +621,9 @@ public class AdminManageOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JButton backButton2;
     private javax.swing.JComboBox<String> jComboDeliveryMan;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

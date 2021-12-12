@@ -118,8 +118,9 @@ public class PatientViewAndEditDetailsJPanel extends javax.swing.JPanel {
         lblWelcome.setText("Welcome <UserName>");
         add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, -1, -1));
 
-        logoutButton1.setBackground(new java.awt.Color(102, 102, 102));
-        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
+        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +134,8 @@ public class PatientViewAndEditDetailsJPanel extends javax.swing.JPanel {
         lbl_Greetings.setText("Details for, ");
         add(lbl_Greetings, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(460, 600));
 
         txt_LastName.setEditable(false);
@@ -257,8 +259,9 @@ public class PatientViewAndEditDetailsJPanel extends javax.swing.JPanel {
         txt_Country.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         txt_Country.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        btn_Edit.setBackground(new java.awt.Color(102, 102, 102));
+        btn_Edit.setBackground(new java.awt.Color(0, 0, 0));
         btn_Edit.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_Edit.setForeground(new java.awt.Color(255, 255, 255));
         btn_Edit.setText("Edit Details");
         btn_Edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,8 +269,9 @@ public class PatientViewAndEditDetailsJPanel extends javax.swing.JPanel {
             }
         });
 
-        btn_Checkin.setBackground(new java.awt.Color(102, 102, 102));
+        btn_Checkin.setBackground(new java.awt.Color(0, 0, 0));
         btn_Checkin.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_Checkin.setForeground(new java.awt.Color(255, 255, 255));
         btn_Checkin.setText("Check-In");
         btn_Checkin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -409,8 +413,9 @@ public class PatientViewAndEditDetailsJPanel extends javax.swing.JPanel {
         });
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 810, 1200, -1));
 
-        btn_Back.setBackground(new java.awt.Color(102, 102, 102));
-        btn_Back.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+        btn_Back.setBackground(new java.awt.Color(0, 0, 0));
+        btn_Back.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_Back.setForeground(new java.awt.Color(255, 255, 255));
         btn_Back.setText("Back");
         btn_Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

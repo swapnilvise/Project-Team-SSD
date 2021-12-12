@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -70,10 +71,15 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        jLabel11 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnOrderHistory.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        btnOrderHistory.setBackground(new java.awt.Color(0, 0, 0));
+        btnOrderHistory.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btnOrderHistory.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderHistory.setBorderPainted(false
         );
         btnOrderHistory.setContentAreaFilled(false);
@@ -85,21 +91,27 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         });
         add(btnOrderHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 160, 58));
 
-        jLabel3.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Welcome to your Dashboard");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 6, 264, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, 264, 30));
 
-        logoutButton1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
+        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButton1ActionPerformed(evt);
             }
         });
-        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 6, 94, 30));
+        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 10, 94, 30));
 
-        btnEditDetails.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        btnEditDetails.setBackground(new java.awt.Color(0, 0, 0));
+        btnEditDetails.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btnEditDetails.setForeground(new java.awt.Color(255, 255, 255));
         btnEditDetails.setBorderPainted(false);
         btnEditDetails.setContentAreaFilled(false);
         btnEditDetails.setOpaque(false);
@@ -132,6 +144,20 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-order-history-24.png"))); // NOI18N
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 40, 50));
         add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 180, 20));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(188, 188, 188));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("<> with ♡ by Team Coding Pirates ");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel11MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel11MouseExited(evt);
+            }
+        });
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 770, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrderHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderHistoryActionPerformed
@@ -161,10 +187,23 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(container);
     }//GEN-LAST:event_btnEditDetailsActionPerformed
 
+    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
+    }//GEN-LAST:event_jLabel11MouseEntered
+
+    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
+    }//GEN-LAST:event_jLabel11MouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditDetails;
     private javax.swing.JButton btnOrderHistory;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
