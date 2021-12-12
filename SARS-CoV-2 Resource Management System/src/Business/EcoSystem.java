@@ -6,6 +6,8 @@
 package Business;
 
 
+import Business.AppointmentDetails.AppointmentDirectory;
+import Business.AppointmentDetails.AppointmentHistory;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.Organization.Organization;
@@ -13,6 +15,7 @@ import Business.Organization.Organization;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Business.Student.StudentDirectory;
 import Business.StudentUsher.StudentUsherDirectory;
 import Networks.Network;
 import java.util.ArrayList;
@@ -26,6 +29,9 @@ public class EcoSystem extends Organization{
     private static EcoSystem ecosystem;
     private ArrayList<Network> networks;
     private StudentUsherDirectory sud;
+    private StudentDirectory studir;
+    private AppointmentHistory ah;
+    private AppointmentDirectory ad;
 
     public static EcoSystem getInstance() {
         if (ecosystem == null) {
@@ -51,6 +57,9 @@ public class EcoSystem extends Organization{
         super(null);
         networks = new ArrayList<Network>();
         this.sud = new StudentUsherDirectory();
+        this.studir = new StudentDirectory();
+        this.ah = new AppointmentHistory();
+        this.ad = new AppointmentDirectory();
     }
 
     public ArrayList<Network> getNetworks() {
@@ -68,6 +77,26 @@ public class EcoSystem extends Organization{
     public void setSud(StudentUsherDirectory sud) {
         this.sud = sud;
     }
+
+    public StudentDirectory getStudir() {
+        return studir;
+    }
+
+    public void setStudir(StudentDirectory studir) {
+        this.studir = studir;
+    }
+
+    public AppointmentHistory getAh() {
+        return ah;
+    }
+
+    public void setAh(AppointmentHistory ah) {
+        this.ah = ah;
+    }
+    
+    
+    
+    
     
     
 }
