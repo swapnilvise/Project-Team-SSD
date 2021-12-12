@@ -40,6 +40,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     private StudentUsherDirectory sud;
     private AppointmentDirectory ad;
     StudentDirectory sd;
+    Student student;
 
     /**
      * Creates new form DoctorWorkAreaJPanel
@@ -214,7 +215,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         }
         DefaultTableModel model = (DefaultTableModel) tbl_DoctorTable.getModel();
         Student selectedstudent = (Student) model.getValueAt(SelectedRowIndex, 0);
-        this.ecosystem.getStudir().getStudentList().get(selectedstudent).setAssignedDoctor(this.ecosystem.getDoctordirectory().findDoctorByUserName(this.userAccount.getUsername()).getDoctorFirstName());
+        this.ecosystem.getStudir().getStudentList().get(selectedstudent).setAssignedDoctor(this.ecosystem.getDoctordirectory().findDoctorByUserName(this.userAccount.getUsername()).toString());
         JOptionPane.showMessageDialog(this, "Student Assigned to you");
         populateTable();
     }//GEN-LAST:event_btn_AssigntoMeActionPerformed
@@ -228,11 +229,12 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         }
         DefaultTableModel model = (DefaultTableModel) tbl_DoctorTable.getModel();
         Student selectedstudent = (Student) model.getValueAt(SelectedRowIndex, 0);
-        String StudentID = this.ecosystem.getStudir().getStudentList().get(selectedstudent).getStudentID();
-        String option = "1";
+        this.student = selectedstudent;
+        String StudentID = this.student.getStudentID();
+        String option = "3";
         container.removeAll();
         ViewUpdateStudentJPanel vujp = new ViewUpdateStudentJPanel(container, userAccount, ecosystem, dB4OUtil, selectedstudent, Boolean.TRUE, StudentID, option);
-        container.add("LoginPageJPanel", vujp);
+        container.add("ViewUpdateStudentJPanel", vujp);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
         dB4OUtil.storeSystem(ecosystem);
@@ -275,10 +277,11 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                 try {
                     if (this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getResult().equalsIgnoreCase("Positive")) {
                         Object[] row = new Object[4];
-                        row[0] = this.ecosystem.getStudir().getStudentList().get(student).getStudentLastName();
+                        row[0] = this.ecosystem.getStudir().getStudentList().get(student);
                         row[1] = this.ecosystem.getStudir().getStudentList().get(student).getStudentFirstName();
                         row[2] = this.ecosystem.getStudir().getStudentList().get(student).getStudentID();
                         row[3] = this.ecosystem.getStudir().getStudentList().get(student).getStudentAge();
+                        model.addRow(row);
                     }
                 } catch (NullPointerException npe) {
                     JOptionPane.showMessageDialog(this, "No Covid Positive patients found");

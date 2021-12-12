@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import javax.swing.InputVerifier;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userinterface.DoctorRole.DoctorWorkAreaJPanel;
 import userinterface.TestingCenter.PatientAssociateRole.PatientAssociateWorkAreaJPanel;
 import userinterface.TestingCenter.StudentUsher.StudentUsherWorkAreaJPanel;
 
@@ -499,6 +500,14 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
             CardLayout crdLyt = (CardLayout) container.getLayout();
             crdLyt.next(container);
             dB4OUtil.storeSystem(ecosystem);
+        } else if (soption == "3") {
+            container.removeAll();
+            DoctorWorkAreaJPanel dr = new DoctorWorkAreaJPanel(container, userAccount, ecosystem, dB4OUtil);
+            container.add("DoctorWorkAreaJPanel", dr);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.next(container);
+            dB4OUtil.storeSystem(ecosystem);
+            
         }
 
     }//GEN-LAST:event_btnBackActionPerformed
@@ -506,6 +515,7 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
     private void btn_CheckinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CheckinActionPerformed
         // TODO add your handling code here:
         String AppointmentDate = "";
+        String AppointmentTime = "";
 
         for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
             if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID1)) {
@@ -513,11 +523,13 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
                 for (AppointmentDetails ad : AppointmentList) {
                     ad.setAppointmentStatus("In Queue for Testing");
                     AppointmentDate = ad.getAppointmentDate();
+                    AppointmentTime = ad.getAppointmentTime();
                 }
                 SwabDetails swabdetails = this.ecosystem.getStudir().getStudentList().get(student).getSd().newSwab();
                 swabdetails.setSwabCollectionDate(AppointmentDate);
-                swabdetails.setSwabCollectionTime("");
+                swabdetails.setSwabCollectionTime(AppointmentTime);
                 swabdetails.setSwabCollectedBy("");
+                swabdetails.setResult("Awaiting Results");
                 System.out.println(swabdetails.getSwabID());
             }
         }

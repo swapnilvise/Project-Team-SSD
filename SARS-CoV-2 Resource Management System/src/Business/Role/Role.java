@@ -52,18 +52,18 @@ public abstract class Role {
             Enterprise enterprise,
             EcoSystem business,DB4OUtil dB4OUtil);
 
-    @Override
-    public String toString() {
-//        return this.getClass().getName();
-        String role="";
-        if(this.getClass().getName().contains("Admin"))
-            role+="Admin";
-        else if(this.getClass().getName().contains("Doctor"))
-            role+="Doctor";
-//        else if(this.getClass().getName().contains("LabAssistant"))
-//            role+="LabAssistant";
-        return role;
-    }
+//    @Override
+//    public String toString() {
+////        return this.getClass().getName();
+//        String role="";
+//        if(this.getClass().getName().contains("Admin"))
+//            role+="Admin";
+//        else if(this.getClass().getName().contains("Doctor"))
+//            role+="Doctor";
+////        else if(this.getClass().getName().contains("LabAssistant"))
+////            role+="LabAssistant";
+//        return role;
+//    }
     
     
 }

@@ -11,7 +11,6 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -87,7 +86,8 @@ public class LogisticsAssociateGetSwabJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_SwabToBeCollected = new javax.swing.JTable();
         btn_MarkAllCollected = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        btn_MarkSelectedAsCollected = new javax.swing.JButton();
+        btn_MarkSelectedAsNotCollected = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -102,9 +102,7 @@ public class LogisticsAssociateGetSwabJPanel extends javax.swing.JPanel {
         lblWelcome.setText("Welcome <UserName>");
         add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(953, 11, -1, -1));
 
-        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
-        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButton1.setBackground(new java.awt.Color(102, 102, 102));
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,30 +126,30 @@ public class LogisticsAssociateGetSwabJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 144, 1060, -1));
 
-        btn_MarkAllCollected.setBackground(new java.awt.Color(0, 0, 0));
+        btn_MarkAllCollected.setBackground(new java.awt.Color(102, 102, 102));
         btn_MarkAllCollected.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        btn_MarkAllCollected.setForeground(new java.awt.Color(255, 255, 255));
         btn_MarkAllCollected.setText("Mark All as Collected");
         btn_MarkAllCollected.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_MarkAllCollectedActionPerformed(evt);
             }
         });
-        add(btn_MarkAllCollected, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 600, -1, -1));
+        add(btn_MarkAllCollected, new org.netbeans.lib.awtextra.AbsoluteConstraints(734, 589, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(188, 188, 188));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("<> with ♡ by Team Coding Pirates ");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel3MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel3MouseExited(evt);
+        btn_MarkSelectedAsCollected.setBackground(new java.awt.Color(102, 102, 102));
+        btn_MarkSelectedAsCollected.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_MarkSelectedAsCollected.setText("Mark Selected As Collected");
+        btn_MarkSelectedAsCollected.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MarkSelectedAsCollectedActionPerformed(evt);
             }
         });
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 770, -1, -1));
+        add(btn_MarkSelectedAsCollected, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 589, -1, -1));
+
+        btn_MarkSelectedAsNotCollected.setBackground(new java.awt.Color(102, 102, 102));
+        btn_MarkSelectedAsNotCollected.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_MarkSelectedAsNotCollected.setText("Mark Selected As Not Collected");
+        add(btn_MarkSelectedAsNotCollected, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 589, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
@@ -177,22 +175,15 @@ public class LogisticsAssociateGetSwabJPanel extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_btn_MarkAllCollectedActionPerformed
 
-    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+    private void btn_MarkSelectedAsCollectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MarkSelectedAsCollectedActionPerformed
         // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
-    }//GEN-LAST:event_jLabel3MouseEntered
-
-    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
-    }//GEN-LAST:event_jLabel3MouseExited
+    }//GEN-LAST:event_btn_MarkSelectedAsCollectedActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_MarkAllCollected;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton btn_MarkSelectedAsCollected;
+    private javax.swing.JButton btn_MarkSelectedAsNotCollected;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JLabel lbl_Greetings;

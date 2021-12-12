@@ -12,7 +12,6 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.PatientTreatmentWorkRequest;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -86,9 +85,8 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
         logoutButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_SwabToBeCollected = new javax.swing.JTable();
+        btn_MarkSelectedAsDelivered = new javax.swing.JButton();
         btn_MarkAllDelivered = new javax.swing.JButton();
-        backButton = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
 
@@ -100,9 +98,7 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
         lblWelcome.setForeground(new java.awt.Color(204, 204, 204));
         lblWelcome.setText("Welcome <UserName>");
 
-        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
-        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButton1.setBackground(new java.awt.Color(102, 102, 102));
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,8 +106,6 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
             }
         });
 
-        tbl_SwabToBeCollected.setBackground(new java.awt.Color(0, 0, 0));
-        tbl_SwabToBeCollected.setForeground(new java.awt.Color(255, 255, 255));
         tbl_SwabToBeCollected.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -125,9 +119,17 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
         ));
         jScrollPane1.setViewportView(tbl_SwabToBeCollected);
 
-        btn_MarkAllDelivered.setBackground(new java.awt.Color(0, 0, 0));
+        btn_MarkSelectedAsDelivered.setBackground(new java.awt.Color(102, 102, 102));
+        btn_MarkSelectedAsDelivered.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_MarkSelectedAsDelivered.setText("Mark Selected As Delivered");
+        btn_MarkSelectedAsDelivered.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MarkSelectedAsDeliveredActionPerformed(evt);
+            }
+        });
+
+        btn_MarkAllDelivered.setBackground(new java.awt.Color(102, 102, 102));
         btn_MarkAllDelivered.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        btn_MarkAllDelivered.setForeground(new java.awt.Color(255, 255, 255));
         btn_MarkAllDelivered.setText("Mark All as Delivered");
         btn_MarkAllDelivered.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,77 +137,44 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
             }
         });
 
-        backButton.setBackground(new java.awt.Color(0, 0, 0));
-        backButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        backButton.setForeground(new java.awt.Color(255, 255, 255));
-        backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
-            }
-        });
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(188, 188, 188));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("<> with ♡ by Team Coding Pirates ");
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel11MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel11MouseExited(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(729, 729, 729)
-                        .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(logoutButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(31, 31, 31))))
+                        .addGap(885, 885, 885)
+                        .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(logoutButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_Greetings, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(500, 500, 500)
+                .addGap(370, 370, 370)
+                .addComponent(btn_MarkSelectedAsDelivered, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_MarkAllDelivered, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbl_Greetings, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(616, 616, 616))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(452, 452, 452))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logoutButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblWelcome)
-                    .addComponent(backButton))
+                    .addComponent(logoutButton1))
                 .addGap(34, 34, 34)
                 .addComponent(lbl_Greetings)
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(btn_MarkAllDelivered)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 384, Short.MAX_VALUE)
-                .addComponent(jLabel11)
-                .addContainerGap())
+                .addGap(43, 43, 43)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_MarkSelectedAsDelivered)
+                    .addComponent(btn_MarkAllDelivered))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -218,6 +187,10 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
         crdLyt.next(container);
         dB4OUtil.storeSystem(ecosystem);
     }//GEN-LAST:event_logoutButton1ActionPerformed
+
+    private void btn_MarkSelectedAsDeliveredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MarkSelectedAsDeliveredActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_MarkSelectedAsDeliveredActionPerformed
 
     private void btn_MarkAllDeliveredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MarkAllDeliveredActionPerformed
         // TODO add your handling code here:
@@ -237,29 +210,10 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
         populateTable();
     }//GEN-LAST:event_btn_MarkAllDeliveredActionPerformed
 
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        container.remove(this);
-        CardLayout layout = (CardLayout) container.getLayout();
-        layout.previous(container);
-    }//GEN-LAST:event_backButtonActionPerformed
-
-    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
-        // TODO add your handling code here:
-
-        jLabel11.setFont(new Font(jLabel11.getFont().getName(), Font.PLAIN, 19));
-    }//GEN-LAST:event_jLabel11MouseEntered
-
-    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
-        // TODO add your handling code here:
-
-        jLabel11.setFont(new Font(jLabel11.getFont().getName(), Font.PLAIN, 18));
-    }//GEN-LAST:event_jLabel11MouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backButton;
     private javax.swing.JButton btn_MarkAllDelivered;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JButton btn_MarkSelectedAsDelivered;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JLabel lbl_Greetings;

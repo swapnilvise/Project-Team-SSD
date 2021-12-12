@@ -5,13 +5,13 @@
  */
 package userinterface.DeliveryManRole;
 
+import Business.Customer.Customer;
 import Business.DB4OUtil.DB4OUtil;
 import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -107,10 +107,7 @@ public class DeliveryManEditDetailsJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 0, 0));
-        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
@@ -120,11 +117,11 @@ public class DeliveryManEditDetailsJPanel extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, -1));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 100, -1));
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 15, 430));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 357, 10));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 15, 430));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 222, 357, 10));
 
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -191,7 +188,7 @@ public class DeliveryManEditDetailsJPanel extends javax.swing.JPanel {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-mail-account-24.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 40, 40));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
 
         jPanel2.setOpaque(false);
 
@@ -292,7 +289,7 @@ public class DeliveryManEditDetailsJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
         jPanel3.setOpaque(false);
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -365,32 +362,18 @@ public class DeliveryManEditDetailsJPanel extends javax.swing.JPanel {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-home-address-24.png"))); // NOI18N
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, 40));
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, -1, -1));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-edit.gif"))); // NOI18N
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 100, 110));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 100, 110));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
         jLabel10.setText("Update");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 360, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 320, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
         jLabel9.setText("Profile");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 390, -1, -1));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(188, 188, 188));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("<> with ♡ by Team Coding Pirates ");
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel11MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel11MouseExited(evt);
-            }
-        });
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 770, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 350, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneNumberActionPerformed
@@ -544,18 +527,6 @@ public class DeliveryManEditDetailsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCityActionPerformed
 
-    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
-    }//GEN-LAST:event_jLabel11MouseEntered
-
-    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
-    }//GEN-LAST:event_jLabel11MouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PasswordButton;
@@ -563,7 +534,6 @@ public class DeliveryManEditDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
