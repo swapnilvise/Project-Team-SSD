@@ -14,6 +14,7 @@ import Business.Role.AdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -85,10 +86,15 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
         labelusername = new javax.swing.JLabel();
         jTextFieldFirstName = new javax.swing.JTextField();
         addEmpButton = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        backButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        backButton.setBackground(new java.awt.Color(0, 0, 0));
+        backButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,14 +108,16 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
         jLabel3.setText("Manage Employees ");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 62, 267, -1));
 
-        logoutButton1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
+        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButton1ActionPerformed(evt);
             }
         });
-        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 6, 94, -1));
+        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 10, 94, -1));
 
         employeeJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -148,27 +156,35 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 107, 337, 109));
 
-        assignAdminButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        assignAdminButton.setBackground(new java.awt.Color(0, 0, 0));
+        assignAdminButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        assignAdminButton.setForeground(new java.awt.Color(255, 255, 255));
         assignAdminButton.setText("Assign as Admin");
         assignAdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignAdminButtonActionPerformed(evt);
             }
         });
-        add(assignAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 130, -1));
+        add(assignAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 160, -1));
 
-        removeEmployeeButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        removeEmployeeButton.setBackground(new java.awt.Color(0, 0, 0));
+        removeEmployeeButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        removeEmployeeButton.setForeground(new java.awt.Color(255, 255, 255));
         removeEmployeeButton.setText("Remove Employee");
         removeEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeEmployeeButtonActionPerformed(evt);
             }
         });
-        add(removeEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, -1, -1));
+        add(removeEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, -1, -1));
 
+        jPanelAssignAdmin.setBackground(new java.awt.Color(0, 0, 0));
+        jPanelAssignAdmin.setForeground(new java.awt.Color(255, 255, 255));
         jPanelAssignAdmin.setOpaque(false);
 
-        assignButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        assignButton.setBackground(new java.awt.Color(0, 0, 0));
+        assignButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        assignButton.setForeground(new java.awt.Color(255, 255, 255));
         assignButton.setText("Assign");
         assignButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,10 +214,10 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
             jPanelAssignAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAssignAdminLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelAssignAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(assignButton))
-                .addGap(40, 40, 40))
+                .addGroup(jPanelAssignAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(assignButton)
+                    .addComponent(jComboRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
         );
 
         add(jPanelAssignAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
@@ -209,15 +225,19 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/me_1.gif"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 62, 360, 385));
 
-        addEmployeeButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        addEmployeeButton.setBackground(new java.awt.Color(0, 0, 0));
+        addEmployeeButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        addEmployeeButton.setForeground(new java.awt.Color(255, 255, 255));
         addEmployeeButton.setText("Add Employee");
         addEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addEmployeeButtonActionPerformed(evt);
             }
         });
-        add(addEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
+        add(addEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setOpaque(false);
 
         labelPassword.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 12)); // NOI18N
@@ -250,7 +270,9 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
             }
         });
 
-        addEmpButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        addEmpButton.setBackground(new java.awt.Color(0, 0, 0));
+        addEmpButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        addEmpButton.setForeground(new java.awt.Color(255, 255, 255));
         addEmpButton.setText("Add");
         addEmpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,6 +323,20 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, 150));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(188, 188, 188));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("<> with ♡ by Team Coding Pirates ");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel13MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel13MouseExited(evt);
+            }
+        });
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 770, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -440,6 +476,18 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_addEmpButtonActionPerformed
 
+    private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
+    }//GEN-LAST:event_jLabel13MouseEntered
+
+    private void jLabel13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseExited
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
+    }//GEN-LAST:event_jLabel13MouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addEmpButton;
@@ -450,6 +498,7 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
     private javax.swing.JTable employeeJTable;
     private javax.swing.JComboBox<String> jComboRestaurant;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelAssignAdmin;

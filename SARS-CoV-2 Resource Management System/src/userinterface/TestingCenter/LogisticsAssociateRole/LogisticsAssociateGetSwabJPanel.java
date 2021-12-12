@@ -87,8 +87,6 @@ public class LogisticsAssociateGetSwabJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_SwabToBeCollected = new javax.swing.JTable();
         btn_MarkAllCollected = new javax.swing.JButton();
-        btn_MarkSelectedAsCollected = new javax.swing.JButton();
-        btn_MarkSelectedAsNotCollected = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
@@ -104,7 +102,9 @@ public class LogisticsAssociateGetSwabJPanel extends javax.swing.JPanel {
         lblWelcome.setText("Welcome <UserName>");
         add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(953, 11, -1, -1));
 
-        logoutButton1.setBackground(new java.awt.Color(102, 102, 102));
+        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
+        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,30 +128,16 @@ public class LogisticsAssociateGetSwabJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 144, 1060, -1));
 
-        btn_MarkAllCollected.setBackground(new java.awt.Color(102, 102, 102));
+        btn_MarkAllCollected.setBackground(new java.awt.Color(0, 0, 0));
         btn_MarkAllCollected.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_MarkAllCollected.setForeground(new java.awt.Color(255, 255, 255));
         btn_MarkAllCollected.setText("Mark All as Collected");
         btn_MarkAllCollected.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_MarkAllCollectedActionPerformed(evt);
             }
         });
-        add(btn_MarkAllCollected, new org.netbeans.lib.awtextra.AbsoluteConstraints(734, 589, -1, -1));
-
-        btn_MarkSelectedAsCollected.setBackground(new java.awt.Color(102, 102, 102));
-        btn_MarkSelectedAsCollected.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        btn_MarkSelectedAsCollected.setText("Mark Selected As Collected");
-        btn_MarkSelectedAsCollected.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_MarkSelectedAsCollectedActionPerformed(evt);
-            }
-        });
-        add(btn_MarkSelectedAsCollected, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 589, -1, -1));
-
-        btn_MarkSelectedAsNotCollected.setBackground(new java.awt.Color(102, 102, 102));
-        btn_MarkSelectedAsNotCollected.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        btn_MarkSelectedAsNotCollected.setText("Mark Selected As Not Collected");
-        add(btn_MarkSelectedAsNotCollected, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 589, -1, -1));
+        add(btn_MarkAllCollected, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 600, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(188, 188, 188));
@@ -191,10 +177,6 @@ public class LogisticsAssociateGetSwabJPanel extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_btn_MarkAllCollectedActionPerformed
 
-    private void btn_MarkSelectedAsCollectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MarkSelectedAsCollectedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_MarkSelectedAsCollectedActionPerformed
-
     private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
         // TODO add your handling code here:
 
@@ -210,8 +192,6 @@ public class LogisticsAssociateGetSwabJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_MarkAllCollected;
-    private javax.swing.JButton btn_MarkSelectedAsCollected;
-    private javax.swing.JButton btn_MarkSelectedAsNotCollected;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblWelcome;
