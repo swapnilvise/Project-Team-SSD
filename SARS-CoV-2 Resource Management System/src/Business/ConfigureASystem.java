@@ -48,6 +48,8 @@ public class ConfigureASystem {
         UserAccount la = system.getUserAccountDirectory().createUserAccount("dummyla", "123", new LogisticsAssociateRole());
         UserAccount dc = system.getUserAccountDirectory().createUserAccount("dummydc", "123", new DoctorRole());
         UserAccount labass = system.getUserAccountDirectory().createUserAccount("dummylabas", "123", new LabAssistantRole());
+        UserAccount doc = system.getUserAccountDirectory().createUserAccount("dummydoc", "123", new DoctorRole());
+        
         UserAccount student = system.getUserAccountDirectory().createUserAccount("dummystu", "123", new StudentRole());
         Student sd = system.getStudir().newStudent();
         sd.setStudentAccount(student);

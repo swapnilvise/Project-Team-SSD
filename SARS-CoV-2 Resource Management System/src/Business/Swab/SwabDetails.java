@@ -14,6 +14,7 @@ public class SwabDetails {
     private String SwabCollectionDate;
     private String SwabCollectionTime;
     private String SwabCollectedBy;
+    private String Result;
     private static int count = 1;
     
     public SwabDetails() {
@@ -52,6 +53,16 @@ public class SwabDetails {
     public void setSwabCollectedBy(String SwabCollectedBy) {
         this.SwabCollectedBy = SwabCollectedBy;
     }
+
+    public String getResult() {
+        return Result;
+    }
+
+    public void setResult(String Result) {
+        this.Result = Result;
+    }
+    
+    
     
     
     

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.TestingCenter.LogisticsAssociateRole;
+package userinterface.LabAssistantRole;
 
 import Business.AppointmentDetails.AppointmentDetails;
 import Business.DB4OUtil.DB4OUtil;
@@ -18,6 +18,7 @@ import java.awt.Graphics2D;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import userinterface.LoginPage.LoginPageJPanel;
@@ -26,8 +27,9 @@ import userinterface.LoginPage.LoginPageJPanel;
  *
  * @author swapn
  */
-public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel {
-     private JPanel container;
+public class LabAssistantCovid19TestResultsJPanel extends javax.swing.JPanel {
+
+    private JPanel container;
     private EcoSystem ecosystem;
     private DB4OUtil dB4OUtil;
     private UserAccount userAccount;
@@ -35,15 +37,15 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
     PatientTreatmentWorkRequest workRequest;
 
     /**
-     * Creates new form LogisticsAssociateProcessDeliveryJPanel
+     * Creates new form LabAssistantCovid19TestResultsJPanel
      */
-    public LogisticsAssociateProcessDeliveryJPanel(JPanel container, UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
+    public LabAssistantCovid19TestResultsJPanel(JPanel container, UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
         initComponents();
         this.container = container;
         this.ecosystem = ecosystem;
         this.dB4OUtil = dB4OUtil;
         this.userAccount = userAccount;
-        
+
 //        lblWelcome.setText("Welcome, "+this.ecosystem.getDeliveryManDirectory().findDeliveryManByUserName(this.userAccount.getUsername()).getFirstName());
         Date CurrentTime = new Date();
         SimpleDateFormat ft = new SimpleDateFormat("H");
@@ -58,7 +60,11 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
         }
         populateTable();
     }
-    
+
+    LabAssistantCovid19TestResultsJPanel(JPanel container, EcoSystem ecosystem, UserAccount userAccount, DB4OUtil dB4OUtil) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     protected void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         int width = getWidth();
@@ -80,15 +86,27 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbl_SwabToBeCollected = new javax.swing.JTable();
         lbl_Greetings = new javax.swing.JLabel();
         lblWelcome = new javax.swing.JLabel();
         logoutButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_SwabToBeCollected = new javax.swing.JTable();
-        btn_MarkSelectedAsDelivered = new javax.swing.JButton();
-        btn_MarkAllDelivered = new javax.swing.JButton();
+        btn_SetResult = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 0, 0));
+
+        tbl_SwabToBeCollected.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Appointment Date", "Student Name", "Appointment Time", "Appointment Status", "Swab-ID"
+            }
+        ));
+        jScrollPane1.setViewportView(tbl_SwabToBeCollected);
 
         lbl_Greetings.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         lbl_Greetings.setForeground(new java.awt.Color(204, 204, 204));
@@ -106,34 +124,10 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
             }
         });
 
-        tbl_SwabToBeCollected.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Appointment Date", "Student Name", "Appointment Time", "Appointment Status", "Swab-ID"
-            }
-        ));
-        jScrollPane1.setViewportView(tbl_SwabToBeCollected);
-
-        btn_MarkSelectedAsDelivered.setBackground(new java.awt.Color(102, 102, 102));
-        btn_MarkSelectedAsDelivered.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        btn_MarkSelectedAsDelivered.setText("Mark Selected As Delivered");
-        btn_MarkSelectedAsDelivered.addActionListener(new java.awt.event.ActionListener() {
+        btn_SetResult.setText("Set Result");
+        btn_SetResult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_MarkSelectedAsDeliveredActionPerformed(evt);
-            }
-        });
-
-        btn_MarkAllDelivered.setBackground(new java.awt.Color(102, 102, 102));
-        btn_MarkAllDelivered.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        btn_MarkAllDelivered.setText("Mark All as Delivered");
-        btn_MarkAllDelivered.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_MarkAllDeliveredActionPerformed(evt);
+                btn_SetResultActionPerformed(evt);
             }
         });
 
@@ -141,23 +135,22 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(68, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(885, 885, 885)
-                        .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(logoutButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbl_Greetings, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(370, 370, 370)
-                .addComponent(btn_MarkSelectedAsDelivered, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_MarkAllDelivered, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(885, 885, 885)
+                                .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(logoutButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbl_Greetings, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btn_SetResult, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(520, 520, 520))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,13 +161,11 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
                     .addComponent(logoutButton1))
                 .addGap(34, 34, 34)
                 .addComponent(lbl_Greetings)
-                .addGap(43, 43, 43)
+                .addGap(44, 44, 44)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_MarkSelectedAsDelivered)
-                    .addComponent(btn_MarkAllDelivered))
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addComponent(btn_SetResult)
+                .addContainerGap(188, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -188,32 +179,38 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
         dB4OUtil.storeSystem(ecosystem);
     }//GEN-LAST:event_logoutButton1ActionPerformed
 
-    private void btn_MarkSelectedAsDeliveredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MarkSelectedAsDeliveredActionPerformed
+    private void btn_SetResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SetResultActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_MarkSelectedAsDeliveredActionPerformed
-
-    private void btn_MarkAllDeliveredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MarkAllDeliveredActionPerformed
-        // TODO add your handling code here:
+        Integer SelectedRowIndex = tbl_SwabToBeCollected.getSelectedRow();
+        if (SelectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to set Result.");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tbl_SwabToBeCollected.getModel();
+        model.setRowCount(0);
+        
         for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
             ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
             for (AppointmentDetails ad : AppointmentList) {
-                if (ad.getAppointmentStatus() == "Swab Picked Up") {
-                    ad.setAppointmentStatus("Swab Delivered");
+                if (ad.getAppointmentStatus() == "Swab Delivered") {
+                    for (String swabdetails : this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().keySet()) {
+                        String SwabID = this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getSwabID();
+                        container.removeAll();
+                        ProcessWorkRequestsJPanel pr = new ProcessWorkRequestsJPanel(container,userAccount,ecosystem, dB4OUtil, SwabID);
+                        container.add("ProcessWorkRequestsJPanel", pr);
+                        CardLayout crdLyt = (CardLayout) container.getLayout();
+                        crdLyt.next(container);
+                        dB4OUtil.storeSystem(ecosystem);
+                    }
+
                 }
-//                workRequest.setLabTestMessage("Sars-Cov-2 Test");
-//                workRequest.setSender(this.userAccount);
-//                workRequest.setStatus("Sent to Lab");
-//                workRequest.setReceiver(null);
-                
             }
         }
-        populateTable();
-    }//GEN-LAST:event_btn_MarkAllDeliveredActionPerformed
+    }//GEN-LAST:event_btn_SetResultActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_MarkAllDelivered;
-    private javax.swing.JButton btn_MarkSelectedAsDelivered;
+    private javax.swing.JButton btn_SetResult;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JLabel lbl_Greetings;
@@ -227,13 +224,13 @@ public class LogisticsAssociateProcessDeliveryJPanel extends javax.swing.JPanel 
         for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
             ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
             for (AppointmentDetails ad : AppointmentList) {
-                if (ad.getAppointmentStatus() == "Swab Picked Up") {
+                if (ad.getAppointmentStatus() == "Swab Delivered") {
                     Object[] row = new Object[5];
                     row[0] = ad;
                     row[1] = this.ecosystem.getStudir().getStudentList().get(student).getStudentLastName() + this.ecosystem.getStudir().getStudentList().get(student).getStudentFirstName();
                     row[2] = ad.getAppointmentTime();
                     row[3] = ad.getAppointmentStatus();
-                    for(String swabdetails : this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().keySet()){
+                    for (String swabdetails : this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().keySet()) {
                         row[4] = this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().get(swabdetails).getSwabID();
                         break;
                     }
