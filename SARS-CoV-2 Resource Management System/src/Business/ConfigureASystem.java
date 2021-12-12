@@ -10,6 +10,8 @@ import Business.Role.PatientRole;
 import Business.Role.StudentUsherRole;
 import Business.Role.SwabCollectorRole;
 import Business.Role.SystemAdminRole;
+import Business.Student.Student;
+import Business.Student.StudentDirectory;
 import Business.StudentUsher.StudentUsherDetails;
 //import Business.StudentUsher.StudentUsherDirectory;
 import Business.UserAccount.UserAccount;
@@ -38,6 +40,12 @@ public class ConfigureASystem {
         UserAccount dc = system.getUserAccountDirectory().createUserAccount("dummydc", "123",employee, new DoctorRole());
         UserAccount labass = system.getUserAccountDirectory().createUserAccount("dummylabas", "123",employee, new LabAssistantRole());
         UserAccount student = system.getUserAccountDirectory().createUserAccount("dummystu", "123",employee, new PatientRole());
+        Student sd = system.getStudir().newStudent();
+        sd.setStudentAccount(student);
+        sd.setStudentLastName("Diggikar");
+        sd.setStudentFirstName("Shrishti");
+        sd.setStudentID("A1");
+        
 //        UserAccount la = system.getUserAccountDirectory().createUserAccount("dummyla", "123",employee, new LogisticsAssociateRole());
 //        UserAccount la = system.getUserAccountDirectory().createUserAccount("dummyla", "123",employee, new LogisticsAssociateRole());
         

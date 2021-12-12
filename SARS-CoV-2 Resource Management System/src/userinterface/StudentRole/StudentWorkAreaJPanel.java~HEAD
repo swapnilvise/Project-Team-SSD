@@ -7,8 +7,18 @@ package userinterface.PatientRole;
 
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
+import Business.StudentUsher.StudentUsherDirectory;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JPanel;
+import userinterface.LoginPage.LoginPageJPanel;
+import userinterface.TestingCenter.StudentUsher.StudentUsherDetailsJPanel;
 
 /**
  *
@@ -21,12 +31,43 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
     private DB4OUtil dB4OUtil;
     private UserAccount userAccount; 
     private Integer Time;
+    private String PatientID;
+    private StudentUsherDirectory sud;
 
     /**
      * Creates new form PatientWorkAreaJPanel1
      */
     public PatientWorkAreaJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
         initComponents();
+        this.container = container;
+        this.ecosystem = ecosystem;
+        this.dB4OUtil = dB4OUtil;
+        this.userAccount = userAccount;
+        lblWelcome.setText("Welcome, "+this.ecosystem.getStudir().findStudentByUserName(this.userAccount.getUsername()).getStudentFirstName());
+        Date CurrentTime = new Date();
+        SimpleDateFormat ft = new SimpleDateFormat("H");
+        System.out.println(ft.format(CurrentTime));
+        Time = Integer.parseInt(ft.format(CurrentTime));
+        if (Time < 12){
+           lbl_Greetings.setText("Good Morning! "); 
+        } else if (Time >= 18){
+           lbl_Greetings.setText("Good Evening! ");
+        } else {
+           lbl_Greetings.setText("Good Afternoon! ");
+        }
+        
+    }
+    
+    protected void paintComponent(Graphics g){
+        Graphics2D g2d= (Graphics2D)g;
+        int width=getWidth();
+        int height= getHeight();
+        
+        Color color1= new Color(0, 0, 0);
+        Color color2= new Color(51, 51, 51);
+        GradientPaint gp = new GradientPaint(0,0,color1,0,height,color2);
+        g2d.setPaint(gp);
+        g2d.fillRect(0, 0, width, height);
     }
 
     /**
@@ -38,19 +79,122 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbl_Greetings = new javax.swing.JLabel();
+        lblWelcome = new javax.swing.JLabel();
+        logoutButton1 = new javax.swing.JButton();
+        btn_ViewDetails = new javax.swing.JButton();
+        btn_BookAppointMent = new javax.swing.JButton();
+        btn_CheckResults = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(0, 0, 0));
+
+        lbl_Greetings.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        lbl_Greetings.setForeground(new java.awt.Color(204, 204, 204));
+        lbl_Greetings.setText("Greetings!");
+
+        lblWelcome.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
+        lblWelcome.setForeground(new java.awt.Color(204, 204, 204));
+        lblWelcome.setText("Welcome <UserName>");
+
+        logoutButton1.setBackground(new java.awt.Color(102, 102, 102));
+        logoutButton1.setText("Logout");
+        logoutButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButton1ActionPerformed(evt);
+            }
+        });
+
+        btn_ViewDetails.setBackground(new java.awt.Color(204, 204, 204));
+        btn_ViewDetails.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_ViewDetails.setText("View Personal Details");
+        btn_ViewDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ViewDetailsActionPerformed(evt);
+            }
+        });
+
+        btn_BookAppointMent.setBackground(new java.awt.Color(204, 204, 204));
+        btn_BookAppointMent.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_BookAppointMent.setText("Covid-19 Test Scheduler");
+        btn_BookAppointMent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_BookAppointMentActionPerformed(evt);
+            }
+        });
+
+        btn_CheckResults.setBackground(new java.awt.Color(204, 204, 204));
+        btn_CheckResults.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_CheckResults.setText("Check Results");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(65, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(888, 888, 888)
+                        .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(logoutButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_Greetings, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btn_ViewDetails, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_BookAppointMent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_CheckResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblWelcome)
+                    .addComponent(logoutButton1))
+                .addGap(31, 31, 31)
+                .addComponent(lbl_Greetings)
+                .addGap(205, 205, 205)
+                .addComponent(btn_ViewDetails)
+                .addGap(18, 18, 18)
+                .addComponent(btn_BookAppointMent)
+                .addGap(18, 18, 18)
+                .addComponent(btn_CheckResults)
+                .addContainerGap(369, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
+        // TODO add your handling code here:
+        container.removeAll();
+        LoginPageJPanel lpp= new LoginPageJPanel(container, ecosystem, dB4OUtil);
+        container.add("LoginPageJPanel", lpp);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(ecosystem);
+    }//GEN-LAST:event_logoutButton1ActionPerformed
+
+    private void btn_ViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewDetailsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ViewDetailsActionPerformed
+
+    private void btn_BookAppointMentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BookAppointMentActionPerformed
+        // TODO add your handling code here:
+        container.removeAll();
+        TestSchedulerJPanel test = new TestSchedulerJPanel(container, userAccount, ecosystem, dB4OUtil);
+        container.add("TestSchedulerJPanel",test);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(ecosystem);
+    }//GEN-LAST:event_btn_BookAppointMentActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_BookAppointMent;
+    private javax.swing.JButton btn_CheckResults;
+    private javax.swing.JButton btn_ViewDetails;
+    private javax.swing.JLabel lblWelcome;
+    private javax.swing.JLabel lbl_Greetings;
+    private javax.swing.JButton logoutButton1;
     // End of variables declaration//GEN-END:variables
 }
