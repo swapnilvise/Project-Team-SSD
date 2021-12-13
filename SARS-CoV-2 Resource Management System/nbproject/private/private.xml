@@ -3,13 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/swapn/Documents/SARS-CoV-2%20Resource%20Management%20System/src/userinterface/LoginPage/LoginPageJPanel.java</file>
-            <file>file:/C:/Users/swapn/Documents/SARS-CoV-2%20Resource%20Management%20System/src/Business/EcoSystem.java</file>
-            <file>file:/C:/Users/swapn/Documents/SARS-CoV-2%20Resource%20Management%20System/src/Business/Organization/Organization.java</file>
-            <file>file:/C:/Users/swapn/Documents/SARS-CoV-2%20Resource%20Management%20System/src/userinterface/CustomerRole/CustomerAreaJPanel.java</file>
-            <file>file:/C:/Users/swapn/Documents/SARS-CoV-2%20Resource%20Management%20System/src/userinterface/CustomerRole/CustomerOrderHistoryJPanel.java</file>
-            <file>file:/C:/Users/swapn/Documents/SARS-CoV-2%20Resource%20Management%20System/src/Business/Customer/CustomerDirectory.java</file>
-            <file>file:/C:/Users/swapn/Documents/SARS-CoV-2%20Resource%20Management%20System/src/Business/Student/StudentDirectory.java</file>
+            <file>file:/C:/Users/swapn/Documents/SARS-CoV-2%20Resource%20Management%20System/src/userinterface/SystemAdminWorkArea/SystemAdminWorkAreaJPanel.java</file>
+            <file>file:/C:/Users/swapn/Documents/SARS-CoV-2%20Resource%20Management%20System/src/userinterface/SystemAdminWorkArea/ManageCustomersJPanel.java</file>
             <file>file:/C:/Users/swapn/Documents/SARS-CoV-2%20Resource%20Management%20System/src/Business/ConfigureASystem.java</file>
         </group>
     </open-files>

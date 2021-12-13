@@ -1,11 +1,13 @@
 package Business;
 
 import Business.Customer.Address;
+import Business.DeliveryMan.DeliveryMan;
 import Business.Employee.Employee;
 import Business.Restaurant.Item;
 import Business.Restaurant.Restaurant;
 import Business.Role.AdminRole;
 import Business.Role.CustomerRole;
+import Business.Role.DeliverManRole;
 import Business.Role.DoctorRole;
 import Business.Role.LabAssistantRole;
 import Business.Role.LogisticsAssociateRole;
@@ -101,6 +103,36 @@ public class ConfigureASystem {
             i.setItemName(faker.food().dish());
             i.setItemPrice(faker.number().numberBetween(5, 50));
         }
+        
+        UserAccount ua2 = system.getUserAccountDirectory().createUserAccount("dmlogan", "123", new DeliverManRole());
+        DeliveryMan ndm= system.getDeliveryManDirectory().newDeliveryMan();
+        ndm.setDeliveryManAccount(ua2);
+        Address ad= new Address();
+        ndm.setFirstName("Logan");
+        ndm.setLastName("Paul");
+        ndm.setEmailId("logan@email.com");
+        ndm.setPhoneNo("7977147283");
+        ad.setStreetAddress("Street 655");
+        ad.setCity("Miami");
+        ad.setState("MA");
+        ad.setCountry("USA");
+        ad.setZipCode("02012");
+        ndm.setAddress(ad);
+        
+        UserAccount ua6 = system.getUserAccountDirectory().createUserAccount("dmJack", "123", new DeliverManRole());
+        DeliveryMan ndm1= system.getDeliveryManDirectory().newDeliveryMan();
+        ndm1.setDeliveryManAccount(ua6);
+        Address ad3= new Address();
+        ndm1.setFirstName("Jack");
+        ndm1.setLastName("Miller");
+        ndm1.setEmailId("miller@email.com");
+        ndm1.setPhoneNo("876098431");
+        ad3.setStreetAddress("Street 786");
+        ad3.setCity("California");
+        ad3.setState("CA");
+        ad3.setCountry("USA");
+        ad3.setZipCode("02012");
+        ndm1.setAddress(ad);
         
 //        UserAccount la = system.getUserAccountDirectory().createUserAccount("dummyla", "123",employee, new LogisticsAssociateRole());
 //        UserAccount la = system.getUserAccountDirectory().createUserAccount("dummyla", "123",employee, new LogisticsAssociateRole());
