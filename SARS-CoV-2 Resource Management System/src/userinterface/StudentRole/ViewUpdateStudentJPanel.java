@@ -5,8 +5,15 @@
  */
 package userinterface.StudentRole;
 
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Role.Role;
+import Business.Student.MyStringVerifier;
 import Business.Student.Student;
+import Business.Student.StudentDirectory;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.InputVerifier;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -19,16 +26,24 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewStudentJPanel
      */
-    
-    private Student student;
-    private JPanel userProcessContainer;
-    private Boolean isEdit = Boolean.FALSE;
-    
-    public ViewUpdateStudentJPanel(JPanel upc, Student student, Boolean isEdit) {
+    private JPanel container;
+    private EcoSystem ecosystem;
+    private DB4OUtil dB4OUtil;
+    private UserAccount userAccount;
+    private boolean isEdit;
+    private String StudentID;
+    StudentDirectory sd;
+    Student student;
+
+    public ViewUpdateStudentJPanel(JPanel container, UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil, Student student) {
         initComponents();
-        this.userProcessContainer = upc;
-        this.student = student;
+        this.container = container;
+        this.userAccount = userAccount;
         this.isEdit = isEdit;
+        this.ecosystem = ecosystem;
+        this.dB4OUtil = dB4OUtil;
+        this.student = student;
+
         addVerifiers();
         populateStudentDetails();
         modifyTextFields(this.isEdit);
@@ -116,6 +131,7 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtStudentID.setEditable(false);
         txtStudentID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtStudentIDActionPerformed(evt);
@@ -390,36 +406,46 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
         modifyTextFields(true);
+        
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
 
-        if (checkBlankInput()) {
-            student.setStudentFirstName(txtFirstName.getText());
-            student.setStudentLastName(txtLastName.getText());
-            student.setDob(txtDoB.getText());
-            student.setContactNumber(txtContactNumber.getText());
-            student.setStudentEmail(txtEmail.getText());
-            student.setStreetName(txtAddress1.getText());
-            student.setAptNo(txtAddress2.getText());
-            student.setCity(txtCity.getText());
-            student.setState(txtState.getText());
-            student.setZipcode(txtZip.getText());
-            JOptionPane.showMessageDialog(this, "Student updated!!", "Update",
-                JOptionPane.INFORMATION_MESSAGE);
-            modifyTextFields(false);
-        } else {
-            JOptionPane.showMessageDialog(this, "Please enter correct values",
-                "Error", JOptionPane.ERROR_MESSAGE);
+        StudentID = this.ecosystem.getStudir().findStudentByUserName(this.userAccount.getUsername()).getStudentID();
+
+        for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
+            if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID)) {
+                if (checkBlankInput()) {
+                    this.student.setStudentFirstName(txtFirstName.getText());
+                    this.student.setStudentLastName(txtLastName.getText());
+                    this.student.setDob(txtDoB.getText());
+                    this.student.setContactNumber(txtContactNumber.getText());
+                    this.student.setStudentEmail(txtEmail.getText());
+                    this.student.setStreetName(txtAddress1.getText());
+                    this.student.setAptNo(txtAddress2.getText());
+                    this.student.setCity(txtCity.getText());
+                    this.student.setState(txtState.getText());
+                    this.student.setZipcode(txtZip.getText());
+                    JOptionPane.showMessageDialog(this, "Student updated!!", "Update",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    modifyTextFields(false);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Please enter correct values",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
         }
+
+
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        container.remove(this);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.previous(container);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
@@ -455,26 +481,68 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void addVerifiers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        InputVerifier stringVerifier = new MyStringVerifier();
+        txtFirstName.setInputVerifier(stringVerifier);
+        txtLastName.setInputVerifier(stringVerifier);
+        txtDoB.setInputVerifier(stringVerifier);
+        txtContactNumber.setInputVerifier(stringVerifier);
+        txtEmail.setInputVerifier(stringVerifier);
+        txtAddress1.setInputVerifier(stringVerifier);
+        txtAddress2.setInputVerifier(stringVerifier);
+        txtCity.setInputVerifier(stringVerifier);
+        txtState.setInputVerifier(stringVerifier);
+        txtZip.setInputVerifier(stringVerifier);
+
     }
 
     private void populateStudentDetails() {
-        txtStudentID.setText(student.getStudentID());
-        txtFirstName.setText(student.getStudentFirstName());
-        txtLastName.setText(student.getStudentLastName());
-        txtDoB.setText(student.getDob());
-        txtContactNumber.setText(student.getContactNumber());
-        txtEmail.setText(student.getStudentEmail());
-        
-        txtAddress1.setText(student.getStreetName());
-        txtAddress2.setText(student.getAptNo());
-        txtCity.setText(student.getCity());
-        txtState.setText(student.getState());
-        txtZip.setText(student.getZipcode());
-    }
 
-    private void modifyTextFields(Boolean edit) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        StudentID = this.ecosystem.getStudir().findStudentByUserName(this.userAccount.getUsername()).getStudentID();
+
+        for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
+            if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID)) {
+                txtStudentID.setText(this.ecosystem.getStudir().getStudentList().get(student).getStudentID());
+                txtFirstName.setText(this.ecosystem.getStudir().getStudentList().get(student).getStudentFirstName());
+                txtLastName.setText(this.ecosystem.getStudir().getStudentList().get(student).getStudentLastName());
+                txtDoB.setText(this.ecosystem.getStudir().getStudentList().get(student).getDob());
+                txtContactNumber.setText(this.ecosystem.getStudir().getStudentList().get(student).getContactNumber());
+                txtEmail.setText(this.ecosystem.getStudir().getStudentList().get(student).getStudentEmail());
+                txtAddress1.setText(this.ecosystem.getStudir().getStudentList().get(student).getStreetName());
+                txtAddress2.setText(this.ecosystem.getStudir().getStudentList().get(student).getAptNo());
+                txtCity.setText(this.ecosystem.getStudir().getStudentList().get(student).getCity());
+                txtState.setText(this.ecosystem.getStudir().getStudentList().get(student).getState());
+                txtZip.setText(this.ecosystem.getStudir().getStudentList().get(student).getZipcode());
+            }
+        }
+
+        }
+
+    
+
+    private void modifyTextFields(Boolean isEdit) {
+//        if (btnEdit.is) {
+//            txtFirstName.setEnabled(true);
+//            txtLastName.setEnabled(true);
+//            txtDoB.setEnabled(true);
+//            txtContactNumber.setEnabled(true);
+//            txtEmail.setEnabled(true);
+//            txtAddress1.setEnabled(true);
+//            txtAddress2.setEnabled(true);
+//            txtCity.setEnabled(true);
+//            txtState.setEnabled(true);
+//            txtZip.setEnabled(true);
+//        } else {
+//            txtFirstName.setEnabled(false);
+//            txtLastName.setEnabled(false);
+//            txtDoB.setEnabled(false);
+//            txtContactNumber.setEnabled(false);
+//            txtEmail.setEnabled(false);
+//            txtAddress1.setEnabled(false);
+//            txtAddress2.setEnabled(false);
+//            txtCity.setEnabled(false);
+//            txtState.setEnabled(false);
+//            txtZip.setEnabled(false);
+//        }
     }
 
     private boolean checkBlankInput() {
