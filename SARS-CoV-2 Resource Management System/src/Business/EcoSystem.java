@@ -41,7 +41,7 @@ public class EcoSystem extends Organization{
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
     private OrderDirectory orderDirectory;
-    private EmployeeDirectory employeeDirectory;
+    
 
     public static EcoSystem getInstance() {
         if (ecosystem == null) {
@@ -71,6 +71,11 @@ public class EcoSystem extends Organization{
         this.ah = new AppointmentHistory();
         this.ad = new AppointmentDirectory();
         this.sd = new SwabDirectory();
+        this.restaurantDirectory = new RestaurantDirectory();
+        this.customerDirectory = new CustomerDirectory();
+        this.deliveryManDirectory = new DeliveryManDirectory();
+        this.orderDirectory= new OrderDirectory();
+        
     }
 
     public ArrayList<Network> getNetworks() {
@@ -161,13 +166,7 @@ public class EcoSystem extends Organization{
         this.orderDirectory = orderDirectory;
     }
 
-    public EmployeeDirectory getEmployeeDirectory() {
-        return employeeDirectory;
-    }
-
-    public void setEmployeeDirectory(EmployeeDirectory employeeDirectory) {
-        this.employeeDirectory = employeeDirectory;
-    }
+    
     
     
     

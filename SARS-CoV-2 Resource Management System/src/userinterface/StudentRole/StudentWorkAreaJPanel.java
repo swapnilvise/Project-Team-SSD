@@ -20,6 +20,8 @@ import java.awt.Graphics2D;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JPanel;
+import userinterface.CustomerRole.CustomerAreaJPanel;
+import userinterface.CustomerRole.CustomerOrderJPanel;
 import userinterface.LoginPage.LoginPageJPanel;
 
 /**
@@ -96,6 +98,7 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
         btn_ViewDetails = new javax.swing.JButton();
         btn_ScheduleTest = new javax.swing.JButton();
         btn_ViewReports = new javax.swing.JButton();
+        btn_OrderFood = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 0, 0));
 
@@ -137,6 +140,15 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
         btn_ViewReports.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
         btn_ViewReports.setText("View Reports");
 
+        btn_OrderFood.setBackground(new java.awt.Color(102, 102, 102));
+        btn_OrderFood.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_OrderFood.setText("Order Food");
+        btn_OrderFood.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_OrderFoodActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,7 +166,8 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(btn_ScheduleTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_ViewReports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_ViewDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btn_ViewDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_OrderFood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -172,7 +185,9 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btn_ScheduleTest)
                 .addGap(18, 18, 18)
                 .addComponent(btn_ViewReports)
-                .addContainerGap(416, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_OrderFood)
+                .addContainerGap(367, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -210,8 +225,18 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btn_ScheduleTestActionPerformed
 
+    private void btn_OrderFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_OrderFoodActionPerformed
+        // TODO add your handling code here:
+        CustomerAreaJPanel ca = new CustomerAreaJPanel(container, userAccount, ecosystem, dB4OUtil);
+        container.add("CustomerAreaJPanel", ca);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(ecosystem);
+    }//GEN-LAST:event_btn_OrderFoodActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_OrderFood;
     private javax.swing.JButton btn_ScheduleTest;
     private javax.swing.JButton btn_ViewDetails;
     private javax.swing.JButton btn_ViewReports;
