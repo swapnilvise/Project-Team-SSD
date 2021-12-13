@@ -1,6 +1,10 @@
 package Business;
 
+import Business.Customer.Address;
 import Business.Employee.Employee;
+import Business.Restaurant.Item;
+import Business.Restaurant.Restaurant;
+import Business.Role.AdminRole;
 import Business.Role.CustomerRole;
 import Business.Role.DoctorRole;
 import Business.Role.LabAssistantRole;
@@ -17,6 +21,7 @@ import Business.StudentUsher.StudentUsherDetails;
 import Business.UserAccount.UserAccount;
 import Business.StudentUsher.StudentUsherDirectory;
 import Business.Student.Student;
+import com.github.javafaker.Faker;
 
 /**
  *
@@ -27,7 +32,8 @@ public class ConfigureASystem {
     public static EcoSystem configure(){
         
         EcoSystem system = EcoSystem.getInstance();
-        Employee employee = system.getEmployeeDirectory().createEmployee("RRH");
+         Faker faker = new Faker();
+//        Employee employee = system.getEmployeeDirectory().createEmployee("RRH");
         UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", new SystemAdminRole());
         UserAccount su = system.getUserAccountDirectory().createUserAccount("dummysu", "123", new StudentUsherRole());
         StudentUsherDetails sdu = system.getSud().newStudentUsher();
@@ -54,6 +60,47 @@ public class ConfigureASystem {
         sd.setState("MA");
         sd.setZipcode("02120");
         sd.setStudentEmail("abc.gmail.com");
+        
+        Employee e2=system.getEmployeeDirectory().createEmployee("Disha");
+        UserAccount ua4 = system.getUserAccountDirectory().createUserAccount("disha", "disha", new AdminRole());
+        e2.setUserAccount(ua4);
+        
+        
+        Employee e=system.getEmployeeDirectory().createEmployee("Allen");
+        UserAccount ua3 = system.getUserAccountDirectory().createUserAccount("dummyrest", "admin", new AdminRole());
+        e.setUserAccount(ua3);
+        
+        Restaurant r=system.getRestaurantDirectory().newRestaurant(ua3);
+        r.setRestName("Qdoba");
+        r.setContactNo("7045564766");
+        Address ad2= new Address();
+        ad2.setStreetAddress("393 Huntington Ave");
+        ad2.setCity("Boston");
+        ad2.setState("MA");
+        ad2.setCountry("USA");
+        ad2.setZipCode("02115");
+        r.setAddress(ad2);
+        for(int j=1;j<=20;j++){
+            Item i=r.getItemList().addNewItem();
+            i.setItemName(faker.food().dish());
+            i.setItemPrice(faker.number().numberBetween(5, 50));
+        }
+        
+        Restaurant r2=system.getRestaurantDirectory().newRestaurant(ua4);
+        r2.setRestName("Popeyes Louisiana Kitchen");
+        r2.setContactNo("7738861071");
+        Address ad4= new Address();
+        ad4.setStreetAddress("360 Huntington Ave");
+        ad4.setCity("Boston");
+        ad4.setState("MA");
+        ad4.setCountry("USA");
+        ad4.setZipCode("02115");
+        r2.setAddress(ad4);
+        for(int j=1;j<=20;j++){
+            Item i=r2.getItemList().addNewItem();
+            i.setItemName(faker.food().dish());
+            i.setItemPrice(faker.number().numberBetween(5, 50));
+        }
         
 //        UserAccount la = system.getUserAccountDirectory().createUserAccount("dummyla", "123",employee, new LogisticsAssociateRole());
 //        UserAccount la = system.getUserAccountDirectory().createUserAccount("dummyla", "123",employee, new LogisticsAssociateRole());

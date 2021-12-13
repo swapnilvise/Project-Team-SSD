@@ -36,6 +36,7 @@
                       <Component id="btn_ScheduleTest" max="32767" attributes="0"/>
                       <Component id="btn_ViewReports" alignment="0" max="32767" attributes="0"/>
                       <Component id="btn_ViewDetails" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btn_OrderFood" alignment="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -58,7 +59,9 @@
               <Component id="btn_ScheduleTest" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btn_ViewReports" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="416" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btn_OrderFood" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="367" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -135,6 +138,20 @@
         </Property>
         <Property name="text" type="java.lang.String" value="View Reports"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_OrderFood">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="66" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI Light" size="16" style="2"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Order Food"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_OrderFoodActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
