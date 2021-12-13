@@ -8,7 +8,7 @@ package userinterface.Admin;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
-import Business.Organization.StudentOrganization;
+//import Business.Organization.StudentOrganization;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -480,9 +480,9 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         organizationJComboBox.removeAllItems();
 
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizations()) {
-            if (!(organization instanceof StudentOrganization)) {
-                organizationJComboBox.addItem(organization);
-            }
+//            if (!(organization instanceof StudentOrganization)) {
+//                organizationJComboBox.addItem(organization);
+//            }
         }
     }
 
