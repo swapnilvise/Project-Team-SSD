@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class AppointmentDirectory {
     
+    
     private ArrayList<AppointmentDetails> AppointmentList;
 
     public AppointmentDirectory() {
@@ -23,10 +24,9 @@ public class AppointmentDirectory {
         return AppointmentList;
     }
     
-    public AppointmentDetails createAppointment(String Date, String Time){
+    public AppointmentDetails createAppointment(){
         AppointmentDetails ad = new AppointmentDetails();
-        ad.setAppointmentDate(Date);
-        ad.setAppointmentTime(Time);
+        this.AppointmentList.add(ad);
         //Code to get complaiance status to be written
         return ad;
     }
