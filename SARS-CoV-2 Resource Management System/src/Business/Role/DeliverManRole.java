@@ -19,9 +19,9 @@ import userinterface.DeliveryManRole.DeliveryManWorkAreaJPanel;
  */
 public class DeliverManRole extends Role {
 
-    @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account,Organization organization, Enterprise enterprise, EcoSystem business,DB4OUtil dB4OUtil) {
-        return new DeliveryManWorkAreaJPanel(userProcessContainer,account,business);//To change body of generated methods, choose Tools | Templates.
+   @Override
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business, DB4OUtil dB4OUtil) {
+        return new DeliveryManWorkAreaJPanel(userProcessContainer,account,business,dB4OUtil);//To change body of generated methods, choose Tools | Templates.
     }
     
 }
