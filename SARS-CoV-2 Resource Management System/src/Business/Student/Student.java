@@ -34,6 +34,7 @@ public class Student {
     
     public Student() {
         this.ad = new AppointmentDirectory();
+        this.sd = new SwabDirectory();
     }
     
 
