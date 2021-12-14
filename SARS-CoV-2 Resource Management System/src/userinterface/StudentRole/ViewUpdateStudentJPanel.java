@@ -516,6 +516,9 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
                 }
                 SwabDetails swabdetails = this.ecosystem.getStudir().getStudentList().get(student).getSd().newSwab();
                 swabdetails.setSwabCollectionDate(AppointmentDate);
+                swabdetails.setSwabCollectionTime("");
+                swabdetails.setSwabCollectedBy("");
+                System.out.println(swabdetails.getSwabID());
             }
         }
         
