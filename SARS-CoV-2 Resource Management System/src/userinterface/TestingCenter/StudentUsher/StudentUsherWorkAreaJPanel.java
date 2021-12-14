@@ -5,9 +5,11 @@
  */
 package userinterface.TestingCenter.StudentUsher;
 
+import Business.AppointmentDetails.AppointmentDirectory;
 import Business.AppointmentDetails.AppointmentHistory;
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
+import Business.Student.StudentDirectory;
 import Business.StudentUsher.StudentUsherDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -18,6 +20,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import userinterface.LoginPage.LoginPageJPanel;
 
@@ -34,7 +37,8 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
     private Integer Time;
     private String PatientID;
     private StudentUsherDirectory sud;
-    private AppointmentHistory ah;
+    private AppointmentDirectory ad;
+    StudentDirectory sd;
 
     /**
      * Creates new form TCEWorkAreaJPanel
@@ -45,6 +49,8 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.dB4OUtil = dB4OUtil;
         this.userAccount = userAccount;
+         this.sd = sd;
+         this.ad = ad;
         
 //        lblWelcome.setText("Welcome, "+this.ecosystem.getDeliveryManDirectory().findDeliveryManByUserName(this.userAccount.getUsername()).getFirstName());
         lblWelcome.setText("Welcome, "+this.ecosystem.getSud().findStudentUsherByUserName(this.userAccount.getUsername()).getFirstName());
@@ -227,13 +233,17 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
 
     private void getDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getDetailsActionPerformed
         // TODO add your handling code here:
-        PatientID = txt_PatientID.getText();
-        container.removeAll();
-        StudentUsherDetailsJPanel sudp = new StudentUsherDetailsJPanel(container, userAccount, ecosystem, dB4OUtil, PatientID, ah);
-        container.add("StudentUsherDetailsJPanel",sudp);
-        CardLayout crdLyt = (CardLayout) container.getLayout();
-        crdLyt.next(container);
-        dB4OUtil.storeSystem(ecosystem);
+        if (txt_PatientID.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter StudentID to continue");
+        } else {
+            PatientID = txt_PatientID.getText();
+            container.removeAll();
+            StudentUsherDetailsJPanel sudp = new StudentUsherDetailsJPanel(container, userAccount, ecosystem, dB4OUtil, PatientID, ad, sd);
+            container.add("StudentUsherDetailsJPanel", sudp);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.next(container);
+            dB4OUtil.storeSystem(ecosystem);
+        }
     }//GEN-LAST:event_getDetailsActionPerformed
 
 
