@@ -4,13 +4,16 @@
  */
 package userinterface.DeliveryManRole;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
-
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
+import userinterface.LoginPage.LoginPageJPanel;
 
 /**
  *
@@ -18,27 +21,33 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel container;
     private EcoSystem business;
     private UserAccount userAccount;
-    
-    
+    private DB4OUtil dB4OUtil;
+
     /**
-     * Creates new form LabAssistantWorkAreaJPanel
+     * Creates new form ProcessWorkRequestJPanel
      */
-    public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
+    public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, DB4OUtil dB4OUtil) {
         initComponents();
-        
-        this.userProcessContainer = userProcessContainer;
+        this.container = userProcessContainer;
         this.userAccount = account;
         this.business = business;
-      
-        
-        populateTable();
+        this.dB4OUtil = dB4OUtil;
+        jLabel3.setText("Welcome, "+this.business.getDeliveryManDirectory().findDeliveryManByUserName(this.userAccount.getUsername()).getFirstName());
     }
-    
-    public void populateTable(){
-        
+
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        int width = getWidth();
+        int height = getHeight();
+
+        Color color1 = new Color(0, 105, 146);
+        Color color2 = new Color(162, 238, 242);
+        GradientPaint gp = new GradientPaint(0, 0, color1, 0, height, color2);
+        g2d.setPaint(gp);
+        g2d.fillRect(0, 0, width, height);
     }
 
     /**
@@ -50,105 +59,119 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        workRequestJTable = new javax.swing.JTable();
-        assignJButton = new javax.swing.JButton();
-        processJButton = new javax.swing.JButton();
-        refreshJButton = new javax.swing.JButton();
+        btnOrderHistory = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        logoutButton1 = new javax.swing.JButton();
+        btnEditDetails = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Message", "Sender", "Receiver", "Status"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, true, true, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(workRequestJTable);
-        if (workRequestJTable.getColumnModel().getColumnCount() > 0) {
-            workRequestJTable.getColumnModel().getColumn(0).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(1).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(2).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
-        }
-
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 58, 375, 96));
-
-        assignJButton.setText("Assign to me");
-        assignJButton.addActionListener(new java.awt.event.ActionListener() {
+        btnOrderHistory.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        btnOrderHistory.setBorderPainted(false
+        );
+        btnOrderHistory.setContentAreaFilled(false);
+        btnOrderHistory.setOpaque(false);
+        btnOrderHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                assignJButtonActionPerformed(evt);
+                btnOrderHistoryActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 215, -1, -1));
+        add(btnOrderHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 160, 58));
 
-        processJButton.setText("Process");
-        processJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                processJButtonActionPerformed(evt);
-            }
-        });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 215, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("Welcome to your Dashboard");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 6, 264, 30));
 
-        refreshJButton.setText("Refresh");
-        refreshJButton.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        logoutButton1.setText("Logout");
+        logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshJButtonActionPerformed(evt);
+                logoutButton1ActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
+        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 6, 94, 30));
+
+        btnEditDetails.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        btnEditDetails.setBorderPainted(false);
+        btnEditDetails.setContentAreaFilled(false);
+        btnEditDetails.setOpaque(false);
+        btnEditDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditDetailsActionPerformed(evt);
+            }
+        });
+        add(btnEditDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 160, 58));
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 15, 355));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/8d1b57fd27e06b62_.gif"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 530, 460));
+
+        jLabel2.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setText("Manage Orders");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 100, 58));
+
+        jLabel4.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText("Edit Details");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 100, 58));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-registration-24.png"))); // NOI18N
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 40, 60));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-order-history-24.png"))); // NOI18N
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 40, 50));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 180, 20));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
+    private void btnOrderHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderHistoryActionPerformed
 
-        int selectedRow = workRequestJTable.getSelectedRow();
-        
-        if (selectedRow < 0){
-            return;
-        }
-        
-        WorkRequest request = (WorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
-        request.setReceiver(userAccount);
-        request.setStatus("Pending");
-        populateTable();
-        
-    }//GEN-LAST:event_assignJButtonActionPerformed
+        DeliveryManManageOrdersJPanel dmmop = new DeliveryManManageOrdersJPanel(container, userAccount, business, dB4OUtil);
+        container.add("DeliveryManManageOrdersJPanel", dmmop);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+    }//GEN-LAST:event_btnOrderHistoryActionPerformed
 
-    private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
-        
+    private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
+        // TODO add your handling code here:
+        container.removeAll();
+        LoginPageJPanel lpp= new LoginPageJPanel(container, business, dB4OUtil);
+        container.add("LoginPageJPanel", lpp);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(business);
+    }//GEN-LAST:event_logoutButton1ActionPerformed
 
-        
-    }//GEN-LAST:event_processJButtonActionPerformed
+    private void btnEditDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditDetailsActionPerformed
+        // TODO add your handling code here:
 
-    private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
-        populateTable();
-    }//GEN-LAST:event_refreshJButtonActionPerformed
+        DeliveryManEditDetailsJPanel dmedp = new DeliveryManEditDetailsJPanel(container, userAccount, business, dB4OUtil);
+        container.add("DeliveryManEditDetailsJPanel", dmedp);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+    }//GEN-LAST:event_btnEditDetailsActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton assignJButton;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton processJButton;
-    private javax.swing.JButton refreshJButton;
-    private javax.swing.JTable workRequestJTable;
+    private javax.swing.JButton btnEditDetails;
+    private javax.swing.JButton btnOrderHistory;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JButton logoutButton1;
     // End of variables declaration//GEN-END:variables
 }
