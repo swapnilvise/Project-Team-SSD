@@ -5,6 +5,7 @@
  */
 package userinterface.TestingCenter.SwapCollectorRole;
 
+import Business.AppointmentDetails.AppointmentDetails;
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
@@ -15,6 +16,7 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -31,6 +33,8 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
     private DB4OUtil dB4OUtil;
     private UserAccount userAccount; 
     private Integer Time;
+    private String StudentID;
+    private String SwabID;
 
     /**
      * Creates new form SwabCollectorWorkAreaJPanel
@@ -89,10 +93,10 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txt_StudentID = new javax.swing.JTextField();
+        txt_AppointmentDate = new javax.swing.JTextField();
+        txt_AppointmentTime = new javax.swing.JTextField();
+        txt_AppointmentStatus = new javax.swing.JTextField();
         btn_SwabCollected = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -159,21 +163,21 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setText("Appointment Status :");
 
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_StudentID.setEditable(false);
+        txt_StudentID.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txt_StudentID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jTextField2.setEditable(false);
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_AppointmentDate.setEditable(false);
+        txt_AppointmentDate.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txt_AppointmentDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jTextField3.setEditable(false);
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_AppointmentTime.setEditable(false);
+        txt_AppointmentTime.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txt_AppointmentTime.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jTextField4.setEditable(false);
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_AppointmentStatus.setEditable(false);
+        txt_AppointmentStatus.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txt_AppointmentStatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         btn_SwabCollected.setBackground(new java.awt.Color(102, 102, 102));
         btn_SwabCollected.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
@@ -217,10 +221,10 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_SwabID)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txt_StudentID)
+                            .addComponent(txt_AppointmentDate)
+                            .addComponent(txt_AppointmentTime)
+                            .addComponent(txt_AppointmentStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -239,19 +243,19 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_StudentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_AppointmentDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_AppointmentTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_AppointmentStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(btn_SwabCollected)
                 .addContainerGap(50, Short.MAX_VALUE))
@@ -298,10 +302,26 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btn_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SearchActionPerformed
         // TODO add your handling code here:
+        SwabID = txt_SwabID.getText();
+        
     }//GEN-LAST:event_btn_SearchActionPerformed
 
     private void btn_SwabCollectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SwabCollectedActionPerformed
         // TODO add your handling code here:
+        StudentID = txt_StudentID.getText();
+        
+        for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
+            if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID)) {
+                ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
+                for (AppointmentDetails ad : AppointmentList) {
+                    ad.setAppointmentStatus("Swab Collected");
+                }
+                
+                for (String swabdetails : this.ecosystem.getStudir().getStudentList().get(student).getSd().getSwabCollectionList().keySet()) {
+                    
+                }
+            }
+        }
         JOptionPane.showMessageDialog(this, "Student Appointment Status Changed to Swab Collected");
     }//GEN-LAST:event_btn_SwabCollectedActionPerformed
 
@@ -317,14 +337,14 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JLabel lbl_Greetings;
     private javax.swing.JLabel lbl_SwabID;
     private javax.swing.JButton logoutButton1;
+    private javax.swing.JTextField txt_AppointmentDate;
+    private javax.swing.JTextField txt_AppointmentStatus;
+    private javax.swing.JTextField txt_AppointmentTime;
+    private javax.swing.JTextField txt_StudentID;
     private javax.swing.JTextField txt_SwabID;
     // End of variables declaration//GEN-END:variables
 }
