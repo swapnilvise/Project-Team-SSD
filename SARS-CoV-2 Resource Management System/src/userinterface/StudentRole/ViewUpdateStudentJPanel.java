@@ -5,6 +5,7 @@
  */
 package userinterface.StudentRole;
 
+import Business.AppointmentDetails.AppointmentDetails;
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Role.Role;
@@ -13,6 +14,7 @@ import Business.Student.Student;
 import Business.Student.StudentDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.InputVerifier;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -63,10 +65,10 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
         txtCity.setEnabled(false);
         txtState.setEnabled(false);
         txtZip.setEnabled(false);
-        
-        if(soption == "1"){
+
+        if (soption == "1") {
             btn_Checkin.setVisible(false);
-        } else if (soption == "2"){
+        } else if (soption == "2") {
             btn_Checkin.setVisible(true);
         }
     }
@@ -455,7 +457,6 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 
 //        StudentID = this.ecosystem.getStudir().findStudentByUserName(this.userAccount.getUsername()).getStudentID();
-        
         for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
             if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID1)) {
                 if (checkBlankInput()) {
@@ -503,7 +504,18 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
 
     private void btn_CheckinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CheckinActionPerformed
         // TODO add your handling code here:
+
+        for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
+            if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID1)) {
+                ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
+                for (AppointmentDetails ad : AppointmentList) {
+                    ad.setAppointmentStatus("In Queue for Testing");
+                }
+            }
+        }
         JOptionPane.showMessageDialog(this, "Student Checked-In for Testing, Kindly hand them the Testing kit");
+        clearfields();
+
     }//GEN-LAST:event_btn_CheckinActionPerformed
 
 
@@ -614,5 +626,19 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
         } else {
             return true;
         }
+    }
+
+    private void clearfields() {
+        txtStudentID.setText("");
+        txtFirstName.setText("");
+        txtLastName.setText("");
+        txtDoB.setText("");
+        txtContactNumber.setText("");
+        txtEmail.setText("");
+        txtAddress1.setText("");
+        txtAddress2.setText("");
+        txtCity.setText("");
+        txtState.setText("");
+        txtZip.setText("");
     }
 }
