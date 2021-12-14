@@ -28,19 +28,19 @@ public class ConfigureASystem {
         
         EcoSystem system = EcoSystem.getInstance();
         Employee employee = system.getEmployeeDirectory().createEmployee("RRH");
-        UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", employee, new SystemAdminRole());
-        UserAccount su = system.getUserAccountDirectory().createUserAccount("dummysu", "123",employee, new StudentUsherRole());
+        UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", new SystemAdminRole());
+        UserAccount su = system.getUserAccountDirectory().createUserAccount("dummysu", "123", new StudentUsherRole());
         StudentUsherDetails sdu = system.getSud().newStudentUsher();
         sdu.setStudentUsherAccount(su);
         sdu.setLastName("Vise");
         sdu.setFirstName("Swapnil");
         
-        UserAccount pa = system.getUserAccountDirectory().createUserAccount("dummypa", "123",employee, new PatientAssociateRole());
-        UserAccount sc = system.getUserAccountDirectory().createUserAccount("dummysc", "123",employee, new SwabCollectorRole());
-        UserAccount la = system.getUserAccountDirectory().createUserAccount("dummyla", "123",employee, new LogisticsAssociateRole());
-        UserAccount dc = system.getUserAccountDirectory().createUserAccount("dummydc", "123",employee, new DoctorRole());
-        UserAccount labass = system.getUserAccountDirectory().createUserAccount("dummylabas", "123",employee, new LabAssistantRole());
-        UserAccount student = system.getUserAccountDirectory().createUserAccount("dummystu", "123",employee, new StudentRole());
+        UserAccount pa = system.getUserAccountDirectory().createUserAccount("dummypa", "123", new PatientAssociateRole());
+        UserAccount sc = system.getUserAccountDirectory().createUserAccount("dummysc", "123", new SwabCollectorRole());
+        UserAccount la = system.getUserAccountDirectory().createUserAccount("dummyla", "123", new LogisticsAssociateRole());
+        UserAccount dc = system.getUserAccountDirectory().createUserAccount("dummydc", "123", new DoctorRole());
+        UserAccount labass = system.getUserAccountDirectory().createUserAccount("dummylabas", "123", new LabAssistantRole());
+        UserAccount student = system.getUserAccountDirectory().createUserAccount("dummystu", "123", new StudentRole());
         Student sd = system.getStudir().newStudent();
         sd.setStudentAccount(student);
         sd.setStudentLastName("Diggikar");
