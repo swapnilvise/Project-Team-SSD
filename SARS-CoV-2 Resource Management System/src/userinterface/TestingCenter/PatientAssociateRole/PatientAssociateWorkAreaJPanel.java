@@ -7,6 +7,7 @@ package userinterface.TestingCenter.PatientAssociateRole;
 
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
+import Business.Student.Student;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -18,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JPanel;
 import userinterface.LoginPage.LoginPageJPanel;
+import userinterface.StudentRole.ViewUpdateStudentJPanel;
 
 /**
  *
@@ -30,6 +32,8 @@ public class PatientAssociateWorkAreaJPanel extends javax.swing.JPanel {
     private DB4OUtil dB4OUtil;
     private UserAccount userAccount; 
     private Integer Time;
+    Student student;
+    private String StudentID;
 
     /**
      * Creates new form PatientAssociateWorkAreaJPanel
@@ -232,9 +236,11 @@ public class PatientAssociateWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btn_GetDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GetDetailsActionPerformed
         // TODO add your handling code here:
+        StudentID = txt_StudentID.getText();
+        String option = "2";
         container.removeAll();
-        PatientViewAndEditDetailsJPanel pve = new PatientViewAndEditDetailsJPanel(container, userAccount, ecosystem, dB4OUtil);
-        container.add("PatientViewAndEditDetailsJPanel", pve);
+        ViewUpdateStudentJPanel vus = new ViewUpdateStudentJPanel(container, userAccount, ecosystem, dB4OUtil, student,Boolean.TRUE, StudentID, option);
+        container.add("ViewUpdateStudentJPanel", vus);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
         dB4OUtil.storeSystem(ecosystem);

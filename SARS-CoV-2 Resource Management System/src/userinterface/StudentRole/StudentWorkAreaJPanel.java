@@ -38,6 +38,7 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
     private AppointmentHistory ah;
     Student student;
     AppointmentDirectory ad;
+    private String StudentID;
 
 
     /**
@@ -187,8 +188,10 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btn_ViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewDetailsActionPerformed
         // TODO add your handling code here:
+        StudentID = this.ecosystem.getStudir().findStudentByUserName(this.userAccount.getUsername()).getStudentID();
+        String option = "1";
         container.removeAll();
-        ViewUpdateStudentJPanel vujp = new ViewUpdateStudentJPanel(container, userAccount, ecosystem, dB4OUtil, student, Boolean.TRUE);
+        ViewUpdateStudentJPanel vujp = new ViewUpdateStudentJPanel(container, userAccount, ecosystem, dB4OUtil, student, Boolean.TRUE, StudentID, option);
         container.add("LoginPageJPanel", vujp);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
