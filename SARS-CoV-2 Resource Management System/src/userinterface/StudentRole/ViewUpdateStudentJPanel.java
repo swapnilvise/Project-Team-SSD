@@ -16,6 +16,7 @@ import java.awt.CardLayout;
 import javax.swing.InputVerifier;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userinterface.TestingCenter.PatientAssociateRole.PatientAssociateWorkAreaJPanel;
 import userinterface.TestingCenter.StudentUsher.StudentUsherWorkAreaJPanel;
 
 /**
@@ -32,12 +33,12 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
     private DB4OUtil dB4OUtil;
     private UserAccount userAccount;
     private boolean isEdit;
-    private String StudentID;
+    private String StudentID1;
     StudentDirectory sd;
     Student student;
-    
+    private String soption;
 
-    public ViewUpdateStudentJPanel(JPanel container, UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil, Student student, Boolean isEdit) {
+    public ViewUpdateStudentJPanel(JPanel container, UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil, Student student, Boolean isEdit, String StudentID, String option) {
         initComponents();
         this.container = container;
         this.userAccount = userAccount;
@@ -45,6 +46,8 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.dB4OUtil = dB4OUtil;
         this.student = student;
+        StudentID1 = StudentID;
+        soption = option;
 
         addVerifiers();
         populateStudentDetails();
@@ -61,6 +64,11 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
         txtState.setEnabled(false);
         txtZip.setEnabled(false);
         
+        if(soption == "1"){
+            btn_Checkin.setVisible(false);
+        } else if (soption == "2"){
+            btn_Checkin.setVisible(true);
+        }
     }
 
     /**
@@ -100,6 +108,7 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
         btnEdit = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        btn_Checkin = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -244,6 +253,15 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
             }
         });
 
+        btn_Checkin.setBackground(new java.awt.Color(102, 102, 102));
+        btn_Checkin.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_Checkin.setText("Check-In");
+        btn_Checkin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CheckinActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -305,10 +323,12 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
                                 .addGap(111, 111, 111)))
                         .addGap(97, 97, 97))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
+                        .addGap(11, 11, 11)
                         .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(26, 26, 26)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_Checkin, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -348,10 +368,11 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12))
-                        .addGap(75, 75, 75)
+                        .addGap(68, 68, 68)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnEdit)
-                            .addComponent(btnSave)))
+                            .addComponent(btnSave)
+                            .addComponent(btn_Checkin)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -427,16 +448,16 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
         modifyTextFields(true);
-        
+
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
 
-        StudentID = this.ecosystem.getStudir().findStudentByUserName(this.userAccount.getUsername()).getStudentID();
-
+//        StudentID = this.ecosystem.getStudir().findStudentByUserName(this.userAccount.getUsername()).getStudentID();
+        
         for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
-            if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID)) {
+            if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID1)) {
                 if (checkBlankInput()) {
                     this.ecosystem.getStudir().getStudentList().get(student).setStudentFirstName(txtFirstName.getText());
                     this.ecosystem.getStudir().getStudentList().get(student).setStudentLastName(txtLastName.getText());
@@ -462,19 +483,35 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        container.removeAll();
-        StudentWorkAreaJPanel s = new StudentWorkAreaJPanel(container, userAccount, ecosystem, dB4OUtil);
-        container.add("StudentWorkAreaJPanel", s);
-        CardLayout crdLyt = (CardLayout) container.getLayout();
-        crdLyt.next(container);
-        dB4OUtil.storeSystem(ecosystem);
+        if (soption == "1") {
+            container.removeAll();
+            StudentWorkAreaJPanel s = new StudentWorkAreaJPanel(container, userAccount, ecosystem, dB4OUtil);
+            container.add("StudentWorkAreaJPanel", s);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.next(container);
+            dB4OUtil.storeSystem(ecosystem);
+        } else if (soption == "2") {
+            container.removeAll();
+            PatientAssociateWorkAreaJPanel pa = new PatientAssociateWorkAreaJPanel(container, userAccount, ecosystem, dB4OUtil);
+            container.add("PatientAssociateWorkAreaJPanel", pa);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.next(container);
+            dB4OUtil.storeSystem(ecosystem);
+        }
+
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btn_CheckinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CheckinActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Student Checked-In for Testing, Kindly hand them the Testing kit");
+    }//GEN-LAST:event_btn_CheckinActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btn_Checkin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -519,10 +556,9 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
 
     private void populateStudentDetails() {
 
-        StudentID = this.ecosystem.getStudir().findStudentByUserName(this.userAccount.getUsername()).getStudentID();
-
+//        StudentID = this.ecosystem.getStudir().findStudentByUserName(this.userAccount.getUsername()).getStudentID();
         for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
-            if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID)) {
+            if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(StudentID1)) {
                 txtStudentID.setText(this.ecosystem.getStudir().getStudentList().get(student).getStudentID());
                 txtFirstName.setText(this.ecosystem.getStudir().getStudentList().get(student).getStudentFirstName());
                 txtLastName.setText(this.ecosystem.getStudir().getStudentList().get(student).getStudentLastName());
@@ -537,9 +573,7 @@ public class ViewUpdateStudentJPanel extends javax.swing.JPanel {
             }
         }
 
-        }
-
-    
+    }
 
     private void modifyTextFields(Boolean isEdit) {
         if (isEdit) {
