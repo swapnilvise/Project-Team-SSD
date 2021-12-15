@@ -11,6 +11,7 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.TestingCenter.LogisticsAssociateRole.LogisticsAssociateGetSwabJPanel;
 import userinterface.TestingCenter.LogisticsAssociateRole.LogisticsAssociateWorkAreaJPanel;
 import userinterface.TestingCenter.StudentUsher.StudentUsherWorkAreaJPanel;
 
