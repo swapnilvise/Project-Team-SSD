@@ -98,7 +98,8 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(0, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logoutButton1.setBackground(new java.awt.Color(102, 102, 102));
+        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
+        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +120,7 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
                 jLabel3MouseExited(evt);
             }
         });
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 1200, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 770, 1200, -1));
 
         lblWelcome.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(204, 204, 204));
@@ -131,7 +132,8 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
         lbl_Greetings.setText("Greetings!");
         add(lbl_Greetings, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 64, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         lbl_PatientID.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         lbl_PatientID.setForeground(new java.awt.Color(204, 204, 204));
@@ -156,7 +158,7 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        getDetails.setBackground(new java.awt.Color(102, 102, 102));
+        getDetails.setBackground(new java.awt.Color(0, 0, 0));
         getDetails.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
         getDetails.setText("Get Details");
         getDetails.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

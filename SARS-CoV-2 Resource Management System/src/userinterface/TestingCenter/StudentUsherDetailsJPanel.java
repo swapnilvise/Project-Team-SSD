@@ -79,7 +79,9 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(0, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logoutButton1.setBackground(new java.awt.Color(102, 102, 102));
+        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
+        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,14 +102,15 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
                 jLabel4MouseExited(evt);
             }
         });
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 1200, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 770, 1200, -1));
 
         lbl_Details.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         lbl_Details.setForeground(new java.awt.Color(204, 204, 204));
         lbl_Details.setText("Details for, ");
         add(lbl_Details, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 59, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         lbl_AppointmentDate.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         lbl_AppointmentDate.setForeground(new java.awt.Color(204, 204, 204));
@@ -130,8 +133,9 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
         txt_ComplianceStatus.setEditable(false);
         txt_ComplianceStatus.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
 
-        btn_CheckIn.setBackground(new java.awt.Color(102, 102, 102));
+        btn_CheckIn.setBackground(new java.awt.Color(0, 0, 0));
         btn_CheckIn.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_CheckIn.setForeground(new java.awt.Color(255, 255, 255));
         btn_CheckIn.setText("Check-In");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N

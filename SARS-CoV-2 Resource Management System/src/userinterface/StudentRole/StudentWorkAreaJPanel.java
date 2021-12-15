@@ -214,7 +214,7 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btn_ViewReports)
                 .addGap(18, 18, 18)
                 .addComponent(btn_OrderFood)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 336, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 354, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addContainerGap())
         );
