@@ -5,6 +5,7 @@
  */
 package userinterface.TestingCenter.StudentUsher;
 
+import Business.AppointmentDetails.AppointmentDetails;
 import Business.AppointmentDetails.AppointmentDirectory;
 import Business.AppointmentDetails.AppointmentHistory;
 import Business.DB4OUtil.DB4OUtil;
@@ -19,6 +20,7 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -29,11 +31,11 @@ import userinterface.LoginPage.LoginPageJPanel;
  * @author swapn
  */
 public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
-    
+
     private JPanel container;
     private EcoSystem ecosystem;
     private DB4OUtil dB4OUtil;
-    private UserAccount userAccount; 
+    private UserAccount userAccount;
     private Integer Time;
     private String PatientID;
     private StudentUsherDirectory sud;
@@ -43,43 +45,39 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form TCEWorkAreaJPanel
      */
-    public StudentUsherWorkAreaJPanel(JPanel container,UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
+    public StudentUsherWorkAreaJPanel(JPanel container, UserAccount userAccount, EcoSystem ecosystem, DB4OUtil dB4OUtil) {
         initComponents();
         this.container = container;
         this.ecosystem = ecosystem;
         this.dB4OUtil = dB4OUtil;
         this.userAccount = userAccount;
-         this.sd = sd;
-         this.ad = ad;
-        
+        this.sd = sd;
+        this.ad = ad;
+
 //        lblWelcome.setText("Welcome, "+this.ecosystem.getDeliveryManDirectory().findDeliveryManByUserName(this.userAccount.getUsername()).getFirstName());
-        lblWelcome.setText("Welcome, "+this.ecosystem.getSud().findStudentUsherByUserName(this.userAccount.getUsername()).getFirstName());
+        lblWelcome.setText("Welcome, " + this.ecosystem.getSud().findStudentUsherByUserName(this.userAccount.getUsername()).getFirstName());
         Date CurrentTime = new Date();
         SimpleDateFormat ft = new SimpleDateFormat("H");
         System.out.println(ft.format(CurrentTime));
         Time = Integer.parseInt(ft.format(CurrentTime));
-        if (Time < 12){
-           lbl_Greetings.setText("Good Morning! "); 
-        } else if (Time >= 18){
-           lbl_Greetings.setText("Good Evening! ");
+        if (Time < 12) {
+            lbl_Greetings.setText("Good Morning! ");
+        } else if (Time >= 18) {
+            lbl_Greetings.setText("Good Evening! ");
         } else {
-           lbl_Greetings.setText("Good Afternoon! ");
+            lbl_Greetings.setText("Good Afternoon! ");
         }
-        
-            
-        
-        
 
     }
-    
-    protected void paintComponent(Graphics g){
-        Graphics2D g2d= (Graphics2D)g;
-        int width=getWidth();
-        int height= getHeight();
-        
-        Color color1= new Color(0, 0, 0);
-        Color color2= new Color(51, 51, 51);
-        GradientPaint gp = new GradientPaint(0,0,color1,0,height,color2);
+
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        int width = getWidth();
+        int height = getHeight();
+
+        Color color1 = new Color(0, 0, 0);
+        Color color2 = new Color(51, 51, 51);
+        GradientPaint gp = new GradientPaint(0, 0, color1, 0, height, color2);
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, width, height);
     }
@@ -129,7 +127,7 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
                 jLabel3MouseExited(evt);
             }
         });
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 1200, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 770, 1200, -1));
 
         lblWelcome.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(204, 204, 204));
@@ -212,7 +210,7 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
     private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
         // TODO add your handling code here:
         container.removeAll();
-        LoginPageJPanel lpp= new LoginPageJPanel(container, ecosystem, dB4OUtil);
+        LoginPageJPanel lpp = new LoginPageJPanel(container, ecosystem, dB4OUtil);
         container.add("LoginPageJPanel", lpp);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
@@ -236,16 +234,28 @@ public class StudentUsherWorkAreaJPanel extends javax.swing.JPanel {
         if (txt_PatientID.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter StudentID to continue");
         } else {
-            PatientID = txt_PatientID.getText();
-            container.removeAll();
-            StudentUsherDetailsJPanel sudp = new StudentUsherDetailsJPanel(container, userAccount, ecosystem, dB4OUtil, PatientID, ad, sd);
-            container.add("StudentUsherDetailsJPanel", sudp);
-            CardLayout crdLyt = (CardLayout) container.getLayout();
-            crdLyt.next(container);
-            dB4OUtil.storeSystem(ecosystem);
+
+            for (String student : this.ecosystem.getStudir().getStudentList().keySet()) {
+                if (this.ecosystem.getStudir().getStudentList().get(student).getStudentID().equalsIgnoreCase(txt_PatientID.getText())) {
+                    ArrayList<AppointmentDetails> AppointmentList = this.ecosystem.getStudir().getStudentList().get(student).getAd().getAppointmentList();
+                    for (AppointmentDetails ad1 : AppointmentList) {
+                        if (ad1.getAppointmentStatus() == "Checked-In for Testing") {
+                            JOptionPane.showMessageDialog(this, "Student Already Checked-In for Testing");
+                        } else {
+                            PatientID = txt_PatientID.getText();
+                            container.removeAll();
+                            StudentUsherDetailsJPanel sudp = new StudentUsherDetailsJPanel(container, userAccount, ecosystem, dB4OUtil, PatientID, ad, sd);
+                            container.add("StudentUsherDetailsJPanel", sudp);
+                            CardLayout crdLyt = (CardLayout) container.getLayout();
+                            crdLyt.next(container);
+                            dB4OUtil.storeSystem(ecosystem);
+                        }
+                    }
+
+                }
+            }
         }
     }//GEN-LAST:event_getDetailsActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton getDetails;

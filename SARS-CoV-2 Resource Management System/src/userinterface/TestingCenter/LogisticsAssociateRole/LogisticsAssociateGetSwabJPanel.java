@@ -11,6 +11,7 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -88,6 +89,7 @@ public class LogisticsAssociateGetSwabJPanel extends javax.swing.JPanel {
         btn_MarkAllCollected = new javax.swing.JButton();
         btn_MarkSelectedAsCollected = new javax.swing.JButton();
         btn_MarkSelectedAsNotCollected = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -150,6 +152,20 @@ public class LogisticsAssociateGetSwabJPanel extends javax.swing.JPanel {
         btn_MarkSelectedAsNotCollected.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
         btn_MarkSelectedAsNotCollected.setText("Mark Selected As Not Collected");
         add(btn_MarkSelectedAsNotCollected, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 589, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(188, 188, 188));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("<> with ♡ by Team Coding Pirates ");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel3MouseExited(evt);
+            }
+        });
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 770, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
@@ -179,11 +195,24 @@ public class LogisticsAssociateGetSwabJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_MarkSelectedAsCollectedActionPerformed
 
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
+    }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
+    }//GEN-LAST:event_jLabel3MouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_MarkAllCollected;
     private javax.swing.JButton btn_MarkSelectedAsCollected;
     private javax.swing.JButton btn_MarkSelectedAsNotCollected;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JLabel lbl_Greetings;
