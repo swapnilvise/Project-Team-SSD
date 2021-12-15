@@ -6,6 +6,7 @@
 package Business.Student;
 
 import Business.AppointmentDetails.AppointmentDirectory;
+import Business.Doctor.DoctorPrescription;
 import Business.Swab.SwabDirectory;
 import Business.UserAccount.UserAccount;
 
@@ -33,6 +34,7 @@ public class Student {
     private AppointmentDirectory ad;
     private SwabDirectory sd;
     private String AssignedDoctor;
+    private String Prescription;
     
     public Student() {
         this.ad = new AppointmentDirectory();
@@ -175,6 +177,16 @@ public class Student {
     public void setAssignedDoctor(String AssignedDoctor) {
         this.AssignedDoctor = AssignedDoctor;
     }
+
+    public String getPrescription() {
+        return Prescription;
+    }
+
+    public void setPrescription(String Prescription) {
+        this.Prescription = Prescription;
+    }
+    
+    
     
     @Override
     public String toString(){
