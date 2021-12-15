@@ -139,6 +139,11 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
         btn_ViewReports.setBackground(new java.awt.Color(102, 102, 102));
         btn_ViewReports.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
         btn_ViewReports.setText("View Reports");
+        btn_ViewReports.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ViewReportsActionPerformed(evt);
+            }
+        });
 
         btn_OrderFood.setBackground(new java.awt.Color(102, 102, 102));
         btn_OrderFood.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
@@ -233,6 +238,11 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
         crdLyt.next(container);
         dB4OUtil.storeSystem(ecosystem);
     }//GEN-LAST:event_btn_OrderFoodActionPerformed
+
+    private void btn_ViewReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewReportsActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btn_ViewReportsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
