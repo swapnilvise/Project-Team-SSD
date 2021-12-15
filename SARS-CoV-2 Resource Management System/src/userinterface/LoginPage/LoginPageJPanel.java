@@ -42,6 +42,7 @@ public class LoginPageJPanel extends javax.swing.JPanel {
         this.dB4OUtil = dB4OUtil;
 //        setSize(900, 630);
     }
+    
 
     protected void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;

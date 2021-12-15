@@ -36,18 +36,19 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         this.ecosystem=ecosystem;
         this.dB4OUtil=dB4OUtil;
         this.userAccount = account;
-        setSize(900, 630);
-        jLabel3.setText("Welcome, "+this.ecosystem.getCustomerDirectory().findCustomerByUserName(account.getUsername()).getFirstName());
+//        setSize(1200, 800);
+        jLabel3.setText("Welcome, "+this.ecosystem.getStudir().findStudentByUserName(account.getUsername()).getStudentFirstName());
+       
     }
 
-    protected void paintComponent(Graphics g){
-        Graphics2D g2d= (Graphics2D)g;
-        int width=getWidth();
-        int height= getHeight();
-        
-        Color color1= new Color(0, 105, 146);
-        Color color2= new Color(162, 238, 242);
-        GradientPaint gp = new GradientPaint(0,0,color1,0,height,color2);
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        int width = getWidth();
+        int height = getHeight();
+
+        Color color1 = new Color(0, 0, 0);
+        Color color2 = new Color(51, 51, 51);
+        GradientPaint gp = new GradientPaint(0, 0, color1, 0, height, color2);
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, width, height);
     }
@@ -64,18 +65,15 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         btnOrderHistory = new javax.swing.JButton();
         btnPlaceOrder = new javax.swing.JButton();
-        btnEditDetails = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoutButton1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
@@ -85,13 +83,14 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 logoutButton1ActionPerformed(evt);
             }
         });
-        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(677, 6, 94, -1));
+        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 10, 94, -1));
 
-        jLabel3.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Welcome <user first name>");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 6, 219, 22));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 219, 22));
 
         btnOrderHistory.setBorderPainted(false);
         btnOrderHistory.setContentAreaFilled(false);
@@ -101,7 +100,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 btnOrderHistoryActionPerformed(evt);
             }
         });
-        add(btnOrderHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 149, 56));
+        add(btnOrderHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 149, 56));
 
         btnPlaceOrder.setBorderPainted(false);
         btnPlaceOrder.setContentAreaFilled(false);
@@ -111,58 +110,38 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 btnPlaceOrderActionPerformed(evt);
             }
         });
-        add(btnPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 149, 56));
-
-        btnEditDetails.setBorderPainted(false);
-        btnEditDetails.setContentAreaFilled(false);
-        btnEditDetails.setOpaque(false);
-        btnEditDetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditDetailsActionPerformed(evt);
-            }
-        });
-        add(btnEditDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 149, 56));
+        add(btnPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 149, 56));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 12, 330));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 12, 330));
 
-        jLabel1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Place Order");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 101, 56));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 101, 56));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-online-shop-24.png"))); // NOI18N
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 42, 42));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 42, 42));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-order-history-24.png"))); // NOI18N
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 42, 60));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 42, 60));
 
-        jLabel7.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Order History");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 101, 70));
-
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-registration-24.png"))); // NOI18N
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 42, 50));
-
-        jLabel9.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Edit Details");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 101, 56));
-
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 180, 10));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 101, 70));
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 180, 10));
+        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 180, 10));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer.gif"))); // NOI18N
         jLabel4.setText("jLabel4");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 650, 420));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 650, 420));
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
@@ -176,11 +155,18 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_logoutButton1ActionPerformed
 
     private void btnOrderHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderHistoryActionPerformed
-
-        CustomerOrderHistoryJPanel cohp= new CustomerOrderHistoryJPanel(container, userAccount, ecosystem, dB4OUtil);
-        container.add("CustomerOrderHistoryJPanel",cohp);
-        CardLayout layout = (CardLayout)container.getLayout();
-        layout.next(container);
+        CustomerOrderHistoryJPanel cohp = new CustomerOrderHistoryJPanel(container, userAccount, ecosystem, dB4OUtil);
+        container.add("CustomerOrderHistoryJPanel", cohp);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(ecosystem);
+        
+        
+        
+//        CustomerOrderHistoryJPanel cohp= new CustomerOrderHistoryJPanel(container, userAccount, ecosystem, dB4OUtil);
+//        container.add("CustomerOrderHistoryJPanel",cohp);
+//        CardLayout layout = (CardLayout)container.getLayout();
+//        layout.next(container);
 
     }//GEN-LAST:event_btnOrderHistoryActionPerformed
 
@@ -192,18 +178,8 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         layout.next(container);
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
-    private void btnEditDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditDetailsActionPerformed
-        // TODO add your handling code here:
-        
-        CustomerEditDetailsJPanel cedp= new CustomerEditDetailsJPanel(container, userAccount, ecosystem, dB4OUtil);
-        container.add("CustomerEditDetailsJPanel",cedp);
-        CardLayout layout= (CardLayout)container.getLayout();
-        layout.next(container);
-    }//GEN-LAST:event_btnEditDetailsActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEditDetails;
     private javax.swing.JButton btnOrderHistory;
     private javax.swing.JButton btnPlaceOrder;
     private javax.swing.JLabel jLabel1;
@@ -212,10 +188,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JButton logoutButton1;
     // End of variables declaration//GEN-END:variables

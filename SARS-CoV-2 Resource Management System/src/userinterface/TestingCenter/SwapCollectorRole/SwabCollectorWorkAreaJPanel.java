@@ -320,7 +320,10 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
                         txt_AppointmentStatus.setText(ad.getAppointmentStatus());
 
                     }
-                }
+                } else{
+                    JOptionPane.showMessageDialog(this, "Student with Swab-ID : "+SwabID+" not found");
+                } 
+                    
 
             }
         }
