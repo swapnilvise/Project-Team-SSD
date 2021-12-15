@@ -407,7 +407,7 @@ public class PatientViewAndEditDetailsJPanel extends javax.swing.JPanel {
                 jLabel3MouseExited(evt);
             }
         });
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 790, 1200, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 810, 1200, -1));
 
         btn_Back.setBackground(new java.awt.Color(102, 102, 102));
         btn_Back.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N

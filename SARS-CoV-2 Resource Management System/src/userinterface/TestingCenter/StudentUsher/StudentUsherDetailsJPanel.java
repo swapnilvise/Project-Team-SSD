@@ -104,6 +104,7 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btn_Back = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,7 +121,7 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(188, 188, 188));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("<> with ♡ by Team Coding Pirates ");
+        jLabel4.setText("<> with ♡ by Team Coding Pirates");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel4MouseEntered(evt);
@@ -129,7 +130,7 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
                 jLabel4MouseExited(evt);
             }
         });
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 1200, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 770, 1200, -1));
 
         lbl_Details.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         lbl_Details.setForeground(new java.awt.Color(204, 204, 204));
@@ -241,6 +242,9 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
             }
         });
         add(btn_Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Coding (2).gif"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, 460, 470));
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
@@ -302,6 +306,7 @@ public class StudentUsherDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btn_CheckIn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_AppointmentDate;
