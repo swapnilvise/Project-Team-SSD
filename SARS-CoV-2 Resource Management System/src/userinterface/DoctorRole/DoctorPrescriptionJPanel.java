@@ -13,7 +13,6 @@ import Business.Student.Student;
 import Business.Student.StudentDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
-import java.awt.Font;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import userinterface.LoginPage.LoginPageJPanel;
@@ -76,10 +75,8 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
         txt_FirstName = new javax.swing.JTextField();
         txt_Age = new javax.swing.JTextField();
         btn_SubmitPrescription = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
-        setForeground(new java.awt.Color(255, 255, 255));
 
         lbl_Greetings.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         lbl_Greetings.setForeground(new java.awt.Color(204, 204, 204));
@@ -89,18 +86,13 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
         lblWelcome.setForeground(new java.awt.Color(204, 204, 204));
         lblWelcome.setText("Welcome <UserName>");
 
-        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
-        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButton1.setBackground(new java.awt.Color(102, 102, 102));
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButton1ActionPerformed(evt);
             }
         });
-
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(188, 188, 188));
@@ -133,9 +125,6 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
         txt_Age.setEditable(false);
         txt_Age.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
 
-        btn_SubmitPrescription.setBackground(new java.awt.Color(0, 0, 0));
-        btn_SubmitPrescription.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        btn_SubmitPrescription.setForeground(new java.awt.Color(255, 255, 255));
         btn_SubmitPrescription.setText("Submit ");
         btn_SubmitPrescription.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,19 +189,6 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
                 .addContainerGap(180, Short.MAX_VALUE))
         );
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(188, 188, 188));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("<> with ♡ by Team Coding Pirates ");
-        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel12MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel12MouseExited(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -220,35 +196,28 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(logoutButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(logoutButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
             .addGroup(layout.createSequentialGroup()
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_Greetings, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(465, 465, 465)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(471, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_Greetings, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(539, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logoutButton1)
-                    .addComponent(lblWelcome))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblWelcome)
+                    .addComponent(logoutButton1))
                 .addGap(53, 53, 53)
                 .addComponent(lbl_Greetings)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addContainerGap())
+                .addContainerGap(48, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -268,27 +237,15 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Prescription cannot be Empty");
         } else {
             this.student.setPrescription(txtarea_Prescription.getText());
+            JOptionPane.showMessageDialog(null, "Prescription submitted");
         }
     }//GEN-LAST:event_btn_SubmitPrescriptionActionPerformed
-
-    private void jLabel12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseEntered
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
-    }//GEN-LAST:event_jLabel12MouseEntered
-
-    private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseExited
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
-    }//GEN-LAST:event_jLabel12MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_SubmitPrescription;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;

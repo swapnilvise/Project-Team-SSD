@@ -2,6 +2,7 @@ package Business;
 
 import Business.Customer.Address;
 import Business.DeliveryMan.DeliveryMan;
+import Business.Doctor.Doctor;
 import Business.Employee.Employee;
 import Business.Restaurant.Item;
 import Business.Restaurant.Restaurant;
@@ -47,6 +48,10 @@ public class ConfigureASystem {
         UserAccount sc = system.getUserAccountDirectory().createUserAccount("dummysc", "123", new SwabCollectorRole());
         UserAccount la = system.getUserAccountDirectory().createUserAccount("dummyla", "123", new LogisticsAssociateRole());
         UserAccount dc = system.getUserAccountDirectory().createUserAccount("dummydc", "123", new DoctorRole());
+        Doctor dr = system.getDoctordirectory().newDoctor();
+        dr.setDoctorAccount(dc);
+        dr.setDoctorFirstName("Bob");
+        dr.setDoctorLastName("Marley");
         UserAccount labass = system.getUserAccountDirectory().createUserAccount("dummylabas", "123", new LabAssistantRole());
         UserAccount doc = system.getUserAccountDirectory().createUserAccount("dummydoc", "123", new DoctorRole());
         

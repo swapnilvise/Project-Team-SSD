@@ -66,4 +66,7 @@ public class SwabDetails {
     public String toString(){
         return SwabCollectionDate;
     }
+    
+    
+    
 }

@@ -5,12 +5,12 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.Customer.Customer;
 import Business.DB4OUtil.DB4OUtil;
 import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -71,14 +71,10 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         addDeliveryManButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 0, 0));
-        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        backButton.setBackground(new java.awt.Color(0, 0, 0));
-        backButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        backButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,10 +113,9 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(deliveryManListJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 360, 109));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 123, 337, 109));
 
-        removeDeliveryManButton.setBackground(new java.awt.Color(0, 0, 0));
-        removeDeliveryManButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        removeDeliveryManButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
         removeDeliveryManButton.setText("Remove Delivery Man");
         removeDeliveryManButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,23 +124,21 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         });
         add(removeDeliveryManButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 244, -1, -1));
 
-        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
-        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        logoutButton1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButton1ActionPerformed(evt);
             }
         });
-        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 10, 94, -1));
+        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 6, 94, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Manage Delivery Men");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 78, 267, -1));
 
-        addDeliveryManButton.setBackground(new java.awt.Color(0, 0, 0));
-        addDeliveryManButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        addDeliveryManButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
         addDeliveryManButton.setText("Add Delivery Man");
         addDeliveryManButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,20 +149,6 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/0662b810dfd17f87fc7519d018cf6335-removebg-preview.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 420, 440));
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(188, 188, 188));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("<> with ♡ by Team Coding Pirates ");
-        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel13MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel13MouseExited(evt);
-            }
-        });
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 770, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -221,25 +200,12 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         layout.next(container);
     }//GEN-LAST:event_addDeliveryManButtonActionPerformed
 
-    private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
-    }//GEN-LAST:event_jLabel13MouseEntered
-
-    private void jLabel13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseExited
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
-    }//GEN-LAST:event_jLabel13MouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addDeliveryManButton;
     private javax.swing.JButton backButton;
     private javax.swing.JTable deliveryManListJTable;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logoutButton1;

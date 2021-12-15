@@ -15,6 +15,7 @@ import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -37,6 +38,7 @@ public class TestSchedulerJPanel extends javax.swing.JPanel {
     private DB4OUtil dB4OUtil;
     private UserAccount userAccount;
     private String PatientID;
+    private Integer Time;
     private AppointmentDetails ad;
     AppointmentDirectory adir;
     private String ComplianceStatus;
@@ -52,6 +54,18 @@ public class TestSchedulerJPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         this.adir = adir;
 //        lbl_Details.setText("Details for, ");
+        lblWelcome.setText("Welcome, "+this.ecosystem.getStudir().findStudentByUserName(this.userAccount.getUsername()).getStudentFirstName());
+        Date CurrentTime = new Date();
+        SimpleDateFormat ft = new SimpleDateFormat("H");
+        System.out.println(ft.format(CurrentTime));
+        Time = Integer.parseInt(ft.format(CurrentTime));
+        if (Time < 12){
+           lbl_Greetings.setText("Good Morning! "); 
+        } else if (Time >= 18){
+           lbl_Greetings.setText("Good Evening! ");
+        } else {
+           lbl_Greetings.setText("Good Afternoon! ");
+        }
     }
 
     protected void paintComponent(Graphics g) {

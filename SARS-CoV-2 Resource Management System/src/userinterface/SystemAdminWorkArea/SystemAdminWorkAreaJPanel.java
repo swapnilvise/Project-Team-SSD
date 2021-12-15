@@ -10,11 +10,12 @@ import Business.EcoSystem;
 
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 import userinterface.LoginPage.LoginPageJPanel;
 
 /**
@@ -75,28 +76,29 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblSelectedNode = new javax.swing.JLabel();
+        btnManageCustomers = new javax.swing.JButton();
         btnManageRestaurants = new javax.swing.JButton();
         btnManageDM = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
         btnManageEmployees = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
         jSplitPane.setDividerSize(-1);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setOpaque(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -107,13 +109,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 494, Short.MAX_VALUE)
         );
 
         jSplitPane.setLeftComponent(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -123,9 +123,16 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblSelectedNode.setText("<View_selected_node>");
         jPanel2.add(lblSelectedNode, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
 
-        btnManageRestaurants.setBackground(new java.awt.Color(0, 0, 0));
-        btnManageRestaurants.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        btnManageRestaurants.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageCustomers.setBorderPainted(false);
+        btnManageCustomers.setContentAreaFilled(false);
+        btnManageCustomers.setOpaque(false);
+        btnManageCustomers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageCustomersActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnManageCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 180, 60));
+
         btnManageRestaurants.setBorderPainted(false);
         btnManageRestaurants.setContentAreaFilled(false);
         btnManageRestaurants.setOpaque(false);
@@ -136,9 +143,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jPanel2.add(btnManageRestaurants, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 180, 50));
 
-        btnManageDM.setBackground(new java.awt.Color(0, 0, 0));
-        btnManageDM.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        btnManageDM.setForeground(new java.awt.Color(255, 255, 255));
         btnManageDM.setBorderPainted(false);
         btnManageDM.setContentAreaFilled(false);
         btnManageDM.setOpaque(false);
@@ -149,20 +153,14 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jPanel2.add(btnManageDM, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 180, 50));
 
-        logoutButton.setBackground(new java.awt.Color(0, 0, 0));
-        logoutButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton.setText("Logout");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 10, 81, -1));
+        jPanel2.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 81, -1));
 
-        btnManageEmployees.setBackground(new java.awt.Color(0, 0, 0));
-        btnManageEmployees.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        btnManageEmployees.setForeground(new java.awt.Color(255, 255, 255));
         btnManageEmployees.setBorderPainted(false);
         btnManageEmployees.setContentAreaFilled(false);
         btnManageEmployees.setOpaque(false);
@@ -172,6 +170,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         jPanel2.add(btnManageEmployees, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 180, 50));
+
+        jLabel2.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel2.setText("Manage Customers");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, 45));
 
         jLabel3.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel3.setText("Manage Restaurants");
@@ -187,6 +189,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel5.setText("Manage Employees");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 142, 45));
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-account-24.png"))); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, 40));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-restaurant-on-site-24.png"))); // NOI18N
@@ -207,24 +213,19 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel10.setText("jLabel10");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 640, 430));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(188, 188, 188));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("<> with ♡ by Team Coding Pirates ");
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel11MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel11MouseExited(evt);
-            }
-        });
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 770, -1, -1));
-
         jSplitPane.setRightComponent(jPanel2);
 
         add(jSplitPane, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnManageCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageCustomersActionPerformed
+
+        ManageCustomersJPanel mcp = new ManageCustomersJPanel(container, ecosystem, dB4OUtil);
+        container.add("ManageCustomersJPanel", mcp);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+
+    }//GEN-LAST:event_btnManageCustomersActionPerformed
 
     private void btnManageRestaurantsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRestaurantsActionPerformed
 
@@ -263,29 +264,19 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(container);
     }//GEN-LAST:event_btnManageEmployeesActionPerformed
 
-    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
-    }//GEN-LAST:event_jLabel11MouseEntered
-
-    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
-    }//GEN-LAST:event_jLabel11MouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnManageCustomers;
     private javax.swing.JButton btnManageDM;
     private javax.swing.JButton btnManageEmployees;
     private javax.swing.JButton btnManageRestaurants;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
