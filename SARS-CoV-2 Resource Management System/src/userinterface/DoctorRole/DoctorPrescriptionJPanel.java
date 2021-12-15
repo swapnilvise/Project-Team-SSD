@@ -13,6 +13,7 @@ import Business.Student.Student;
 import Business.Student.StudentDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import userinterface.LoginPage.LoginPageJPanel;
 
@@ -45,7 +46,9 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
         this.ad = ad;
         this.sd = sd;
         this.student = student;
-        
+        txt_LastName.setText(this.student.getStudentLastName());
+        txt_FirstName.setText(this.student.getStudentFirstName());
+        txt_Age.setText(this.student.getStudentAge());
     }
 
     /**
@@ -123,6 +126,11 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
         txt_Age.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
 
         btn_SubmitPrescription.setText("Submit ");
+        btn_SubmitPrescription.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_SubmitPrescriptionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -222,6 +230,15 @@ public class DoctorPrescriptionJPanel extends javax.swing.JPanel {
         crdLyt.next(container);
         dB4OUtil.storeSystem(ecosystem);
     }//GEN-LAST:event_logoutButton1ActionPerformed
+
+    private void btn_SubmitPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SubmitPrescriptionActionPerformed
+        // TODO add your handling code here:
+        if(txtarea_Prescription.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Prescription cannot be Empty");
+        } else {
+            this.student.setPrescription(txtarea_Prescription.getText());
+        }
+    }//GEN-LAST:event_btn_SubmitPrescriptionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
