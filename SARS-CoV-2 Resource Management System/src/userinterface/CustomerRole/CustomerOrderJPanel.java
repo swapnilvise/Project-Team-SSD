@@ -11,6 +11,7 @@ import Business.EcoSystem;
 import Business.Order.Order;
 import Business.Restaurant.Item;
 import Business.Restaurant.Restaurant;
+import Business.Student.Student;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -461,9 +462,10 @@ public class CustomerOrderJPanel extends javax.swing.JPanel {
 
         Restaurant r = this.ecosystem.getRestaurantDirectory().findResttaurantByName(String.valueOf(jComboRestaurants.getSelectedItem()));
         Order no = r.getRestAdmin().getOrders().newOrder();
-        Customer c = this.ecosystem.getCustomerDirectory().findCustomerByUserName(userAccount.getUsername());
-        no.setCustomerId(c.getCustId());
-        no.setCustomerName(c.getFirstName());
+//        Customer c = this.ecosystem.getCustomerDirectory().findCustomerByUserName(userAccount.getUsername());
+        Student c = this.ecosystem.getStudir().findStudentByUserName(this.userAccount.getUsername());
+        no.setCustomerId(c.getStudentID());
+        no.setCustomerName(c.getStudentFirstName());
         no.setCustomerNotes(jTextAreaOrderMessage.getText());
         no.setRestaurantName(String.valueOf(jComboRestaurants.getSelectedItem()));
         no.setDeliveryManName("Yet to be assigned");
