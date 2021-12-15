@@ -12,7 +12,6 @@ import Business.Order.Order;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -106,18 +105,9 @@ public class DeliveryManManageOrdersJPanel extends javax.swing.JPanel {
         deliveredJButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 0, 0));
-        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        backButton.setBackground(new java.awt.Color(0, 0, 0));
-        backButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,9 +116,6 @@ public class DeliveryManManageOrdersJPanel extends javax.swing.JPanel {
         });
         add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
-        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
-        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,41 +133,31 @@ public class DeliveryManManageOrdersJPanel extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-activity-history-24.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 50, 50));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setOpaque(false
         );
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        assignJButton.setBackground(new java.awt.Color(0, 0, 0));
-        assignJButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        assignJButton.setForeground(new java.awt.Color(255, 255, 255));
         assignJButton.setText("Assign to me");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignJButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
+        jPanel1.add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 138, -1, -1));
 
-        refreshJButton.setBackground(new java.awt.Color(0, 0, 0));
-        refreshJButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        refreshJButton.setForeground(new java.awt.Color(255, 255, 255));
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 7, 90, -1));
+        jPanel1.add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 7, 70, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 2, 15)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel5.setText("Global Orders");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 120, -1));
 
-        globalWorkRequestJTable.setBackground(new java.awt.Color(0, 0, 0));
-        globalWorkRequestJTable.setForeground(new java.awt.Color(255, 255, 255));
         globalWorkRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -221,24 +198,17 @@ public class DeliveryManManageOrdersJPanel extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 540, -1));
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        acceptJButton.setBackground(new java.awt.Color(0, 0, 0));
-        acceptJButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        acceptJButton.setForeground(new java.awt.Color(255, 255, 255));
         acceptJButton.setText("Accept");
         acceptJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acceptJButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(acceptJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, -1, -1));
+        jPanel2.add(acceptJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 141, -1, -1));
 
-        myWorkRequestJTable.setBackground(new java.awt.Color(0, 0, 0));
-        myWorkRequestJTable.setForeground(new java.awt.Color(255, 255, 255));
         myWorkRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -277,16 +247,13 @@ public class DeliveryManManageOrdersJPanel extends javax.swing.JPanel {
         jLabel3.setText("My Orders");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 130, -1));
 
-        deliveredJButton.setBackground(new java.awt.Color(0, 0, 0));
-        deliveredJButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        deliveredJButton.setForeground(new java.awt.Color(255, 255, 255));
         deliveredJButton.setText("Mark as Delivered");
         deliveredJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deliveredJButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(deliveredJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, -1, -1));
+        jPanel2.add(deliveredJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 141, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-deliver-food-24.png"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 40));
@@ -296,62 +263,6 @@ public class DeliveryManManageOrdersJPanel extends javax.swing.JPanel {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/subscription-boxes-gif.gif"))); // NOI18N
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 240, 280));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(188, 188, 188));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("<> with ♡ by Team Coding Pirates ");
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel11MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel11MouseExited(evt);
-            }
-        });
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 770, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(188, 188, 188));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("<> with ♡ by Team Coding Pirates ");
-        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel12MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel12MouseExited(evt);
-            }
-        });
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 770, -1, -1));
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(188, 188, 188));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("<> with ♡ by Team Coding Pirates ");
-        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel13MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel13MouseExited(evt);
-            }
-        });
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 770, -1, -1));
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(188, 188, 188));
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("<> with ♡ by Team Coding Pirates ");
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel14MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel14MouseExited(evt);
-            }
-        });
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 770, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -469,54 +380,6 @@ public class DeliveryManManageOrdersJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_acceptJButtonActionPerformed
 
-    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
-    }//GEN-LAST:event_jLabel11MouseEntered
-
-    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
-    }//GEN-LAST:event_jLabel11MouseExited
-
-    private void jLabel12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseEntered
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
-    }//GEN-LAST:event_jLabel12MouseEntered
-
-    private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseExited
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
-    }//GEN-LAST:event_jLabel12MouseExited
-
-    private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
-    }//GEN-LAST:event_jLabel13MouseEntered
-
-    private void jLabel13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseExited
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
-    }//GEN-LAST:event_jLabel13MouseExited
-
-    private void jLabel14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseEntered
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
-    }//GEN-LAST:event_jLabel14MouseEntered
-
-    private void jLabel14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseExited
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
-    }//GEN-LAST:event_jLabel14MouseExited
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acceptJButton;
     private javax.swing.JButton assignJButton;
@@ -524,10 +387,6 @@ public class DeliveryManManageOrdersJPanel extends javax.swing.JPanel {
     private javax.swing.JButton deliveredJButton;
     private javax.swing.JTable globalWorkRequestJTable;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -12,7 +12,6 @@ import Business.Role.AdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -88,43 +87,31 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
         labelPassword1 = new javax.swing.JLabel();
         jTextFieldPassword = new javax.swing.JTextField();
         addRestaurantButton1 = new javax.swing.JButton();
-        jLabel13 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 0, 0));
-        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        backButton.setBackground(new java.awt.Color(0, 0, 0));
-        backButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        backButton.setForeground(new java.awt.Color(255, 255, 255));
+        backButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, -1));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 100, -1));
 
-        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Manage Restaurants Panel");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 267, -1));
 
-        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
-        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButton1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButton1ActionPerformed(evt);
             }
         });
-        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 10, 94, 30));
-
-        jScrollPane1.setBackground(new java.awt.Color(0, 0, 0));
-        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
+        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 94, 30));
 
         restaurantListJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -162,42 +149,32 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 337, 109));
 
-        removeRestaurantButton.setBackground(new java.awt.Color(0, 0, 0));
-        removeRestaurantButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        removeRestaurantButton.setForeground(new java.awt.Color(255, 255, 255));
+        removeRestaurantButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
         removeRestaurantButton.setText("Remove Restaurant");
         removeRestaurantButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeRestaurantButtonActionPerformed(evt);
             }
         });
-        add(removeRestaurantButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, -1, -1));
+        add(removeRestaurantButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/77bd9523d3332fd28e3e0baf341a95b8_1.gif"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 600, 500));
 
-        addRestaurantButton.setBackground(new java.awt.Color(0, 0, 0));
-        addRestaurantButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        addRestaurantButton.setForeground(new java.awt.Color(255, 255, 255));
+        addRestaurantButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
         addRestaurantButton.setText("Add Restaurant");
         addRestaurantButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addRestaurantButtonActionPerformed(evt);
             }
         });
-        add(addRestaurantButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
+        add(addRestaurantButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
 
-        labelusername.setBackground(new java.awt.Color(0, 0, 0));
         labelusername.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 12)); // NOI18N
-        labelusername.setForeground(new java.awt.Color(255, 255, 255));
         labelusername.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelusername.setText("Restaurant Name:");
         add(labelusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 110, 25));
 
-        jTextFieldRestName1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextFieldRestName1.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldRestName1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldRestName1ActionPerformed(evt);
@@ -205,15 +182,11 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
         });
         add(jTextFieldRestName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 192, -1));
 
-        labelPassword.setBackground(new java.awt.Color(0, 0, 0));
         labelPassword.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 12)); // NOI18N
-        labelPassword.setForeground(new java.awt.Color(255, 255, 255));
         labelPassword.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelPassword.setText("Contact Number:");
         add(labelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 110, 25));
 
-        jTextFieldRestContact.setBackground(new java.awt.Color(0, 0, 0));
-        jTextFieldRestContact.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldRestContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldRestContactActionPerformed(evt);
@@ -221,15 +194,11 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
         });
         add(jTextFieldRestContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 192, -1));
 
-        labelusername1.setBackground(new java.awt.Color(0, 0, 0));
         labelusername1.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 12)); // NOI18N
-        labelusername1.setForeground(new java.awt.Color(255, 255, 255));
         labelusername1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelusername1.setText("User Name:");
         add(labelusername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 120, 25));
 
-        jTextFieldUserName.setBackground(new java.awt.Color(0, 0, 0));
-        jTextFieldUserName.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUserNameActionPerformed(evt);
@@ -237,15 +206,11 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
         });
         add(jTextFieldUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 154, -1));
 
-        labelPassword1.setBackground(new java.awt.Color(0, 0, 0));
         labelPassword1.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 12)); // NOI18N
-        labelPassword1.setForeground(new java.awt.Color(255, 255, 255));
         labelPassword1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelPassword1.setText("Password:");
         add(labelPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 120, 25));
 
-        jTextFieldPassword.setBackground(new java.awt.Color(0, 0, 0));
-        jTextFieldPassword.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPasswordActionPerformed(evt);
@@ -253,9 +218,7 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
         });
         add(jTextFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 154, -1));
 
-        addRestaurantButton1.setBackground(new java.awt.Color(0, 0, 0));
-        addRestaurantButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
-        addRestaurantButton1.setForeground(new java.awt.Color(255, 255, 255));
+        addRestaurantButton1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
         addRestaurantButton1.setText("Add ");
         addRestaurantButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,20 +226,6 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
             }
         });
         add(addRestaurantButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, -1, -1));
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(188, 188, 188));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("<> with ♡ by Team Coding Pirates ");
-        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel13MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel13MouseExited(evt);
-            }
-        });
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 770, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -384,25 +333,12 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_addRestaurantButton1ActionPerformed
 
-    private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
-    }//GEN-LAST:event_jLabel13MouseEntered
-
-    private void jLabel13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseExited
-        // TODO add your handling code here:
-
-        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
-    }//GEN-LAST:event_jLabel13MouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addRestaurantButton;
     private javax.swing.JButton addRestaurantButton1;
     private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextFieldPassword;
