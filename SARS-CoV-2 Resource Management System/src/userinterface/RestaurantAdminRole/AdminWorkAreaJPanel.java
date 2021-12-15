@@ -9,6 +9,7 @@ import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -62,9 +63,14 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        manageRestInfoJButton.setBackground(new java.awt.Color(0, 0, 0));
+        manageRestInfoJButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        manageRestInfoJButton.setForeground(new java.awt.Color(255, 255, 255));
         manageRestInfoJButton.setBorderPainted(false);
         manageRestInfoJButton.setContentAreaFilled(false);
         manageRestInfoJButton.setOpaque(false);
@@ -75,6 +81,9 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         add(manageRestInfoJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 520, 180, 60));
 
+        manageEmployeeJButton.setBackground(new java.awt.Color(0, 0, 0));
+        manageEmployeeJButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        manageEmployeeJButton.setForeground(new java.awt.Color(255, 255, 255));
         manageEmployeeJButton.setBorderPainted(false);
         manageEmployeeJButton.setContentAreaFilled(false);
         manageEmployeeJButton.setOpaque(false);
@@ -85,6 +94,9 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 440, 180, 60));
 
+        manageOrganizationJButton.setBackground(new java.awt.Color(0, 0, 0));
+        manageOrganizationJButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        manageOrganizationJButton.setForeground(new java.awt.Color(255, 255, 255));
         manageOrganizationJButton.setBorderPainted(false);
         manageOrganizationJButton.setContentAreaFilled(false);
         manageOrganizationJButton.setOpaque(false);
@@ -100,6 +112,9 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabelRestName.setText("Restaurant Name");
         add(jLabelRestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 320, -1));
 
+        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
+        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,11 +123,13 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 10, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Welcome <user first name>");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 219, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 219, 30));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, 80, 353));
@@ -142,6 +159,20 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/output-onlinegiftools.gif"))); // NOI18N
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 650, 490));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(188, 188, 188));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("<> with ♡ by Team Coding Pirates ");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel13MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel13MouseExited(evt);
+            }
+        });
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 770, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     protected void paintComponent(Graphics g){
@@ -193,10 +224,23 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         crdLyt.next(container);
         dB4OUtil.storeSystem(ecosystem);
     }//GEN-LAST:event_logoutButton1ActionPerformed
+
+    private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
+    }//GEN-LAST:event_jLabel13MouseEntered
+
+    private void jLabel13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseExited
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
+    }//GEN-LAST:event_jLabel13MouseExited
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

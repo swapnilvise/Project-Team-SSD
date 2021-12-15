@@ -12,11 +12,10 @@ import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.util.InputMismatchException;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -85,18 +84,25 @@ public class AdminManageMenuJPanel extends javax.swing.JPanel {
         jTextFieldItemPrice = new javax.swing.JTextField();
         labelusername = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        backButton2.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        backButton2.setBackground(new java.awt.Color(0, 0, 0));
+        backButton2.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        backButton2.setForeground(new java.awt.Color(255, 255, 255));
         backButton2.setText("Back");
         backButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButton2ActionPerformed(evt);
             }
         });
-        add(backButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 100, -1));
+        add(backButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, -1));
 
+        menuTable.setBackground(new java.awt.Color(0, 0, 0));
+        menuTable.setForeground(new java.awt.Color(255, 255, 255));
         menuTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -129,7 +135,9 @@ public class AdminManageMenuJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 113, 348, 92));
 
-        editItemButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        editItemButton.setBackground(new java.awt.Color(0, 0, 0));
+        editItemButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        editItemButton.setForeground(new java.awt.Color(255, 255, 255));
         editItemButton.setText("Edit Item");
         editItemButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,21 +146,25 @@ public class AdminManageMenuJPanel extends javax.swing.JPanel {
         });
         add(editItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 217, 100, -1));
 
-        logoutButton1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
+        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButton1ActionPerformed(evt);
             }
         });
-        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 6, 94, -1));
+        add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 10, 94, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Manage Menu");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 68, 267, -1));
 
-        addItemButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        addItemButton.setBackground(new java.awt.Color(0, 0, 0));
+        addItemButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        addItemButton.setForeground(new java.awt.Color(255, 255, 255));
         addItemButton.setText("Add Item");
         addItemButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,19 +173,23 @@ public class AdminManageMenuJPanel extends javax.swing.JPanel {
         });
         add(addItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 217, 100, -1));
 
-        removeItemButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        removeItemButton.setBackground(new java.awt.Color(0, 0, 0));
+        removeItemButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        removeItemButton.setForeground(new java.awt.Color(255, 255, 255));
         removeItemButton.setText("Remove Item");
         removeItemButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeItemButtonActionPerformed(evt);
             }
         });
-        add(removeItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 217, 110, -1));
+        add(removeItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 217, -1, -1));
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 257, 372, -1));
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
         add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 64, 14, 390));
 
+        jPanelSummary.setBackground(new java.awt.Color(0, 0, 0));
+        jPanelSummary.setForeground(new java.awt.Color(255, 255, 255));
         jPanelSummary.setOpaque(false);
 
         labelPassword.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 12)); // NOI18N
@@ -183,7 +199,9 @@ public class AdminManageMenuJPanel extends javax.swing.JPanel {
         jLabeladdUpdateSummary.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 15)); // NOI18N
         jLabeladdUpdateSummary.setText("Dummy Text");
 
-        changeItemButton.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 12)); // NOI18N
+        changeItemButton.setBackground(new java.awt.Color(0, 0, 0));
+        changeItemButton.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        changeItemButton.setForeground(new java.awt.Color(255, 255, 255));
         changeItemButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeItemButtonActionPerformed(evt);
@@ -226,7 +244,7 @@ public class AdminManageMenuJPanel extends javax.swing.JPanel {
                             .addGroup(jPanelSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextFieldItemPrice)
                                 .addGroup(jPanelSummaryLayout.createSequentialGroup()
-                                    .addComponent(changeItemButton)
+                                    .addComponent(changeItemButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, Short.MAX_VALUE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelSummaryLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
@@ -247,14 +265,28 @@ public class AdminManageMenuJPanel extends javax.swing.JPanel {
                     .addComponent(jTextFieldItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(changeItemButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addComponent(changeItemButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         add(jPanelSummary, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 272, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/giphy Food_1.gif"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 400, 320));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(188, 188, 188));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("<> with ♡ by Team Coding Pirates ");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel11MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel11MouseExited(evt);
+            }
+        });
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 770, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton2ActionPerformed
@@ -357,6 +389,18 @@ public class AdminManageMenuJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_changeItemButtonActionPerformed
 
+    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 19));
+    }//GEN-LAST:event_jLabel11MouseEntered
+
+    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
+        // TODO add your handling code here:
+
+        jLabel3.setFont(new Font(jLabel3.getFont().getName(), Font.PLAIN, 18));
+    }//GEN-LAST:event_jLabel11MouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addItemButton;
@@ -364,6 +408,7 @@ public class AdminManageMenuJPanel extends javax.swing.JPanel {
     private javax.swing.JButton changeItemButton;
     private javax.swing.JButton editItemButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabeladdUpdateSummary;
     private javax.swing.JPanel jPanelSummary;

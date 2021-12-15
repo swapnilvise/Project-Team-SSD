@@ -114,8 +114,9 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
         lblWelcome.setText("Welcome <UserName>");
         add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, -1, -1));
 
-        logoutButton1.setBackground(new java.awt.Color(102, 102, 102));
-        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+        logoutButton1.setBackground(new java.awt.Color(0, 0, 0));
+        logoutButton1.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton1.setText("Logout");
         logoutButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +130,8 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
         lbl_Greetings.setText("Greetings!");
         add(lbl_Greetings, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 64, 590, -1));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -147,8 +149,9 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
         txt_SwabID.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txt_SwabID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        btn_Search.setBackground(new java.awt.Color(102, 102, 102));
+        btn_Search.setBackground(new java.awt.Color(0, 0, 0));
         btn_Search.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_Search.setForeground(new java.awt.Color(255, 255, 255));
         btn_Search.setText("Search");
         btn_Search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,8 +187,9 @@ public class SwabCollectorWorkAreaJPanel extends javax.swing.JPanel {
         txt_AppointmentStatus.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txt_AppointmentStatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        btn_SwabCollected.setBackground(new java.awt.Color(102, 102, 102));
+        btn_SwabCollected.setBackground(new java.awt.Color(0, 0, 0));
         btn_SwabCollected.setFont(new java.awt.Font("Segoe UI Light", 2, 16)); // NOI18N
+        btn_SwabCollected.setForeground(new java.awt.Color(255, 255, 255));
         btn_SwabCollected.setText("Swab Collected");
         btn_SwabCollected.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
